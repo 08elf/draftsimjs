@@ -1,5 +1,3 @@
-import players from './players.js';
-
 // Global variables to store user inputs
 let numPlayersPerTeam;
 let chosenConfig;
@@ -7,14 +5,14 @@ let numTeams;
 let userDraftPosition;
 let draftType;
 let userTeam;
-let computerTeams;
-let availablePlayers = [];
-
+let computerTeams = new Array;
+let availablePlayers = new Array;
+let allTeams = new Array;
 
 // Function to start the draft simulation
 class Player {
     constructor(id, name, positions, rank, fantasy_average, team) {
-        this.id = id;
+        this.player_id = id;
         this.name = name;
         this.positions = positions;
         this.rank = rank;
@@ -209,6 +207,13 @@ class Team {
     }
 }
 
+function startDraftSimulation() {
+    // Initialize the draft simulation here
+    // This should only set up the draft and start the first turn
+    setupDraft();
+    proceedToNextDraftRound(0); // Start with round 0
+}
+
 // Set the number of players per team
 function setNumPlayersPerTeam() {
     numPlayersPerTeam = document.getElementById('numPlayersPerTeam').value;
@@ -237,7 +242,6 @@ function selectConfiguration(configNumber) {
     checkAllInputsSet();
 }
 
-
 // Set the number of teams
 function setNumTeams() {
     numTeams = document.getElementById('numTeams').value;
@@ -249,6 +253,24 @@ function setNumTeams() {
 function setUserDraftPosition() {
     userDraftPosition = document.getElementById('userDraftPosition').value;
     document.getElementById('draftTypeSection').style.display = 'block';
+
+    // Initialize the user team with the chosen configuration
+    userTeam = new Team(numPlayersPerTeam, chosenConfig);
+
+    // Initialize computer teams. We'll assume 'numTeams' includes the user team.
+    for (let i = 0; i < numTeams - 1; i++) {
+        computerTeams.push(new Team(numPlayersPerTeam, chosenConfig));
+    }
+
+    // Create an array of all teams and insert the user team at the specified draft position
+    for (let i = 0; i < numTeams; i++) {
+        if (i === userDraftPosition - 1) {
+            allTeams.push(userTeam);
+        } else {
+            allTeams.push(computerTeams.shift());
+        }
+    }
+    
     checkAllInputsSet();
 }
 
@@ -281,28 +303,10 @@ function checkAllInputsSet() {
     }
 }
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('setNumPlayersPerTeamButton').addEventListener('click', setNumPlayersPerTeam);
-    
-    document.querySelectorAll('.configButton').forEach(button => {
-        button.addEventListener('click', () => {
-            const configNumber = button.getAttribute('data-config');
-            selectConfiguration(parseInt(configNumber, 10));
-        });
-    });
-    
-    document.getElementById('setNumTeamsButton').addEventListener('click', setNumTeams);
-    document.getElementById('setUserDraftPositionButton').addEventListener('click', setUserDraftPosition);
-    document.getElementById('setDraftTypeButton').addEventListener('click', setDraftType);
-    document.getElementById('startDraftButton').addEventListener('click', startDraftSimulation);
-});
-
-
 function setupDraft() {
     // Use the imported players as the available players for the draft
     availablePlayers = players.map(playerData => new Player(
-        playerData.id,
+        playerData.player_id,
         playerData.name,
         playerData.positions,
         playerData.rank,
@@ -311,32 +315,6 @@ function setupDraft() {
     ));
 
     console.log("Available Players:", availablePlayers);
-}
-
-function startDraftSimulation() {
-    // Initialize the draft simulation here
-    // This should only set up the draft and start the first turn
-    setupDraft();
-    proceedToNextDraftRound(0); // Start with round 0
-}
-
-    // Initialize the user team with the chosen configuration
-    userTeam = new Team(numPlayersPerTeam, chosenConfig);
-
-    // Initialize computer teams. We'll assume 'numTeams' includes the user team.
-    computerTeams = [];
-    for (let i = 0; i < numTeams - 1; i++) {
-        computerTeams.push(new Team(numPlayersPerTeam, chosenConfig));
-    }
-
-    // Create an array of all teams and insert the user team at the specified draft position
-    allTeams = [];
-    for (let i = 0; i < numTeams; i++) {
-        if (i === userDraftPosition - 1) {
-            allTeams.push(userTeam);
-        } else {
-            allTeams.push(computerTeams.shift());
-        }
 }
 
 function proceedToNextDraftRound(roundNumber) {
@@ -361,6 +339,7 @@ function proceedToNextDraftRound(roundNumber) {
             // Computer's turn to pick
             let pickResult = draftComputerPlayer(availablePlayers, draftingTeam);
             if (pickResult.player) {
+                removeFromAvailablePlayers(pickResult.player, availablePlayers);
                 console.log(`Team ${teamIndex + 1} (computer) picked ${pickResult.player.name}.`);
             }
         }
@@ -368,11 +347,10 @@ function proceedToNextDraftRound(roundNumber) {
 }
 
 function displayAvailablePlayers(availablePlayers, roundNumber, teamIndex) {
-    console.log("displayAvailablePlayers function called"); // Log statement
+    console.log("Draft round Id is ", roundNumber)
     console.log("Inside displayAvailablePlayers, received players:", availablePlayers);
     const container = document.getElementById('playerListContainer');
     container.style.display = 'block'; // Make the container visible
-    console.log(container.style.display); // Log to console
     container.innerHTML = ''; // Clear any existing content
 
     const list = document.createElement('ul'); // Create an unordered list
@@ -382,24 +360,36 @@ function displayAvailablePlayers(availablePlayers, roundNumber, teamIndex) {
     availablePlayers.forEach((player) => {
         const listItem = document.createElement('li');
         listItem.textContent = player.name;
+
         listItem.addEventListener('click', function() {
-            userPickPlayer(player);
+            userPickPlayer(player, availablePlayers, roundNumber, teamIndex);
         });
+    
         list.appendChild(listItem);
     });
 }
 
+function removeFromAvailablePlayers(player, availablePlayers) {
+    console.log(player, availablePlayers)
+    const index = availablePlayers.indexOf(player);
+    if (index > -1) {
+        availablePlayers.splice(index, 1);
+    }
+}
+
 function userPickPlayer(player, availablePlayers, roundNumber, teamIndex) {
+    // Player is passing the player object in
+    // To get the index you need to check the You need to reference the 
     console.log("User's turn to draft");
     const addedToTeam = userTeam.addPlayer(player, true);
 
     if (addedToTeam) {
         console.log(`${player.name} has been drafted to your team.`);
+
         // Remove the selected player from available players
-        const index = availablePlayers.indexOf(player);
-        if (index > -1) {
-            availablePlayers.splice(index, 1);
-        }
+        removeFromAvailablePlayers(player, availablePlayers);
+        console.log(availablePlayers)
+
         displayTeam(userTeam); // Display the updated team composition
         document.getElementById('playerListContainer').style.display = 'none';
         proceedToNextDraftRound(roundNumber + 1); // Move to the next round
@@ -484,13 +474,11 @@ function draftComputerPlayer(availablePlayers, team) {
     return { player: null, position: null };
 }
 
-
 function displayTeam(team) {
     // Logic to display the team's composition goes here
     // This could involve updating the HTML to show the team's players
     console.log("Team Composition:", team.players);
 }
-
 
 function displayTeams() {
     // Display the user's team
@@ -503,3 +491,19 @@ function displayTeams() {
 
     // Update the actual HTML here to show teams on the page.
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('setNumPlayersPerTeamButton').addEventListener('click', setNumPlayersPerTeam);
+    
+    document.querySelectorAll('.configButton').forEach(button => {
+        button.addEventListener('click', () => {
+            const configNumber = button.getAttribute('data-config');
+            selectConfiguration(parseInt(configNumber, 10));
+        });
+    });
+    
+    document.getElementById('setNumTeamsButton').addEventListener('click', setNumTeams);
+    document.getElementById('setUserDraftPositionButton').addEventListener('click', setUserDraftPosition);
+    document.getElementById('setDraftTypeButton').addEventListener('click', setDraftType);
+    document.getElementById('startDraftButton').addEventListener('click', startDraftSimulation);
+});
