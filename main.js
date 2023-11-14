@@ -5,6 +5,7 @@ let numTeams;
 let userDraftPosition;
 let draftType;
 let userTeam;
+let currentPickNumber = 1;
 let computerTeams = new Array;
 let availablePlayers = new Array;
 let allTeams = new Array;
@@ -219,12 +220,12 @@ function setNumPlayersPerTeam() {
     numPlayersPerTeam = document.getElementById('numPlayersPerTeam').value;
     console.log(document.getElementById('numPlayersPerTeam').value)
     console.log(`Number of players per team is set to: ${numPlayersPerTeam}`);
-    document.getElementById('configChoiceSection').style.display = 'block';
+    document.getElementById('numTeamsSection').style.display = 'block';
     checkAllInputsSet();
 }
 
 // Set the chosen configuration
-function selectConfiguration(configNumber) {
+function selectConfiguration(configNumber, minPlayers) {
     console.log("selectConfiguration called with configNumber:", configNumber);
 
     const positionConfigurations = {
@@ -236,8 +237,10 @@ function selectConfiguration(configNumber) {
     chosenConfig = positionConfigurations[configNumber];
     console.log("Chosen configuration:", chosenConfig);
 
-    document.getElementById('numTeamsSection').style.display = 'block';
-    console.log("numTeamsSection display set to block");
+    document.getElementById('numPlayersPerTeam').min = minPlayers;
+    document.getElementById('numPlayersPerTeam').value = minPlayers;
+    document.getElementById('numPlayersPerTeamSection').style.display = 'block';
+    console.log("numPlayersPerTeamSection display set to block");
 
     checkAllInputsSet();
 }
@@ -291,12 +294,13 @@ function setDraftType() {
 function checkAllInputsSet() {
     if (numPlayersPerTeam && chosenConfig && numTeams && userDraftPosition && draftType) {
         console.log(`All inputs set. Enabling start draft button. 
-                     Players per team: ${numPlayersPerTeam}, 
-                     Chosen configuration: ${JSON.stringify(chosenConfig)}, 
-                     Number of teams: ${numTeams}, 
-                     User draft position: ${userDraftPosition}, 
-                     Draft type: ${draftType}`);
+            Chosen configuration: ${JSON.stringify(chosenConfig)},
+            Players per team: ${numPlayersPerTeam},
+            Number of teams: ${numTeams},
+            User draft position: ${userDraftPosition},
+            Draft type: ${draftType}`);
         document.getElementById('startDraftButton').disabled = false;
+        document.getElementById('draftSetup').style.display = 'none';
     } else {
         console.log('Not all inputs are set. Start draft button remains disabled.');
         document.getElementById('startDraftButton').disabled = true;
@@ -321,7 +325,7 @@ function proceedToNextDraftRound(roundNumber) {
     // Check if the draft is over
     if (roundNumber >= numPlayersPerTeam) {
         console.log("Draft is complete");
-        displayTeams();
+        displayAllFinalTeams();
         return;
     }
 
@@ -374,6 +378,7 @@ function removeFromAvailablePlayers(player, availablePlayers) {
     const index = availablePlayers.indexOf(player);
     if (index > -1) {
         availablePlayers.splice(index, 1);
+        currentPickNumber = currentPickNumber + 1;
     }
 }
 
@@ -389,8 +394,7 @@ function userPickPlayer(player, availablePlayers, roundNumber, teamIndex) {
         // Remove the selected player from available players
         removeFromAvailablePlayers(player, availablePlayers);
         console.log(availablePlayers)
-
-        displayTeam(userTeam); // Display the updated team composition
+        displayUserTeam(userTeam, player); // Display the updated team composition
         document.getElementById('playerListContainer').style.display = 'none';
         proceedToNextDraftRound(roundNumber + 1); // Move to the next round
     } else {
@@ -474,13 +478,18 @@ function draftComputerPlayer(availablePlayers, team) {
     return { player: null, position: null };
 }
 
-function displayTeam(team) {
+function displayUserTeam(team, player) {
+    var userTeamPlayerContainer = document.getElementById('userTeamPlayerContainer');
+    var playerElement = document.createElement('div');
+    playerElement.textContent = `${player.name} (${player.currentPosition}) - Pick ${currentPickNumber}`;
+    userTeamPlayerContainer.appendChild(playerElement);
+
     // Logic to display the team's composition goes here
     // This could involve updating the HTML to show the team's players
     console.log("Team Composition:", team.players);
 }
 
-function displayTeams() {
+function displayAllFinalTeams() {
     // Display the user's team
     console.log("User Team:", userTeam);
 
@@ -493,17 +502,21 @@ function displayTeams() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('setNumPlayersPerTeamButton').addEventListener('click', setNumPlayersPerTeam);
-    
     document.querySelectorAll('.configButton').forEach(button => {
         button.addEventListener('click', () => {
+            const minPlayersForSelection = button.getAttribute('data-min');
             const configNumber = button.getAttribute('data-config');
-            selectConfiguration(parseInt(configNumber, 10));
+            selectConfiguration(parseInt(configNumber, 10), minPlayersForSelection);
         });
     });
     
+    document.getElementById('setNumPlayersPerTeamButton').addEventListener('click', setNumPlayersPerTeam);
     document.getElementById('setNumTeamsButton').addEventListener('click', setNumTeams);
     document.getElementById('setUserDraftPositionButton').addEventListener('click', setUserDraftPosition);
     document.getElementById('setDraftTypeButton').addEventListener('click', setDraftType);
-    document.getElementById('startDraftButton').addEventListener('click', startDraftSimulation);
+    document.getElementById('startDraftButton').addEventListener('click', () => {
+        document.getElementById('startDraftButton').style.display = 'none';
+        document.getElementById('userTeamPlayerContainer').style.display = 'block';
+        startDraftSimulation();
+    });
 });
