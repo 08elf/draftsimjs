@@ -490,7 +490,7 @@ function displayUserTeam(team, player) {
 }
 
 function displayAllFinalTeams() {
-    var userIndex = Number(userDraftPosition) - 1;
+    var userIndex = Number(userDraftPosition);
     var headersRow = document.getElementById('teamHeaders');
     var positions = ['Defender', 'Midfielder', 'Forward', 'Ruck', 'Bench'];
     
@@ -500,10 +500,10 @@ function displayAllFinalTeams() {
 
         if (index === 0) {
             headerCell.textContent = ``;
-        } else if (index < userIndex) {
-            headerCell.textContent = `CPU Team ${index + 1}`;
         } else if (index === userIndex) {
             headerCell.textContent = 'User Team';
+        } else if (index < userIndex) {
+            headerCell.textContent = `CPU Team ${index + 1}`;
         } else {
             headerCell.textContent = `CPU Team ${index}`;
         }
