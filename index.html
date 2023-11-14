@@ -2,7 +2,18 @@
 <html>
 <head>
     <title>Team Draft Simulator</title>
-    <!-- Add CSS here if needed -->
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+    
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    </style>
 </head>
 <body>
     <h1>Team Draft Simulator</h1>
@@ -53,13 +64,30 @@
     <button id="startDraftButton" disabled>Start Draft</button>
 
     <div id="userTeamPlayerContainer" style="display:none;">
-        <!-- todo add player and pick they were taken here-->
+        <!-- Add player and pick they were taken here-->
     </div>
 
     <!-- New Section for Displaying Available Players -->
     <div id="playerListContainer" style="display:none;">
         <h2>Select a Player</h2>
         <!-- The player list will be dynamically populated here -->
+    </div>
+
+    <div id="allTeamsContainer">
+        <!-- Add player and pick they were taken here-->
+        <table id="allTeamsTable">
+            <thead>
+              <tr id="teamHeaders"></tr>
+            </thead>
+            <tbody>
+              <!-- Rows for each position -->
+              <tr class="Defender"></tr>
+              <tr class="Midfielder"></tr>
+              <tr class="Forward"></tr>
+              <tr class="Ruck"></tr>
+              <tr class="Bench"></tr>
+            </tbody>
+        </table>
     </div>
 
     <!-- Display area for messages and results -->

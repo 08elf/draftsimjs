@@ -490,15 +490,66 @@ function displayUserTeam(team, player) {
 }
 
 function displayAllFinalTeams() {
-    // Display the user's team
-    console.log("User Team:", userTeam);
+    var userIndex = Number(userDraftPosition) - 1;
+    var headersRow = document.getElementById('teamHeaders');
+    var positions = ['Defender', 'Midfielder', 'Forward', 'Ruck', 'Bench'];
+    
+    allTeams.unshift([]);
+    allTeams.forEach((team, index) => {
+        const headerCell = document.createElement('th');
 
-    // Display each computer team
-    computerTeams.forEach((team, index) => {
-        console.log(`Computer Team ${index + 1}:`, team);
+        if (index === 0) {
+            headerCell.textContent = ``;
+        } else if (index < userIndex) {
+            headerCell.textContent = `CPU Team ${index + 1}`;
+        } else if (index === userIndex) {
+            headerCell.textContent = 'User Team';
+        } else {
+            headerCell.textContent = `CPU Team ${index}`;
+        }
+
+        headersRow.appendChild(headerCell);
     });
 
-    // Update the actual HTML here to show teams on the page.
+    positions.forEach(position => {
+        const row = document.querySelector(`.${position}`);
+
+        if (row) {
+            const cell = document.createElement('td');
+            cell.textContent = position;
+            row.appendChild(cell);
+        } else {
+            console.error(`Row with class '${position}' not found.`);
+        }
+    });
+
+    positions.forEach(position => {
+        const row = document.querySelector(`.${position}`);
+        
+        if (row) {
+            allTeams.forEach((team, index) => {
+                if (index === 0) {
+                    return;
+                }
+
+                const playersInPosition = team.players[position];
+                const cell = document.createElement('td');
+
+                if (position === 'Position') {
+                    cell.textContent = position;
+                } else {
+                    const playerNames = playersInPosition.map(player => player.name);
+                    cell.textContent = playerNames.join(', ');
+                }
+
+                row.appendChild(cell);
+            });
+        } else {
+            console.error(`Row with class '${position}' not found.`);
+        }
+    });
+
+    document.getElementById('userTeamPlayerContainer').style.display = 'none';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
