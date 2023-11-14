@@ -5,7 +5,7 @@ let numTeams;
 let userDraftPosition;
 let draftType;
 let userTeam;
-let currentPickNumber = 1;
+let currentPickNumber = 0;
 let computerTeams = new Array;
 let availablePlayers = new Array;
 let allTeams = new Array;
@@ -56,7 +56,7 @@ class Team {
         // Check if the player is already in the team
         for (const positionPlayers of Object.values(this.players)) {
             if (positionPlayers.includes(player)) {
-                console.log("DEBUG: Player is already in the team.");
+                console.log(`DEBUG: ${player.name} is already in the team.`);
                 return false;
             }
         }
@@ -70,33 +70,32 @@ class Team {
             if (availablePositions.length > 0) {
                 let chosenPosition = availablePositions[0]; // Simplification for example
                 this.players[chosenPosition].push(player);
-                console.log(`DEBUG: Player added to ${chosenPosition}.`);
+                console.log(`DEBUG: ${player.name} added to ${chosenPosition}.`);
                 return true;
             } else {
                 // Add to bench without limit
                 this.players['Bench'].push(player);
-                console.log("DEBUG: Player added to Bench.");
+                console.log(`DEBUG: ${player.name} added to Bench.`);
                 return true;
             }
         }
-    
-            // Handle computer team logic
-            else {
-                if (availablePositions.length > 0) {
-                    let chosenPosition = availablePositions[0]; // Simplification for example
-                    this.players[chosenPosition].push(player);
-                    console.log(`DEBUG: Player added to ${chosenPosition} (computer team).`);
-                    return true;
-                } else if (this.players['Bench'].length < this.maxPlayers['Bench']) {
-                    this.players['Bench'].push(player);
-                    console.log("DEBUG: Player added to Bench (computer team).");
-                    return true;
-                } else {
-                    console.log("DEBUG: No available positions for player (computer team).");
-                    return false;
-                }
+        // Handle computer team logic
+        else {
+            if (availablePositions.length > 0) {
+                let chosenPosition = availablePositions[0]; // Simplification for example
+                this.players[chosenPosition].push(player);
+                console.log(`DEBUG: ${player.name} added to ${chosenPosition} (computer team).`);
+                return true;
+            } else if (this.players['Bench'].length < this.maxPlayers['Bench']) {
+                this.players['Bench'].push(player);
+                console.log(`DEBUG: ${player.name} added to Bench (computer team).`);
+                return true;
+            } else {
+                console.log(`DEBUG: No available positions for ${this.players.name} (computer team).`);
+                return false;
             }
         }
+    }
 
     draftComputerPlayer(availablePlayers) {
         console.log("Computer is making a draft pick...");
@@ -317,11 +316,9 @@ function setupDraft() {
         playerData.fantasy_average, // Ensure this matches the property in your Player class
         playerData.team
     ));
-
-    console.log("Available Players:", availablePlayers);
 }
 
-function proceedToNextDraftRound(roundNumber) {
+async function proceedToNextDraftRound(roundNumber) {
     // Check if the draft is over
     if (roundNumber >= numPlayersPerTeam) {
         console.log("Draft is complete");
@@ -330,84 +327,84 @@ function proceedToNextDraftRound(roundNumber) {
     }
 
     // Iterate through all teams for the current round
+    let user = false;
     for (let i = 0; i < allTeams.length; i++) {
         let teamIndex = (draftType === 'snake' && roundNumber % 2 === 1) ? allTeams.length - 1 - i : i;
         let draftingTeam = allTeams[teamIndex];
-
-        // If it's the user's turn
+        console.log(`Round: ${roundNumber}, i: ${i}, teamIndex: ${teamIndex}`);
+    
         if (draftingTeam === userTeam) {
             console.log("User's turn to pick.");
-            displayAvailablePlayers(availablePlayers, roundNumber, teamIndex);
-            break; // We break the loop waiting for the user's input
+
+            while (!user) {
+                const container = document.getElementById('playerListContainer');
+                container.style.display = 'block';
+                container.innerHTML = '';
+            
+                const list = document.createElement('ul');
+                container.appendChild(list);
+        
+                const selectedPlayer = await new Promise(resolve => {
+                    availablePlayers.forEach((player) => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `${player.name} (${player.positions.join(', ')})`;
+                
+                        listItem.addEventListener('click', function() {
+                            userPickPlayer(player);
+                            user = true;
+                            resolve(player);
+                        });
+                
+                        list.appendChild(listItem);
+                    });
+                });
+
+                removeFromAvailablePlayers(availablePlayers, selectedPlayer);
+                displayUserTeam(selectedPlayer);
+            }
+            user = false;
         } else {
             // Computer's turn to pick
             let pickResult = draftComputerPlayer(availablePlayers, draftingTeam);
             if (pickResult.player) {
-                removeFromAvailablePlayers(pickResult.player, availablePlayers);
+                removeFromAvailablePlayers(availablePlayers, pickResult.player);
                 console.log(`Team ${teamIndex + 1} (computer) picked ${pickResult.player.name}.`);
             }
         }
-    }
-}
-
-function displayAvailablePlayers(availablePlayers, roundNumber, teamIndex) {
-    console.log("Draft round Id is ", roundNumber)
-    console.log("Inside displayAvailablePlayers, received players:", availablePlayers);
-    const container = document.getElementById('playerListContainer');
-    container.style.display = 'block'; // Make the container visible
-    container.innerHTML = ''; // Clear any existing content
-
-    const list = document.createElement('ul'); // Create an unordered list
-    container.appendChild(list);
-
-    // Create list items for each available player
-    availablePlayers.forEach((player) => {
-        const listItem = document.createElement('li');
-        listItem.textContent = player.name;
-
-        listItem.addEventListener('click', function() {
-            userPickPlayer(player, availablePlayers, roundNumber, teamIndex);
-        });
+    };
     
-        list.appendChild(listItem);
-    });
-}
+    // Continue to the next round
+    proceedToNextDraftRound(roundNumber + 1);
+    
+    function removeFromAvailablePlayers(availablePlayers, player) {
+        const index = availablePlayers.indexOf(player);
 
-function removeFromAvailablePlayers(player, availablePlayers) {
-    console.log(player, availablePlayers)
-    const index = availablePlayers.indexOf(player);
-    if (index > -1) {
-        availablePlayers.splice(index, 1);
-        currentPickNumber = currentPickNumber + 1;
+        if (index > -1) {
+            availablePlayers.splice(index, 1);
+            currentPickNumber++
+        }
     }
-}
-
-function userPickPlayer(player, availablePlayers, roundNumber, teamIndex) {
-    // Player is passing the player object in
-    // To get the index you need to check the You need to reference the 
-    console.log("User's turn to draft");
-    const addedToTeam = userTeam.addPlayer(player, true);
-
-    if (addedToTeam) {
-        console.log(`${player.name} has been drafted to your team.`);
-
-        // Remove the selected player from available players
-        removeFromAvailablePlayers(player, availablePlayers);
-        console.log(availablePlayers)
-        displayUserTeam(userTeam, player); // Display the updated team composition
+    
+    async function userPickPlayer(player) {
+        const addedToTeam = userTeam.addPlayer(player, true);
+    
+        if (addedToTeam) {
+            console.log(`${player.name} has been drafted to your team.`);
+            document.getElementById('playerListContainer').style.display = 'none';
+        } else {
+            alert(`Unable to draft ${player.name}. Your team may be full.`);
+        }
+    
         document.getElementById('playerListContainer').style.display = 'none';
-        proceedToNextDraftRound(roundNumber + 1); // Move to the next round
-    } else {
-        alert(`Unable to draft ${player.name}. Your team may be full.`);
-        // The function will end here, and the user will need to select another player
-        displayAvailablePlayers(availablePlayers, roundNumber, teamIndex); // Show the list again for the user to pick
-    }
-}
+        return player;
+    }   
 
-// This function is called when it's time for the user to make a pick
-function initiateUserPick(availablePlayers) {
-    displayAvailablePlayers(availablePlayers);
-    // The code now waits for the user to click on one of the list items
+    function displayUserTeam(player) {
+        var userTeamPlayerContainer = document.getElementById('userTeamPlayerContainer');
+        var playerElement = document.createElement('div');
+        playerElement.textContent = `${player.name} (${player.positions.join(', ')}) - Pick ${currentPickNumber}`;
+        userTeamPlayerContainer.appendChild(playerElement);
+    }
 }
 
 function draftComputerPlayer(availablePlayers, team) {
@@ -476,17 +473,6 @@ function draftComputerPlayer(availablePlayers, team) {
     }
 
     return { player: null, position: null };
-}
-
-function displayUserTeam(team, player) {
-    var userTeamPlayerContainer = document.getElementById('userTeamPlayerContainer');
-    var playerElement = document.createElement('div');
-    playerElement.textContent = `${player.name} (${player.currentPosition}) - Pick ${currentPickNumber}`;
-    userTeamPlayerContainer.appendChild(playerElement);
-
-    // Logic to display the team's composition goes here
-    // This could involve updating the HTML to show the team's players
-    console.log("Team Composition:", team.players);
 }
 
 function displayAllFinalTeams() {
