@@ -45,7 +45,7 @@ class Team {
         };
     }
     
-    addPlayer(player, isUserTeam = true) {
+    addPlayer(player, position) {
         // Check if team is full
         const totalPlayers = Object.values(this.players).flat().length;
         if (totalPlayers >= this.teamSize) {
@@ -62,113 +62,20 @@ class Team {
         }
 
         // Determine available positions for the player
-        const availablePositions = player.positions.filter(position => 
-            this.players[position].length < this.maxPlayers[position]);
+        const availablePositions = player.positions.filter(position => this.players[position].length < this.maxPlayers[position]);
 
-        // Handle user team logic
-        if (isUserTeam) {
-            if (availablePositions.length > 0) {
-                let chosenPosition = availablePositions[0]; // Simplification for example
-                this.players[chosenPosition].push(player);
-                console.log(`DEBUG: ${player.name} added to ${chosenPosition}.`);
-                return true;
-            } else {
-                // Add to bench without limit
-                this.players['Bench'].push(player);
-                console.log(`DEBUG: ${player.name} added to Bench.`);
-                return true;
-            }
+        if (availablePositions.length > 0) {
+            let chosenPosition = position;//availablePositions[0];
+            //TODO update so that if it's full it defaults to the bench with a warning
+            this.players[chosenPosition].push(player);
+            console.log(`DEBUG: ${player.name} added to ${chosenPosition}.`);
+            return true;
+        } else {
+            // Add to bench without limit
+            this.players['Bench'].push(player);
+            console.log(`DEBUG: ${player.name} added to Bench.`);
+            return true;
         }
-        // Handle computer team logic
-        else {
-            if (availablePositions.length > 0) {
-                let chosenPosition = availablePositions[0]; // Simplification for example
-                this.players[chosenPosition].push(player);
-                console.log(`DEBUG: ${player.name} added to ${chosenPosition} (computer team).`);
-                return true;
-            } else if (this.players['Bench'].length < this.maxPlayers['Bench']) {
-                this.players['Bench'].push(player);
-                console.log(`DEBUG: ${player.name} added to Bench (computer team).`);
-                return true;
-            } else {
-                console.log(`DEBUG: No available positions for ${this.players.name} (computer team).`);
-                return false;
-            }
-        }
-    }
-
-    draftComputerPlayer(availablePlayers) {
-        console.log("Computer is making a draft pick...");
-            
-        // Calculate position needs
-        const positionNeeds = {};
-        for (const position in this.maxPlayers) {
-            positionNeeds[position] = this.maxPlayers[position] - this.players[position].length;
-        }
-        
-        // Exclude bench for now to fill on-field positions first
-        const unfilledPositions = {};
-        for (const position in positionNeeds) {
-            if (position !== 'Bench' && positionNeeds[position] > 0) {
-                    unfilledPositions[position] = positionNeeds[position];
-            }
-        }
-        
-        // Calculate the priority score for each player
-        const playerScores = availablePlayers.map(player => {
-            let preferredPosition = null;
-        
-            // Check for dual-position players
-            if (player.positions.length > 1 && player.positions.includes('Midfielder')) {
-                for (const position of player.positions) {
-                    if (position !== 'Midfielder' && unfilledPositions[position] > 0) {
-                        preferredPosition = position;
-                        break;
-                    }
-                }
-            }
-        
-            // Score calculation
-            for (const position of preferredPosition ? [preferredPosition] : player.positions) {
-                if (unfilledPositions[position]) {
-                    const rankScore = (1 / player.rank) * 0.6;
-                    const positionalNeedScore = (unfilledPositions[position] / this.maxPlayers[position]) * 0.4;
-                    const score = rankScore + positionalNeedScore;
-                    return { score, player, position };
-                }
-            }
-        }).filter(scoreData => scoreData !== undefined);
-        
-        // Sort players by score
-        playerScores.sort((a, b) => b.score - a.score);
-        
-        // Try to draft the best player based on the calculated score
-        for (const { score, player, position } of playerScores) {
-            if (positionNeeds[position] > 0) {
-                player.currentPosition = position;
-                this.players[position].push(player);
-                console.log(`${player.name} has been drafted as a ${position}`);
-                const index = availablePlayers.indexOf(player);
-                availablePlayers.splice(index, 1);
-                return { player, position };
-            }
-        }
-        
-        // Consider the bench
-        if (positionNeeds['Bench'] > 0) {
-            const bestBenchPlayer = availablePlayers.reduce((best, current) => 
-                (1 / current.rank) > (1 / best.rank) ? current : best
-            );
-            bestBenchPlayer.currentPosition = 'Bench';
-            this.players['Bench'].push(bestBenchPlayer);
-            console.log(`${bestBenchPlayer.name} has been added to the bench`);
-            const index = availablePlayers.indexOf(bestBenchPlayer);
-            availablePlayers.splice(index, 1);
-            return { player: bestBenchPlayer, position: 'Bench' };
-        }
-        
-        // No suitable player was found
-        return null;
     }
 
     totalPlayers() {
@@ -331,11 +238,9 @@ async function proceedToNextDraftRound(roundNumber) {
     for (let i = 0; i < allTeams.length; i++) {
         let teamIndex = (draftType === 'snake' && roundNumber % 2 === 1) ? allTeams.length - 1 - i : i;
         let draftingTeam = allTeams[teamIndex];
-        console.log(`Round: ${roundNumber}, i: ${i}, teamIndex: ${teamIndex}`);
     
         if (draftingTeam === userTeam) {
             console.log("User's turn to pick.");
-
             while (!user) {
                 const container = document.getElementById('playerListContainer');
                 container.style.display = 'block';
@@ -386,18 +291,36 @@ async function proceedToNextDraftRound(roundNumber) {
     }
     
     async function userPickPlayer(player) {
-        const addedToTeam = userTeam.addPlayer(player, true);
-    
-        if (addedToTeam) {
-            console.log(`${player.name} has been drafted to your team.`);
-            document.getElementById('playerListContainer').style.display = 'none';
+        const options = player.positions;
+   
+        if (options.length > 1) {
+            const selectedOption = window.prompt(`Select a position for ${player.name}:\n${options.join(', ')}`);
+            
+            if (options.includes(selectedOption)) {
+                const addedToTeam = userTeam.addPlayer(player, selectedOption);
+            
+                if (addedToTeam) {
+                    console.log(`${player.name} has been drafted to your team at position ${selectedOption}.`);
+                    return player;
+                } else {
+                    alert(`Unable to draft ${player.name}. Your team may be full.`);
+                    userPickPlayer(player);
+                }
+            } else {
+                userPickPlayer(player);
+            }
         } else {
-            alert(`Unable to draft ${player.name}. Your team may be full.`);
+            const addedToTeam = userTeam.addPlayer(player, player.positions[0]);
+            
+            if (addedToTeam) {
+                console.log(`${player.name} has been drafted to your team at position ${player.positions[0]}.`);
+                return player;
+            } else {
+                alert(`Unable to draft ${player.name}. Your team may be full.`);
+                userPickPlayer(player);
+            }
         }
-    
-        document.getElementById('playerListContainer').style.display = 'none';
-        return player;
-    }   
+    }
 
     function displayUserTeam(player) {
         var userTeamPlayerContainer = document.getElementById('userTeamPlayerContainer');
@@ -536,6 +459,7 @@ function displayAllFinalTeams() {
     });
 
     document.getElementById('userTeamPlayerContainer').style.display = 'none';
+    document.getElementById('playerListContainer').style.display = 'none';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
