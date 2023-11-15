@@ -5,6 +5,7 @@ let numTeams;
 let userDraftPosition;
 let draftType;
 let userTeam;
+let pickLog = '';
 let currentPickNumber = 0;
 let computerTeams = new Array;
 let availablePlayers = new Array;
@@ -229,8 +230,8 @@ async function proceedToNextDraftRound(roundNumber) {
     // Check if the draft is over
     if (roundNumber >= numPlayersPerTeam) {
         console.log("Draft is complete");
-        displayAllFinalTeams();
-        return;
+        document.getElementById('displayArea').style.display = 'block';
+        return displayAllFinalTeams();;
     }
 
     // Iterate through all teams for the current round
@@ -266,6 +267,8 @@ async function proceedToNextDraftRound(roundNumber) {
 
                 removeFromAvailablePlayers(availablePlayers, selectedPlayer);
                 displayUserTeam(selectedPlayer);
+                pickLog += `Pick ${currentPickNumber} - ${selectedPlayer.name}\n`;
+                updateDisplayArea(pickLog);
             }
             user = false;
         } else {
@@ -273,6 +276,9 @@ async function proceedToNextDraftRound(roundNumber) {
             let pickResult = draftComputerPlayer(availablePlayers, draftingTeam);
             if (pickResult.player) {
                 removeFromAvailablePlayers(availablePlayers, pickResult.player);
+                pickLog += `Pick ${currentPickNumber} - ${pickResult.player.name}\n`;
+                updateDisplayArea(pickLog);
+
                 console.log(`Team ${teamIndex + 1} (computer) picked ${pickResult.player.name}.`);
             }
         }
@@ -327,6 +333,11 @@ async function proceedToNextDraftRound(roundNumber) {
         var playerElement = document.createElement('div');
         playerElement.textContent = `${player.name} (${player.positions.join(', ')}) - Pick ${currentPickNumber}`;
         userTeamPlayerContainer.appendChild(playerElement);
+    }
+
+    function updateDisplayArea(log) {
+        log = log.replace(/\n/g, "<br>");
+        document.getElementById("displayArea").innerHTML = log;
     }
 }
 
