@@ -64,19 +64,40 @@ class Team {
 
         // Determine available positions for the player
         const availablePositions = player.positions.filter(position => this.players[position].length < this.maxPlayers[position]);
+        const availablePositionsSrting = availablePositions.toString();
+        const chosenPosition = position;
 
-        if (availablePositions.length > 0) {
-            let chosenPosition = position;//availablePositions[0];
-            //TODO update so that if it's full it defaults to the bench with a warning
+        if (availablePositions.length === 1 && availablePositionsSrting !== chosenPosition) {
+            alert(`${chosenPosition} position is full, adding ${player.name} to ${availablePositionsSrting}`);
+
+            this.players[availablePositionsSrting].push(player);
+            console.log(`DEBUG: ${player.name} added to ${availablePositionsSrting}.`);
+            return true;
+        } else if (availablePositions.length > 0) {
             this.players[chosenPosition].push(player);
             console.log(`DEBUG: ${player.name} added to ${chosenPosition}.`);
             return true;
         } else {
             // Add to bench without limit
+            alert(`${chosenPosition} position is full, adding ${player.name} to Bench`);
+
             this.players['Bench'].push(player);
             console.log(`DEBUG: ${player.name} added to Bench.`);
             return true;
         }
+    }
+
+    // Add a player to the bench if there is space and they are not already on the team
+    addPlayerToBench(player) {
+        const isPlayerInTeam = Object.values(this.players).some(playerList => playerList.includes(player));
+        if (isPlayerInTeam) {
+            return false; // Player is already in the team, don't add to the bench
+        }
+        if (this.players['Bench'].length < this.maxPlayers['Bench']) {
+            this.players['Bench'].push(player);
+            return true;
+        }
+        return false;
     }
 
     totalPlayers() {
@@ -99,19 +120,6 @@ class Team {
     isFull() {
         const totalPlayers = this.totalPlayers();
         return totalPlayers >= this.teamSize;
-    }
-    
-    // Add a player to the bench if there is space and they are not already on the team
-    addPlayerToBench(player) {
-        const isPlayerInTeam = Object.values(this.players).some(playerList => playerList.includes(player));
-        if (isPlayerInTeam) {
-            return false; // Player is already in the team, don't add to the bench
-        }
-        if (this.players['Bench'].length < this.maxPlayers['Bench']) {
-            this.players['Bench'].push(player);
-            return true;
-        }
-        return false;
     }
 }
 
@@ -270,7 +278,6 @@ async function proceedToNextDraftRound(roundNumber) {
                 pickLog += `Pick ${currentPickNumber} - ${selectedPlayer.name}\n`;
                 updateDisplayArea(pickLog);
             }
-            user = false;
         } else {
             // Computer's turn to pick
             let pickResult = draftComputerPlayer(availablePlayers, draftingTeam);
@@ -300,21 +307,31 @@ async function proceedToNextDraftRound(roundNumber) {
         const options = player.positions;
    
         if (options.length > 1) {
-            const selectedOption = window.prompt(`Select a position for ${player.name}:\n${options.join(', ')}`);
-            
-            if (options.includes(selectedOption)) {
-                const addedToTeam = userTeam.addPlayer(player, selectedOption);
-            
-                if (addedToTeam) {
-                    console.log(`${player.name} has been drafted to your team at position ${selectedOption}.`);
-                    return player;
-                } else {
-                    alert(`Unable to draft ${player.name}. Your team may be full.`);
-                    userPickPlayer(player);
-                }
-            } else {
-                userPickPlayer(player);
-            }
+            document.getElementById("positionSelectionModal").style.display = 'block';
+            const positionButtons = document.getElementById("positionButtons");
+            positionButtons.innerHTML = '';
+
+            options.forEach(option => {
+                const button = document.createElement("button");
+                button.textContent = option;
+                button.classList.add("button-1")
+                button.addEventListener("click", function () {
+                    if (options.includes(option)) {
+                        document.getElementById("positionSelectionModal").style.display = 'none';
+                        const addedToTeam = userTeam.addPlayer(player, option);
+
+                        if (addedToTeam) {
+                            console.log(`${player.name} has been drafted to your team at position ${option}.`);
+                            return player;
+                        } else {
+                            alert(`Unable to draft ${player.name}. Your team may be full.`);
+                            userPickPlayer(player);
+                        }
+                    }
+                });
+
+                positionButtons.appendChild(button);
+            });
         } else {
             const addedToTeam = userTeam.addPlayer(player, player.positions[0]);
             
@@ -336,8 +353,9 @@ async function proceedToNextDraftRound(roundNumber) {
     }
 
     function updateDisplayArea(log) {
+        const title = "Pick Log:";
         log = log.replace(/\n/g, "<br>");
-        document.getElementById("displayArea").innerHTML = log;
+        document.getElementById("displayArea").innerHTML = title + '<br>' + log;
     }
 }
 
@@ -451,17 +469,22 @@ function displayAllFinalTeams() {
                 if (index === 0) {
                     return;
                 }
-
+    
                 const playersInPosition = team.players[position];
                 const cell = document.createElement('td');
-
+    
                 if (position === 'Position') {
                     cell.textContent = position;
                 } else {
-                    const playerNames = playersInPosition.map(player => player.name);
-                    cell.textContent = playerNames.join(', ');
+                    const playerDivs = playersInPosition.map(player => {
+                        const playerDiv = document.createElement('div');
+                        playerDiv.textContent = player.name;
+                        return playerDiv;
+                    });
+    
+                    playerDivs.forEach(playerDiv => cell.appendChild(playerDiv));
                 }
-
+    
                 row.appendChild(cell);
             });
         } else {
