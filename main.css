@@ -9,6 +9,18 @@ th, td {
     padding: 8px;
 }
 
+.margin-top-0 {
+    margin-top: 0px;
+}
+
+.margin-bottom-0 {
+    margin-bottom: 0px;
+}
+
+.margin-right-35 {
+    margin-right: 35px;
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -22,8 +34,11 @@ th, td {
     background-color: rgba(0,0,0,0.4);
 }
 
-.modal-content,
-.modal-content-1 {
+.modal-log {
+    padding-top: 100px;
+}
+
+.modal-content {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
@@ -33,11 +48,12 @@ th, td {
     flex-direction: column;
 }
 
-.modal-content-1 {
-    display: block;
-    margin: 0 0 0 0;
-    border: none;
-    width: 100%;
+.modal-content-log {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
 }
 
 .modal-icon {
@@ -110,4 +126,5 @@ th, td {
 
 #showPickLogButton {
     display: none;
+    margin: 10px 0px;
 }

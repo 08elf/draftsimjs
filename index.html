@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <h1>Team Draft Simulator</h1>
+    <h1 class="margin-bottom-0">Team Draft Simulator</h1>
 
     <!-- Test setup -->
     <div id="automatedTest">
@@ -60,6 +60,7 @@
 
     <br>
     <button id="startDraftButton" disabled>Start Draft</button>
+    <button id="showPickLogButton" class="button-1">Show pick log</button>
 
     <div id="allTeamsContainer">
         <!-- Add player and pick they were taken here-->
@@ -80,7 +81,6 @@
 
     <br>
     <div id="currentPickSelection"></div>
-    <button id="showPickLogButton">Show pick log</button>
     <br>
 
     <!-- New Section for Displaying Available Players -->
@@ -93,15 +93,14 @@
     <div id="displayArea" style="display:none;"></div>
 
     <!-- Modals -->
-    <div id="pickLogModal" class="modal">
-        <span class="close" onclick="closePickLogModal()">&times;</span>
-        
-        <div id="pickLogModalContainer" class="modal-content-1"></div>
+    <div id="pickLogModal" class="modal modal-log">
+        <span class="close margin-right-35" onclick="closePickLogModal()">&times;</span>
+        <div id="pickLogModalContainer" class="modal-content-log">Empty log</div>
     </div>
 
     <div id="positionSelectionModal" class="modal">
         <div id="buttonContainer" class="modal-content">
-            <h3 id="selectPlayerPosition">Select Position</h3>
+            <h3 id="selectPlayerPosition" class="margin-top-0">Select Position</h3>
             <div id="positionButtons"></div>
         </div>
     </div>
