@@ -70,15 +70,18 @@ class Team {
         if (availablePositions.length === 1 && availablePositionsSrting !== chosenPosition) {
             showAlertModal(`${chosenPosition} position is full, adding ${player.name} to ${availablePositionsSrting}`);
             this.players[availablePositionsSrting].push(player);
+            displayAllFinalTeams();
             console.log(`DEBUG: ${player.name} added to ${availablePositionsSrting}.`);
             return true;
         } else if (availablePositions.length > 0) {
             this.players[chosenPosition].push(player);
+            displayAllFinalTeams();
             console.log(`DEBUG: ${player.name} added to ${chosenPosition}.`);
             return true;
         } else {
             showAlertModal(`${chosenPosition} position is full, adding ${player.name} to Bench`);
             this.players['Bench'].push(player);
+            displayAllFinalTeams();
             console.log(`DEBUG: ${player.name} added to Bench.`);
             return true;
         }
@@ -272,10 +275,8 @@ async function proceedToNextDraftRound(roundNumber) {
                 });
 
                 removeFromAvailablePlayers(availablePlayers, selectedPlayer);
-                // displayUserTeam(selectedPlayer);
                 pickLog += `Pick ${currentPickNumber} - ${selectedPlayer.name}\n`;
                 updateDisplayArea(pickLog);
-                displayAllFinalTeams();
             }
         } else {
             // Computer's turn to pick
@@ -307,6 +308,9 @@ async function proceedToNextDraftRound(roundNumber) {
    
         if (options.length > 1) {
             document.getElementById("positionSelectionModal").style.display = 'block';
+            const selectPlayerPosition = document.getElementById("selectPlayerPosition");
+            selectPlayerPosition.innerHTML = `Select Position - ${player.name}`;
+
             const positionButtons = document.getElementById("positionButtons");
             positionButtons.innerHTML = '';
 
@@ -344,17 +348,9 @@ async function proceedToNextDraftRound(roundNumber) {
         }
     }
 
-    // function displayUserTeam(player) {
-    //     var userTeamPlayerContainer = document.getElementById('userTeamPlayerContainer');
-    //     var playerElement = document.createElement('div');
-    //     playerElement.textContent = `${player.name} (${player.positions.join(', ')}) - Pick ${currentPickNumber}`;
-    //     userTeamPlayerContainer.appendChild(playerElement);
-    // }
-
     function updateDisplayArea(log) {
         const title = "Pick Log:";
         log = log.replace(/\n/g, "<br>");
-        // document.getElementById("displayArea").innerHTML = title + '<br>' + log;
         document.getElementById("pickLogModalContainer").innerHTML = title + '<br>' + log;
     }
 }
