@@ -22,7 +22,8 @@ th, td {
     background-color: rgba(0,0,0,0.4);
 }
 
-.modal-content {
+.modal-content,
+.modal-content-1 {
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
@@ -30,6 +31,13 @@ th, td {
     width: 80%;
     display: flex;
     flex-direction: column;
+}
+
+.modal-content-1 {
+    display: block;
+    margin: 0 0 0 0;
+    border: none;
+    width: 100%;
 }
 
 .modal-icon {
@@ -40,6 +48,20 @@ th, td {
     justify-content: center;
 }
 
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+  
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+  
 .alertModalText {
     display: flex;
     justify-content: center;
@@ -84,4 +106,8 @@ th, td {
 
 #displayArea {
     margin: 10px 0px 10px 0px;
+}
+
+#showPickLogButton {
+    display: none;
 }

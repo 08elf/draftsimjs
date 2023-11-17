@@ -61,19 +61,6 @@
     <br>
     <button id="startDraftButton" disabled>Start Draft</button>
 
-    <div id="currentPickSelection"></div>
-    <br>
-
-    <div id="userTeamPlayerContainer" style="display:none;">
-        <!-- Add player and pick they were taken here-->
-    </div>
-
-    <!-- New Section for Displaying Available Players -->
-    <div id="playerListContainer" style="display:none;">
-        <h2>Select a Player</h2>
-        <!-- The player list will be dynamically populated here -->
-    </div>
-
     <div id="allTeamsContainer">
         <!-- Add player and pick they were taken here-->
         <table id="allTeamsTable">
@@ -91,8 +78,26 @@
         </table>
     </div>
 
+    <br>
+    <div id="currentPickSelection"></div>
+    <button id="showPickLogButton">Show pick log</button>
+    <br>
+
+    <!-- New Section for Displaying Available Players -->
+    <div id="playerListContainer" style="display:none;">
+        <h2>Select a Player</h2>
+        <!-- The player list will be dynamically populated here -->
+    </div>
+
     <!-- Display area for messages and results -->
     <div id="displayArea" style="display:none;"></div>
+
+    <!-- Modals -->
+    <div id="pickLogModal" class="modal">
+        <span class="close" onclick="closePickLogModal()">&times;</span>
+        
+        <div id="pickLogModalContainer" class="modal-content-1"></div>
+    </div>
 
     <div id="positionSelectionModal" class="modal">
         <div id="buttonContainer" class="modal-content">

@@ -122,7 +122,9 @@ class Team {
 
 function startDraftSimulation() {
     setupDraft();
+    displayAllFinalTeams();
     proceedToNextDraftRound(0); // Start with round 0
+    document.getElementById('showPickLogButton').style.display = 'block';
 }
 
 // Set the number of players per team
@@ -234,7 +236,7 @@ async function proceedToNextDraftRound(roundNumber) {
     if (roundNumber >= numPlayersPerTeam) {
         console.log("Draft is complete");
         document.getElementById('displayArea').style.display = 'block';
-        return displayAllFinalTeams();;
+        return displayAllFinalTeams();
     }
 
     // Iterate through all teams for the current round
@@ -270,9 +272,10 @@ async function proceedToNextDraftRound(roundNumber) {
                 });
 
                 removeFromAvailablePlayers(availablePlayers, selectedPlayer);
-                displayUserTeam(selectedPlayer);
+                // displayUserTeam(selectedPlayer);
                 pickLog += `Pick ${currentPickNumber} - ${selectedPlayer.name}\n`;
                 updateDisplayArea(pickLog);
+                displayAllFinalTeams();
             }
         } else {
             // Computer's turn to pick
@@ -281,7 +284,7 @@ async function proceedToNextDraftRound(roundNumber) {
                 removeFromAvailablePlayers(availablePlayers, pickResult.player);
                 pickLog += `Pick ${currentPickNumber} - ${pickResult.player.name}\n`;
                 updateDisplayArea(pickLog);
-
+                displayAllFinalTeams();
                 console.log(`Team ${teamIndex + 1} (computer) picked ${pickResult.player.name}.`);
             }
         }
@@ -341,17 +344,18 @@ async function proceedToNextDraftRound(roundNumber) {
         }
     }
 
-    function displayUserTeam(player) {
-        var userTeamPlayerContainer = document.getElementById('userTeamPlayerContainer');
-        var playerElement = document.createElement('div');
-        playerElement.textContent = `${player.name} (${player.positions.join(', ')}) - Pick ${currentPickNumber}`;
-        userTeamPlayerContainer.appendChild(playerElement);
-    }
+    // function displayUserTeam(player) {
+    //     var userTeamPlayerContainer = document.getElementById('userTeamPlayerContainer');
+    //     var playerElement = document.createElement('div');
+    //     playerElement.textContent = `${player.name} (${player.positions.join(', ')}) - Pick ${currentPickNumber}`;
+    //     userTeamPlayerContainer.appendChild(playerElement);
+    // }
 
     function updateDisplayArea(log) {
         const title = "Pick Log:";
         log = log.replace(/\n/g, "<br>");
-        document.getElementById("displayArea").innerHTML = title + '<br>' + log;
+        // document.getElementById("displayArea").innerHTML = title + '<br>' + log;
+        document.getElementById("pickLogModalContainer").innerHTML = title + '<br>' + log;
     }
 }
 
@@ -427,13 +431,15 @@ function displayAllFinalTeams() {
     var userIndex = Number(userDraftPosition);
     var headersRow = document.getElementById('teamHeaders');
     var positions = ['Defender', 'Midfielder', 'Forward', 'Ruck', 'Bench'];
-    
-    allTeams.unshift([]);
-    allTeams.forEach((team, index) => {
+    var tempTeams = [[]].concat(allTeams);
+
+    headersRow.innerHTML = '';
+
+    tempTeams.forEach((team, index) => {
         const headerCell = document.createElement('th');
 
         if (index === 0) {
-            headerCell.textContent = ``;
+            headerCell.textContent = '';
         } else if (index === userIndex) {
             headerCell.textContent = 'User Team';
         } else if (index < userIndex) {
@@ -449,6 +455,7 @@ function displayAllFinalTeams() {
         const row = document.querySelector(`.${position}`);
 
         if (row) {
+            row.innerHTML = '';
             const cell = document.createElement('td');
             cell.textContent = position;
             row.appendChild(cell);
@@ -461,7 +468,7 @@ function displayAllFinalTeams() {
         const row = document.querySelector(`.${position}`);
         
         if (row) {
-            allTeams.forEach((team, index) => {
+            tempTeams.forEach((team, index) => {
                 if (index === 0) {
                     return;
                 }
@@ -487,10 +494,6 @@ function displayAllFinalTeams() {
             console.error(`Row with class '${position}' not found.`);
         }
     });
-
-    document.getElementById('userTeamPlayerContainer').style.display = 'none';
-    document.getElementById('playerListContainer').style.display = 'none';
-    document.getElementById('currentPickSelection').style.display = 'none';
 }
 
 function showAlertModal(message) {
@@ -504,6 +507,14 @@ function showAlertModal(message) {
     button.addEventListener('click', function() {
         alertModal.style.display = 'none';
     });
+}
+
+function showPickLog() {
+    document.getElementById('pickLogModal').style.display = 'block';
+}
+
+function closePickLogModal() {
+    document.getElementById('pickLogModal').style.display = 'none';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -562,13 +573,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    
+    document.getElementById('showPickLogButton').addEventListener('click', showPickLog);
     document.getElementById('setNumPlayersPerTeamButton').addEventListener('click', setNumPlayersPerTeam);
     document.getElementById('setNumTeamsButton').addEventListener('click', setNumTeams);
     document.getElementById('setUserDraftPositionButton').addEventListener('click', setUserDraftPosition);
     document.getElementById('setDraftTypeButton').addEventListener('click', setDraftType);
     document.getElementById('startDraftButton').addEventListener('click', () => {
         document.getElementById('startDraftButton').style.display = 'none';
-        document.getElementById('userTeamPlayerContainer').style.display = 'block';
         startDraftSimulation();
     });
 });
