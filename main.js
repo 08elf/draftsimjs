@@ -121,8 +121,6 @@ class Team {
 }
 
 function startDraftSimulation() {
-    // Initialize the draft simulation here
-    // This should only set up the draft and start the first turn
     setupDraft();
     proceedToNextDraftRound(0); // Start with round 0
 }
@@ -174,6 +172,7 @@ function setUserDraftPosition() {
 
     // Initialize computer teams. We'll assume 'numTeams' includes the user team.
     for (let i = 0; i < numTeams - 1; i++) {
+        console.log(1)
         computerTeams.push(new Team(numPlayersPerTeam, chosenConfig));
     }
 
@@ -185,7 +184,8 @@ function setUserDraftPosition() {
             allTeams.push(computerTeams.shift());
         }
     }
-    
+    console.log(userTeam)
+    console.log(computerTeams)
     checkAllInputsSet();
 }
 
@@ -224,7 +224,7 @@ function setupDraft() {
         playerData.name,
         playerData.positions,
         playerData.rank,
-        playerData.fantasy_average, // Ensure this matches the property in your Player class
+        playerData.fantasy_average,
         playerData.team
     ));
 }
@@ -242,8 +242,9 @@ async function proceedToNextDraftRound(roundNumber) {
     for (let i = 0; i < allTeams.length; i++) {
         let teamIndex = (draftType === 'snake' && roundNumber % 2 === 1) ? allTeams.length - 1 - i : i;
         let draftingTeam = allTeams[teamIndex];
-    
+
         if (draftingTeam === userTeam) {
+            document.getElementById('currentPickSelection').textContent = `CURRENT PICK: Pick ${currentPickNumber + 1}`;
             console.log("User's turn to pick.");
             while (!user) {
                 const container = document.getElementById('playerListContainer');
@@ -489,6 +490,7 @@ function displayAllFinalTeams() {
 
     document.getElementById('userTeamPlayerContainer').style.display = 'none';
     document.getElementById('playerListContainer').style.display = 'none';
+    document.getElementById('currentPickSelection').style.display = 'none';
 }
 
 function showAlertModal(message) {
@@ -513,6 +515,53 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
+    //TODO REMOVE THIS FOR PROD ONLY FOR TESTING
+    document.querySelectorAll('.test').forEach(button => {
+        button.addEventListener('click', () => {
+            const clickedId = button.id;
+    
+            if (clickedId === 'test1') {
+                chosenConfig = {
+                    "defenders": 2,
+                    "midfielders": 3,
+                    "ruck": 1,
+                    "forwards": 2
+                };
+                numPlayersPerTeam = 8;
+            } else if (clickedId === 'test2') {
+                chosenConfig = {
+                    "defenders": 5,
+                    "midfielders": 7,
+                    "ruck": 1,
+                    "forwards": 5
+                };
+                numPlayersPerTeam = 18;
+            } else {
+                chosenConfig = {
+                    "defenders": 6,
+                    "midfielders": 8,
+                    "ruck": 2,
+                    "forwards": 6
+                };
+                numPlayersPerTeam = 22;
+            }
+
+            numTeams = 2;
+            userDraftPosition = 1;
+            document.getElementById('userDraftPosition').value = 1;
+            
+            setUserDraftPosition();
+
+            document.getElementById('automatedTest').style.display = 'none';
+            document.getElementById('configChoiceSection').style.display = 'none';
+            document.getElementById('draftTypeSection').style.display = 'none';
+
+            draftType = 'snake';
+
+            checkAllInputsSet();
+        });
+    });
+
     document.getElementById('setNumPlayersPerTeamButton').addEventListener('click', setNumPlayersPerTeam);
     document.getElementById('setNumTeamsButton').addEventListener('click', setNumTeams);
     document.getElementById('setUserDraftPositionButton').addEventListener('click', setUserDraftPosition);
@@ -523,3 +572,4 @@ document.addEventListener('DOMContentLoaded', () => {
         startDraftSimulation();
     });
 });
+

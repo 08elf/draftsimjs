@@ -8,6 +8,14 @@
 <body>
     <h1>Team Draft Simulator</h1>
 
+    <!-- Test setup -->
+    <div id="automatedTest">
+        <p>Automated setup</p>
+        <button class="test" id="test1">Test 2-3-1-2</button>
+        <button class="test" id="test2">Test 5-7-1-5</button>
+        <button class="test" id="test3">Test 6-8-2-6</button>
+    </div>
+
     <div id="draftSetup">
         <!-- Configuration choice -->
         <div id="configChoiceSection">
@@ -52,6 +60,9 @@
 
     <br>
     <button id="startDraftButton" disabled>Start Draft</button>
+
+    <div id="currentPickSelection"></div>
+    <br>
 
     <div id="userTeamPlayerContainer" style="display:none;">
         <!-- Add player and pick they were taken here-->
