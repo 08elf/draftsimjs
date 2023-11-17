@@ -237,9 +237,10 @@ function setupDraft() {
 async function proceedToNextDraftRound(roundNumber) {
     // Check if the draft is over
     if (roundNumber >= numPlayersPerTeam) {
-        console.log("Draft is complete");
-        document.getElementById('displayArea').style.display = 'block';
-        return displayAllFinalTeams();
+        document.getElementById('currentPickSelection').style.display = 'none';
+        displayLeftOverPlayers();
+        displayAllFinalTeams();
+        return console.log("Draft is complete");
     }
 
     // Iterate through all teams for the current round
@@ -489,6 +490,18 @@ function displayAllFinalTeams() {
         } else {
             console.error(`Row with class '${position}' not found.`);
         }
+    });
+}
+
+function displayLeftOverPlayers() {
+    const playerListContainer = document.getElementById('playerListContainer');
+    playerListContainer.innerHTML = '';
+
+    availablePlayers.forEach((player) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${player.name} (${player.positions.join(', ')})`;
+
+        playerListContainer.appendChild(listItem);
     });
 }
 
