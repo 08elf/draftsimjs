@@ -68,8 +68,7 @@ class Team {
         const chosenPosition = position;
 
         if (availablePositions.length === 1 && availablePositionsSrting !== chosenPosition) {
-            alert(`${chosenPosition} position is full, adding ${player.name} to ${availablePositionsSrting}`);
-
+            showAlertModal(`${chosenPosition} position is full, adding ${player.name} to ${availablePositionsSrting}`);
             this.players[availablePositionsSrting].push(player);
             console.log(`DEBUG: ${player.name} added to ${availablePositionsSrting}.`);
             return true;
@@ -78,9 +77,7 @@ class Team {
             console.log(`DEBUG: ${player.name} added to ${chosenPosition}.`);
             return true;
         } else {
-            // Add to bench without limit
-            alert(`${chosenPosition} position is full, adding ${player.name} to Bench`);
-
+            showAlertModal(`${chosenPosition} position is full, adding ${player.name} to Bench`);
             this.players['Bench'].push(player);
             console.log(`DEBUG: ${player.name} added to Bench.`);
             return true;
@@ -199,8 +196,7 @@ function setDraftType() {
     } else if (document.getElementById('linear').checked) {
         draftType = 'linear';
     } else {
-        alert('Please select a draft type.');
-        return;
+        return showAlertModal('Please select a draft type.')
     }
     checkAllInputsSet();
 }
@@ -223,7 +219,6 @@ function checkAllInputsSet() {
 }
 
 function setupDraft() {
-    // Use the imported players as the available players for the draft
     availablePlayers = players.map(playerData => new Player(
         playerData.player_id,
         playerData.name,
@@ -324,7 +319,7 @@ async function proceedToNextDraftRound(roundNumber) {
                             console.log(`${player.name} has been drafted to your team at position ${option}.`);
                             return player;
                         } else {
-                            alert(`Unable to draft ${player.name}. Your team may be full.`);
+                            showAlertModal(`Unable to draft ${player.name}. Your team may be full.`)
                             userPickPlayer(player);
                         }
                     }
@@ -339,7 +334,7 @@ async function proceedToNextDraftRound(roundNumber) {
                 console.log(`${player.name} has been drafted to your team at position ${player.positions[0]}.`);
                 return player;
             } else {
-                alert(`Unable to draft ${player.name}. Your team may be full.`);
+                showAlertModal(`Unable to draft ${player.name}. Your team may be full.`)
                 userPickPlayer(player);
             }
         }
@@ -494,6 +489,19 @@ function displayAllFinalTeams() {
 
     document.getElementById('userTeamPlayerContainer').style.display = 'none';
     document.getElementById('playerListContainer').style.display = 'none';
+}
+
+function showAlertModal(message) {
+    const alertModal = document.getElementById('alertModal');
+    const alertModalText = document.getElementsByClassName('alertModalText')[0];
+
+    alertModalText.textContent = message;
+    alertModal.style.display = 'block';
+
+    const button = document.getElementById('alertButtonOk');
+    button.addEventListener('click', function() {
+        alertModal.style.display = 'none';
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
