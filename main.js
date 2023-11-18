@@ -1,3 +1,10 @@
+const firebaseConfig = {
+    apiKey: "AIzaSyBFwrNNgLWCZSkUGgKaDXeOY5Vem13uQfg",
+    databaseURL: "https://aflfantasypod-default-rtdb.firebaseio.com",
+    projectId: "aflfantasypod",
+    appId: "1:141895384483:web:565271ffa59bb56b45ae16"
+};
+
 // Global variables to store user inputs
 let numPlayersPerTeam;
 let chosenConfig;
@@ -232,6 +239,41 @@ function setupDraft() {
         playerData.fantasy_average,
         playerData.team
     ));
+
+    return createSelectPlayerTable(availablePlayers);
+}
+
+async function createSelectPlayerTable(availablePlayers, callback) {
+    const selectPlayerTable = $('#selectPlayerTable').DataTable({
+        retrieve: true,
+        sort: false,
+        searching: true,
+        paging: false,
+        lengthChange: false,
+        info: false,
+        columnDefs: [
+            { targets: [0], title: "Players" },
+            { targets: [1], title: "Position(s)" },
+            { targets: [2], title: "PlayerId", visible: false },
+        ],
+    });
+
+    selectPlayerTable.clear();
+
+    availablePlayers.forEach(player => {
+        selectPlayerTable.row.add([player.name, player.positions.join(', '), player.player_id]);
+    });
+
+    selectPlayerTable.draw();
+
+    return new Promise(resolve => {
+        $('#selectPlayerTable tbody').on('click', 'tr', function () {
+            const rowData = selectPlayerTable.row(this).data();
+            const playerId = rowData[1];
+            const selectedPlayer = availablePlayers.find(player => player.player_id === playerId);
+            resolve(selectedPlayer);
+        });
+    });
 }
 
 async function proceedToNextDraftRound(roundNumber) {
@@ -252,40 +294,26 @@ async function proceedToNextDraftRound(roundNumber) {
         if (draftingTeam === userTeam) {
             document.getElementById('currentPickSelection').textContent = `CURRENT PICK: Pick ${currentPickNumber + 1}`;
             console.log("User's turn to pick.");
-            while (!user) {
-                const container = document.getElementById('playerListContainer');
-                container.style.display = 'block';
-                container.innerHTML = '';
-            
-                const list = document.createElement('ul');
-                container.appendChild(list);
-        
-                const selectedPlayer = await new Promise(resolve => {
-                    availablePlayers.forEach((player) => {
-                        const listItem = document.createElement('li');
-                        listItem.textContent = `${player.name} (${player.positions.join(', ')})`;
-                
-                        listItem.addEventListener('click', function() {
-                            userPickPlayer(player);
-                            user = true;
-                            resolve(player);
-                        });
-                
-                        list.appendChild(listItem);
-                    });
-                });
 
+            while (!user) {
+                const selectedPlayer = await createSelectPlayerTable(availablePlayers);
+                userPickPlayer(selectedPlayer);
                 removeFromAvailablePlayers(availablePlayers, selectedPlayer);
+
                 pickLog += `Pick ${currentPickNumber} - ${selectedPlayer.name}\n`;
                 updateDisplayArea(pickLog);
+
+                user = true;
             }
         } else {
             // Computer's turn to pick
             let pickResult = draftComputerPlayer(availablePlayers, draftingTeam);
             if (pickResult.player) {
                 removeFromAvailablePlayers(availablePlayers, pickResult.player);
+
                 pickLog += `Pick ${currentPickNumber} - ${pickResult.player.name}\n`;
                 updateDisplayArea(pickLog);
+
                 displayAllFinalTeams();
                 console.log(`Team ${teamIndex + 1} (computer) picked ${pickResult.player.name}.`);
             }
@@ -426,74 +454,53 @@ function draftComputerPlayer(availablePlayers, team) {
 
 function displayAllFinalTeams() {
     var userIndex = Number(userDraftPosition);
-    var headersRow = document.getElementById('teamHeaders');
     var positions = ['Defender', 'Midfielder', 'Forward', 'Ruck', 'Bench'];
     var tempTeams = [[]].concat(allTeams);
-
-    headersRow.innerHTML = '';
+    var headerObjects = [];
 
     tempTeams.forEach((team, index) => {
-        const headerCell = document.createElement('th');
+        const headerObj = {
+            targets: [index],
+            title: index === 0 ? '' : (index === userIndex ? 'User Team' : `CPU Team ${index}`),
+        };
 
-        if (index === 0) {
-            headerCell.textContent = '';
-        } else if (index === userIndex) {
-            headerCell.textContent = 'User Team';
-        } else if (index < userIndex) {
-            headerCell.textContent = `CPU Team ${index + 1}`;
-        } else {
-            headerCell.textContent = `CPU Team ${index}`;
-        }
-
-        headersRow.appendChild(headerCell);
+        headerObjects.push(headerObj);
+    });
+ 
+    const allTeamsTable = $('#allTeamsTable').DataTable({
+        retrieve: true,
+        sort: false,
+        searching: false,
+        paging: false,
+        lengthChange: false,
+        info: false,
+        columnDefs: headerObjects,
     });
 
-    positions.forEach(position => {
-        const row = document.querySelector(`.${position}`);
+    allTeamsTable.clear();
 
-        if (row) {
-            row.innerHTML = '';
-            const cell = document.createElement('td');
-            cell.textContent = position;
-            row.appendChild(cell);
-        } else {
-            console.error(`Row with class '${position}' not found.`);
-        }
+    positions.forEach((position) => {
+        var row = [position];
+
+        tempTeams.forEach((team, index) => {
+            if (index === 0) {
+                return; // Skip the first row
+            }
+
+            // Add player data based on positions
+            const playersInPosition = team.players[position];
+            const playerNames = playersInPosition.map(player => player.name).join('<br>');
+            row.push(playerNames);
+        });
+
+        allTeamsTable.row.add(row);
     });
 
-    positions.forEach(position => {
-        const row = document.querySelector(`.${position}`);
-        
-        if (row) {
-            tempTeams.forEach((team, index) => {
-                if (index === 0) {
-                    return;
-                }
-    
-                const playersInPosition = team.players[position];
-                const cell = document.createElement('td');
-    
-                if (position === 'Position') {
-                    cell.textContent = position;
-                } else {
-                    const playerDivs = playersInPosition.map(player => {
-                        const playerDiv = document.createElement('div');
-                        playerDiv.textContent = player.name;
-                        return playerDiv;
-                    });
-    
-                    playerDivs.forEach(playerDiv => cell.appendChild(playerDiv));
-                }
-    
-                row.appendChild(cell);
-            });
-        } else {
-            console.error(`Row with class '${position}' not found.`);
-        }
-    });
+    allTeamsTable.draw();
 }
 
 function displayLeftOverPlayers() {
+    return //TODO
     const playerListContainer = document.getElementById('playerListContainer');
     playerListContainer.innerHTML = '';
 
@@ -581,8 +588,7 @@ document.addEventListener('DOMContentLoaded', () => {
             checkAllInputsSet();
         });
     });
-
-    
+   
     document.getElementById('showPickLogButton').addEventListener('click', showPickLog);
     document.getElementById('setNumPlayersPerTeamButton').addEventListener('click', setNumPlayersPerTeam);
     document.getElementById('setNumTeamsButton').addEventListener('click', setNumTeams);

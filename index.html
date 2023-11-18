@@ -3,7 +3,22 @@
 <head>
     <title>Team Draft Simulator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="main.css">
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/dataTables.jqueryui.min.css">
+
+    <!-- jQuery -->
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- DataTables JavaScript -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+
+    <!-- Firebase JavaScript -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 </head>
 <body>
     <h1 class="margin-bottom-0">Team Draft Simulator</h1>
@@ -63,30 +78,15 @@
     <button id="showPickLogButton" class="button-1">Show pick log</button>
 
     <div id="allTeamsContainer">
-        <!-- Add player and pick they were taken here-->
-        <table id="allTeamsTable">
-            <thead>
-              <tr id="teamHeaders"></tr>
-            </thead>
-            <tbody>
-              <!-- Rows for each position -->
-              <tr class="Defender"></tr>
-              <tr class="Midfielder"></tr>
-              <tr class="Forward"></tr>
-              <tr class="Ruck"></tr>
-              <tr class="Bench"></tr>
-            </tbody>
-        </table>
+        <table id="allTeamsTable"></table>
     </div>
 
     <br>
     <div id="currentPickSelection"></div>
     <br>
 
-    <!-- New Section for Displaying Available Players -->
-    <div id="playerListContainer" style="display:none;">
-        <h2>Select a Player</h2>
-        <!-- The player list will be dynamically populated here -->
+    <div id="playerListContainer" >
+        <table id="selectPlayerTable"></table>
     </div>
 
     <!-- Modals -->

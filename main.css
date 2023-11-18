@@ -115,6 +115,32 @@ th, td {
     background-color: #F082AC;
 }
 
+#selectPlayerTable_wrapper {
+    border: none;
+}
+
+#selectPlayerTable {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+#selectPlayerTable thead th {
+    padding-left: 10px;
+}
+
+#selectPlayerTable, #selectPlayerTable th, #selectPlayerTable td {
+    border: none;
+}
+
+#selectPlayerTable_filter {
+    float: left;
+    width: 80%;
+    text-align: left;
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 50%;
+}
+
 #positionButtons {
     display: flex;
     justify-content: center;
