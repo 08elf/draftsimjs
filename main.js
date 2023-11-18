@@ -4,6 +4,9 @@ const firebaseConfig = {
     projectId: "aflfantasypod",
     appId: "1:141895384483:web:565271ffa59bb56b45ae16"
 };
+  
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
 // Global variables to store user inputs
 let numPlayersPerTeam;
@@ -14,6 +17,7 @@ let draftType;
 let userTeam;
 let pickLog = '';
 let currentPickNumber = 0;
+let ADP = new Array;
 let computerTeams = new Array;
 let availablePlayers = new Array;
 let allTeams = new Array;
@@ -286,6 +290,7 @@ async function proceedToNextDraftRound(roundNumber) {
     if (roundNumber >= numPlayersPerTeam) {
         createSelectPlayerTable(availablePlayers, true);
         displayAllFinalTeams();
+        writeADP();
 
         document.getElementById('currentPickSelection').style.display = 'none';
         return console.log("Draft is complete");
@@ -309,23 +314,24 @@ async function proceedToNextDraftRound(roundNumber) {
 
                 pickLog += `Pick ${currentPickNumber} - ${selectedPlayer.name}\n`;
                 updateDisplayArea(pickLog);
-
+                addToADP(selectedPlayer, currentPickNumber);
+                
                 user = true;
                 picksCompleted++;
             }
         } else {
             // Computer's turn to pick
-            let pickResult = draftComputerPlayer(availablePlayers, draftingTeam);
-            if (pickResult.player) {
-                removeFromAvailablePlayers(availablePlayers, pickResult.player);
+            const selectedPlayer = draftComputerPlayer(availablePlayers, draftingTeam);
+            if (selectedPlayer.player) {
+                removeFromAvailablePlayers(availablePlayers, selectedPlayer.player);
 
-                pickLog += `Pick ${currentPickNumber} - ${pickResult.player.name}\n`;
+                pickLog += `Pick ${currentPickNumber} - ${selectedPlayer.player.name}\n`;
                 updateDisplayArea(pickLog);
-
+                addToADP(selectedPlayer.player, currentPickNumber);
                 displayAllFinalTeams();
                 picksCompleted++;
 
-                console.log(`Team ${teamIndex + 1} (computer) picked ${pickResult.player.name}.`);
+                console.log(`Team ${teamIndex + 1} (computer) picked ${selectedPlayer.player.name}.`);
             }
         }
     };
@@ -346,15 +352,15 @@ async function proceedToNextDraftRound(roundNumber) {
         });
     }
 
-    function checkTeamSizes(teams) {
-        for (const team of teams) {
-          const totalPlayers = Object.values(team.players).flat().length;
-          if (team.teamSize !== totalPlayers) {
-            return false;
-          }
-        }
-
-        return true;
+    function addToADP(player, pick) {
+        const newPlayerObject = {
+            "player_id": player.player_id,
+            "name": player.name,
+            "positions": player.positions,
+            "pick": pick,
+        };
+          
+        ADP.push(newPlayerObject);
     }
 
     function removeFromAvailablePlayers(availablePlayers, player) {
@@ -417,6 +423,22 @@ async function proceedToNextDraftRound(roundNumber) {
         const title = "Pick Log:";
         log = log.replace(/\n/g, "<br>");
         document.getElementById("pickLogModalContainer").innerHTML = title + '<br>' + log;
+    }
+
+    function writeADP() {
+        const adpRef = firebase.database().ref('X-ADP');
+        const newDraftId = adpRef.push().key;
+        const adpData = {
+          [newDraftId]: ADP,
+        };
+      
+        adpRef.update(adpData)
+        .then(() => {
+            console.log(`ADP array written to X-ADP with draftId: ${newDraftId}`);
+        })
+        .catch((error) => {
+            console.error('Error writing ADP array:', error);
+        });
     }
 }
 
