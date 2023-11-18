@@ -243,7 +243,7 @@ function setupDraft() {
     return createSelectPlayerTable(availablePlayers);
 }
 
-async function createSelectPlayerTable(availablePlayers, callback) {
+async function createSelectPlayerTable(availablePlayers, flag) {
     const selectPlayerTable = $('#selectPlayerTable').DataTable({
         retrieve: true,
         sort: false,
@@ -266,27 +266,34 @@ async function createSelectPlayerTable(availablePlayers, callback) {
 
     selectPlayerTable.draw();
 
-    return new Promise(resolve => {
-        $('#selectPlayerTable tbody').on('click', 'tr', function () {
-            const rowData = selectPlayerTable.row(this).data();
-            const playerId = rowData[1];
-            const selectedPlayer = availablePlayers.find(player => player.player_id === playerId);
-            resolve(selectedPlayer);
+    if (flag) {
+        return null;
+    } else {
+        return new Promise(resolve => {
+            $('#selectPlayerTable tbody').on('click', 'tr', function () {
+                const rowData = selectPlayerTable.row(this).data();
+                const playerId = rowData[2];
+                const selectedPlayer = availablePlayers.find(player => player.player_id === playerId);
+                resolve(selectedPlayer);
+            });
         });
-    });
+    }
+
 }
 
 async function proceedToNextDraftRound(roundNumber) {
     // Check if the draft is over
     if (roundNumber >= numPlayersPerTeam) {
-        document.getElementById('currentPickSelection').style.display = 'none';
-        displayLeftOverPlayers();
+        createSelectPlayerTable(availablePlayers, true);
         displayAllFinalTeams();
+
+        document.getElementById('currentPickSelection').style.display = 'none';
         return console.log("Draft is complete");
     }
 
-    // Iterate through all teams for the current round
     let user = false;
+    let picksCompleted = 0;
+    
     for (let i = 0; i < allTeams.length; i++) {
         let teamIndex = (draftType === 'snake' && roundNumber % 2 === 1) ? allTeams.length - 1 - i : i;
         let draftingTeam = allTeams[teamIndex];
@@ -297,13 +304,14 @@ async function proceedToNextDraftRound(roundNumber) {
 
             while (!user) {
                 const selectedPlayer = await createSelectPlayerTable(availablePlayers);
-                userPickPlayer(selectedPlayer);
+                await userPickPlayer(selectedPlayer);
                 removeFromAvailablePlayers(availablePlayers, selectedPlayer);
 
                 pickLog += `Pick ${currentPickNumber} - ${selectedPlayer.name}\n`;
                 updateDisplayArea(pickLog);
 
                 user = true;
+                picksCompleted++;
             }
         } else {
             // Computer's turn to pick
@@ -315,14 +323,40 @@ async function proceedToNextDraftRound(roundNumber) {
                 updateDisplayArea(pickLog);
 
                 displayAllFinalTeams();
+                picksCompleted++;
+
                 console.log(`Team ${teamIndex + 1} (computer) picked ${pickResult.player.name}.`);
             }
         }
     };
     
-    // Continue to the next round
+    await waitForAllPicks();
     proceedToNextDraftRound(roundNumber + 1);
     
+    function waitForAllPicks() {
+        return new Promise(resolve => {
+            const checkPicksCompleted = () => {
+                if (picksCompleted === allTeams.length) {
+                    resolve();
+                } else {
+                    setTimeout(checkPicksCompleted, 100);
+                }
+            };
+            checkPicksCompleted();
+        });
+    }
+
+    function checkTeamSizes(teams) {
+        for (const team of teams) {
+          const totalPlayers = Object.values(team.players).flat().length;
+          if (team.teamSize !== totalPlayers) {
+            return false;
+          }
+        }
+
+        return true;
+    }
+
     function removeFromAvailablePlayers(availablePlayers, player) {
         const index = availablePlayers.indexOf(player);
 
@@ -333,48 +367,50 @@ async function proceedToNextDraftRound(roundNumber) {
     }
     
     async function userPickPlayer(player) {
-        const options = player.positions;
-   
-        if (options.length > 1) {
-            document.getElementById("positionSelectionModal").style.display = 'block';
-            const selectPlayerPosition = document.getElementById("selectPlayerPosition");
-            selectPlayerPosition.innerHTML = `Select Position - ${player.name}`;
-
-            const positionButtons = document.getElementById("positionButtons");
-            positionButtons.innerHTML = '';
-
-            options.forEach(option => {
-                const button = document.createElement("button");
-                button.textContent = option;
-                button.classList.add("button-1")
-                button.addEventListener("click", function () {
-                    if (options.includes(option)) {
-                        document.getElementById("positionSelectionModal").style.display = 'none';
-                        const addedToTeam = userTeam.addPlayer(player, option);
-
-                        if (addedToTeam) {
-                            console.log(`${player.name} has been drafted to your team at position ${option}.`);
-                            return player;
-                        } else {
-                            showAlertModal(`Unable to draft ${player.name}. Your team may be full.`)
-                            userPickPlayer(player);
+        return new Promise(resolve => {
+            const options = player.positions;
+    
+            if (options.length > 1) {
+                document.getElementById("positionSelectionModal").style.display = 'block';
+                const selectPlayerPosition = document.getElementById("selectPlayerPosition");
+                selectPlayerPosition.innerHTML = `Select Position - ${player.name}`;
+    
+                const positionButtons = document.getElementById("positionButtons");
+                positionButtons.innerHTML = '';
+    
+                options.forEach(option => {
+                    const button = document.createElement("button");
+                    button.textContent = option;
+                    button.classList.add("button-1");
+                    button.addEventListener("click", function () {
+                        if (options.includes(option)) {
+                            document.getElementById("positionSelectionModal").style.display = 'none';
+                            const addedToTeam = userTeam.addPlayer(player, option);
+    
+                            if (addedToTeam) {
+                                console.log(`${player.name} has been drafted to your team at position ${option}.`);
+                                resolve(player);
+                            } else {
+                                showAlertModal(`Unable to draft ${player.name}. Your team may be full.`);
+                                userPickPlayer(player).then(resolve);
+                            }
                         }
-                    }
+                    });
+    
+                    positionButtons.appendChild(button);
                 });
-
-                positionButtons.appendChild(button);
-            });
-        } else {
-            const addedToTeam = userTeam.addPlayer(player, player.positions[0]);
-            
-            if (addedToTeam) {
-                console.log(`${player.name} has been drafted to your team at position ${player.positions[0]}.`);
-                return player;
             } else {
-                showAlertModal(`Unable to draft ${player.name}. Your team may be full.`)
-                userPickPlayer(player);
+                const addedToTeam = userTeam.addPlayer(player, player.positions[0]);
+    
+                if (addedToTeam) {
+                    console.log(`${player.name} has been drafted to your team at position ${player.positions[0]}.`);
+                    resolve(player);
+                } else {
+                    showAlertModal(`Unable to draft ${player.name}. Your team may be full.`);
+                    userPickPlayer(player).then(resolve);
+                }
             }
-        }
+        });
     }
 
     function updateDisplayArea(log) {
@@ -497,19 +533,6 @@ function displayAllFinalTeams() {
     });
 
     allTeamsTable.draw();
-}
-
-function displayLeftOverPlayers() {
-    return //TODO
-    const playerListContainer = document.getElementById('playerListContainer');
-    playerListContainer.innerHTML = '';
-
-    availablePlayers.forEach((player) => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `${player.name} (${player.positions.join(', ')})`;
-
-        playerListContainer.appendChild(listItem);
-    });
 }
 
 function showAlertModal(message) {
