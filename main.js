@@ -634,6 +634,102 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
    
+    //TODO REMOVE THIS FOR PROD ONLY FOR TESTING
+    function getADP() {
+        firebase.database().ref('X-ADP').once('value')
+            .then((adpData) => {
+                return showADP(adpData.val());
+            })
+            .then((data) => {
+                return showADPTable(data);
+            })
+            .catch((error) => {
+                return console.error('Error showing ADP array:', error);
+            });
+            
+        async function showADP(data) {
+            const allPlayers = Object.values(data).flat();
+            
+            const groupedPlayers = allPlayers.reduce((acc, player) => {
+                if (!acc[player.player_id]) {
+                    acc[player.player_id] = { totalPick: 0, count: 0 };
+                }
+                
+                acc[player.player_id].totalPick += player.pick;
+                acc[player.player_id].count += 1;
+                
+                return acc;
+            }, {});
+            
+            const averagedPlayers = Object.keys(groupedPlayers).map(player_id => {
+                const { totalPick, count } = groupedPlayers[player_id];
+                const averagePick = totalPick / count;
+                return { player_id, averagePick: parseFloat(averagePick.toFixed(2)) };
+            });
+            
+            const finalArray = averagedPlayers.map(averagedPlayer => {
+                const originalPlayer = allPlayers.find(player => player.player_id === averagedPlayer.player_id);
+                return { name: originalPlayer.name, adp: averagedPlayer.averagePick };
+            });
+            
+            finalArray.sort((a, b) => a.adp - b.adp);
+            return finalArray;
+        }
+
+        function showADPTable(data) {
+            const adpTable = $('#ADPTable').DataTable({
+                retrieve: true,
+                sort: false,
+                searching: false,
+                paging: false,
+                lengthChange: false,
+                info: false,
+                columnDefs: [
+                    { targets: [0], title: "Rank" },
+                    { targets: [1], title: "Players" },
+                    { targets: [2], title: "ADP" },
+                ],
+            });
+
+            adpTable.clear();
+
+            data.forEach((player, i) => {
+                adpTable.row.add([i + 1, player.name, player.adp]);
+            });
+
+            adpTable.draw();
+        }
+    }
+
+    getADP();
+
+    const showADPButton = document.getElementById('showADPButton');
+    const showADPTable = document.getElementById('ADPTable');
+    const automatedTestContainer = document.getElementById('automatedTest');
+    const draftSetupContainer = document.getElementById('draftSetup');
+    const configChoiceContainer = document.getElementById('configChoiceSection'); 
+    const startDraftButton = document.getElementById('startDraftButton');
+
+    showADPButton.addEventListener('click', function () {
+        if (showADPButton.textContent === 'Show ADP') {
+            showADPTable.style.display = 'block';
+            automatedTestContainer.style.display = 'none';
+            draftSetupContainer.style.display = 'none';
+            configChoiceContainer.style.display = 'none';
+            startDraftButton.style.display = 'none';
+            showADPButton.textContent = 'Hide ADP';
+        } else {
+            showADPTable.style.display = 'none';
+            automatedTestContainer.style.display = 'block';
+            draftSetupContainer.style.display = 'block';
+            configChoiceContainer.style.display = 'block';
+            startDraftButton.style.display = 'block';
+            showADPButton.textContent = 'Show ADP';
+        }
+    });
+
+    /*********************************************/
+
     document.getElementById('showPickLogButton').addEventListener('click', showPickLog);
     document.getElementById('setNumPlayersPerTeamButton').addEventListener('click', setNumPlayersPerTeam);
     document.getElementById('setNumTeamsButton').addEventListener('click', setNumTeams);
@@ -644,4 +740,3 @@ document.addEventListener('DOMContentLoaded', () => {
         startDraftSimulation();
     });
 });
-
