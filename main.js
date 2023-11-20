@@ -497,9 +497,15 @@ function draftComputerPlayer(availablePlayers, team) {
         });
     });
 
-    // Sort players by score
-    playerScores.sort((a, b) => b.score - a.score);
+    // Sort players by score & randomize the order if scores are equal
+    playerScores.sort((a, b) => {
+        if (b.score === a.score) {
+            return Math.random() - 0.5;
+        }
 
+        return b.score - a.score;
+    });
+    
     // Try to draft the best player based on the calculated score
     for (const { score, player, position } of playerScores) {
         if (positionNeeds[position] > 0) {
