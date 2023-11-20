@@ -188,7 +188,6 @@ function setUserDraftPosition() {
 
     // Initialize computer teams. We'll assume 'numTeams' includes the user team.
     for (let i = 0; i < numTeams - 1; i++) {
-        console.log(1)
         computerTeams.push(new Team(numPlayersPerTeam, chosenConfig));
     }
 
@@ -200,8 +199,7 @@ function setUserDraftPosition() {
             allTeams.push(computerTeams.shift());
         }
     }
-    console.log(userTeam)
-    console.log(computerTeams)
+
     checkAllInputsSet();
 }
 
@@ -214,6 +212,7 @@ function setDraftType() {
     } else {
         return showAlertModal('Please select a draft type.')
     }
+
     checkAllInputsSet();
 }
 
@@ -234,8 +233,18 @@ function checkAllInputsSet() {
     }
 }
 
-function setupDraft() {
-    availablePlayers = players.map(playerData => new Player(
+async function setupDraft() {
+    const res = await getADP(true);
+    const playersByADP = players.map(player => {
+        const correspondingRes = res.find(resPlayer => resPlayer.player_id === player.player_id);
+        if (correspondingRes) {
+            player.rank = correspondingRes.adp;
+        }
+
+        return player;
+    });
+
+    availablePlayers = playersByADP.map((playerData) => new Player(
         playerData.player_id,
         playerData.name,
         playerData.positions,
@@ -578,6 +587,88 @@ function closePickLogModal() {
     document.getElementById('pickLogModal').style.display = 'none';
 }
 
+/*********************************************/
+//TODO REMOVE THIS FOR PROD ONLY FOR TESTING
+async function getADP(flag) {
+    const adpData = await firebase.database().ref('X-ADP').once('value');
+    const data = adpData.val();
+
+    return showADP(data)
+        .then((data) => {
+            if (flag) {
+                return data;
+            } else {
+                return showADPTable(data);
+            }
+        })
+        .catch((error) => {
+            return console.error('Error showing ADP array:', error);
+        });
+
+    async function showADP(data) {
+        const allPlayers = Object.values(data).flat();
+        
+        const groupedPlayers = allPlayers.reduce((acc, player) => {
+            if (!acc[player.player_id]) {
+                acc[player.player_id] = { totalPick: 0, count: 0 };
+            }
+            
+            acc[player.player_id].totalPick += player.pick;
+            acc[player.player_id].count += 1;
+            
+            return acc;
+        }, {});
+        
+        const averagedPlayers = Object.keys(groupedPlayers).map(player_id => {
+            const { totalPick, count } = groupedPlayers[player_id];
+            const averagePick = totalPick / count;
+            
+            return { 
+                player_id, averagePick: parseFloat(averagePick.toFixed(2)) 
+            };
+        });
+        
+        const finalArray = averagedPlayers.map(averagedPlayer => {
+            const originalPlayer = allPlayers.find(player => player.player_id === averagedPlayer.player_id);
+
+            return {
+                name: originalPlayer.name,
+                adp: averagedPlayer.averagePick,
+                player_id: originalPlayer.player_id,
+            };
+        });
+        
+        finalArray.sort((a, b) => a.adp - b.adp);
+        return finalArray;
+    }
+
+    function showADPTable(data) {
+        const adpTable = $('#ADPTable').DataTable({
+            retrieve: true,
+            sort: false,
+            searching: false,
+            paging: false,
+            lengthChange: false,
+            info: false,
+            columnDefs: [
+                { targets: [0], title: "Rank" },
+                { targets: [1], title: "Players" },
+                { targets: [2], title: "ADP" },
+            ],
+        });
+
+        adpTable.clear();
+
+        data.forEach((player, i) => {
+            adpTable.row.add([i + 1, player.name, player.adp]);
+        });
+
+        adpTable.draw();
+    }
+}
+
+/*********************************************/
+
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.configButton').forEach(button => {
         button.addEventListener('click', () => {
@@ -587,6 +678,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
+    /*********************************************/
     //TODO REMOVE THIS FOR PROD ONLY FOR TESTING
     document.querySelectorAll('.test').forEach(button => {
         button.addEventListener('click', () => {
@@ -633,73 +725,6 @@ document.addEventListener('DOMContentLoaded', () => {
             checkAllInputsSet();
         });
     });
-   
-    //TODO REMOVE THIS FOR PROD ONLY FOR TESTING
-    function getADP() {
-        firebase.database().ref('X-ADP').once('value')
-            .then((adpData) => {
-                return showADP(adpData.val());
-            })
-            .then((data) => {
-                return showADPTable(data);
-            })
-            .catch((error) => {
-                return console.error('Error showing ADP array:', error);
-            });
-            
-        async function showADP(data) {
-            const allPlayers = Object.values(data).flat();
-            
-            const groupedPlayers = allPlayers.reduce((acc, player) => {
-                if (!acc[player.player_id]) {
-                    acc[player.player_id] = { totalPick: 0, count: 0 };
-                }
-                
-                acc[player.player_id].totalPick += player.pick;
-                acc[player.player_id].count += 1;
-                
-                return acc;
-            }, {});
-            
-            const averagedPlayers = Object.keys(groupedPlayers).map(player_id => {
-                const { totalPick, count } = groupedPlayers[player_id];
-                const averagePick = totalPick / count;
-                return { player_id, averagePick: parseFloat(averagePick.toFixed(2)) };
-            });
-            
-            const finalArray = averagedPlayers.map(averagedPlayer => {
-                const originalPlayer = allPlayers.find(player => player.player_id === averagedPlayer.player_id);
-                return { name: originalPlayer.name, adp: averagedPlayer.averagePick };
-            });
-            
-            finalArray.sort((a, b) => a.adp - b.adp);
-            return finalArray;
-        }
-
-        function showADPTable(data) {
-            const adpTable = $('#ADPTable').DataTable({
-                retrieve: true,
-                sort: false,
-                searching: false,
-                paging: false,
-                lengthChange: false,
-                info: false,
-                columnDefs: [
-                    { targets: [0], title: "Rank" },
-                    { targets: [1], title: "Players" },
-                    { targets: [2], title: "ADP" },
-                ],
-            });
-
-            adpTable.clear();
-
-            data.forEach((player, i) => {
-                adpTable.row.add([i + 1, player.name, player.adp]);
-            });
-
-            adpTable.draw();
-        }
-    }
 
     getADP();
 
@@ -737,6 +762,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('setDraftTypeButton').addEventListener('click', setDraftType);
     document.getElementById('startDraftButton').addEventListener('click', () => {
         document.getElementById('startDraftButton').style.display = 'none';
+        document.getElementById('showADPContainer').style.display = 'none';
         startDraftSimulation();
     });
 });
