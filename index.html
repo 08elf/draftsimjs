@@ -61,7 +61,6 @@
             <label for="numTeams">Enter the number of teams in the draft:</label>
             <input type="number" id="numTeams" min="2">
             <button id="setNumTeamsButton">Set Teams</button>
-
         </div>
 
         <!-- User's draft position -->
@@ -84,7 +83,11 @@
 
     <br>
     <button id="startDraftButton" disabled>Start Draft</button>
-    <button id="showPickLogButton" class="button-1">Show pick log</button>
+
+    <div class="inline-flex">
+        <button id="showPickLogButton" class="button-1">Show pick log</button>
+        <button id="restartDraftButton" class="button-1">Restart draft</button>
+    </div>
 
     <div id="allTeamsContainer">
         <table id="allTeamsTable"></table>
@@ -100,7 +103,6 @@
 
     <!-- Modals -->
     <div id="pickLogModal" class="modal modal-log">
-        <span class="close margin-right-35" onclick="closePickLogModal()">&times;</span>
         <div id="pickLogModalContainer" class="modal-content-log">Empty log</div>
     </div>
 

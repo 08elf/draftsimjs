@@ -134,8 +134,9 @@ class Team {
     }
 }
 
-function startDraftSimulation() {
-    setupDraft();
+async function startDraftSimulation() {
+    const players = await setupDraft();
+    createSelectPlayerTable(players);
     displayAllFinalTeams();
     proceedToNextDraftRound(0); // Start with round 0
     document.getElementById('showPickLogButton').style.display = 'block';
@@ -235,28 +236,39 @@ function checkAllInputsSet() {
 
 async function setupDraft() {
     const res = await getADP(true);
+
+    function calculatePercentileRank(value, array) {
+        const sortedArray = array.slice().sort((a, b) => a - b);
+        const index = sortedArray.indexOf(value);
+        return index / (sortedArray.length - 1);
+    }
+    
     const playersByADP = players.map(player => {
         const correspondingRes = res.find(resPlayer => resPlayer.player_id === player.player_id);
         if (correspondingRes) {
-            player.rank = correspondingRes.adp;
+            const percentileRank = calculatePercentileRank(correspondingRes.adp, res.map(p => p.adp));
+            player.rank = Math.ceil(percentileRank * 100);
         }
-
         return player;
     });
 
-    availablePlayers = playersByADP.map((playerData) => new Player(
-        playerData.player_id,
-        playerData.name,
-        playerData.positions,
-        playerData.rank,
-        playerData.fantasy_average,
-        playerData.team
-    ));
+    const playerObjects = await Promise.all(playersByADP.map(async (playerData) => {
+        return new Player(
+            playerData.player_id,
+            playerData.name,
+            playerData.positions,
+            playerData.rank,
+            playerData.fantasy_average,
+            playerData.team
+        );
+    }));
 
-    return createSelectPlayerTable(availablePlayers);
+    availablePlayers = playerObjects;
+    return playerObjects;
 }
 
 async function createSelectPlayerTable(availablePlayers, flag) {
+    document.getElementById('playerListContainer').style.display = 'block';
     const selectPlayerTable = $('#selectPlayerTable').DataTable({
         retrieve: true,
         sort: false,
@@ -282,7 +294,7 @@ async function createSelectPlayerTable(availablePlayers, flag) {
     if (flag) {
         return null;
     } else {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             $('#selectPlayerTable tbody').on('click', 'tr', function () {
                 const rowData = selectPlayerTable.row(this).data();
                 const playerId = rowData[2];
@@ -291,7 +303,6 @@ async function createSelectPlayerTable(availablePlayers, flag) {
             });
         });
     }
-
 }
 
 async function proceedToNextDraftRound(roundNumber) {
@@ -301,8 +312,8 @@ async function proceedToNextDraftRound(roundNumber) {
         displayAllFinalTeams();
         writeADP();
 
-        document.getElementById('currentPickSelection').style.display = 'none';
-        return console.log("Draft is complete");
+        document.getElementById('restartDraftButton').style.display = 'block';
+        return document.getElementById('currentPickSelection').textContent = `Draft is complete`;
     }
 
     let user = false;
@@ -428,12 +439,6 @@ async function proceedToNextDraftRound(roundNumber) {
         });
     }
 
-    function updateDisplayArea(log) {
-        const title = "Pick Log:";
-        log = log.replace(/\n/g, "<br>");
-        document.getElementById("pickLogModalContainer").innerHTML = title + '<br>' + log;
-    }
-
     function writeADP() {
         const adpRef = firebase.database().ref('X-ADP');
         const newDraftId = adpRef.push().key;
@@ -520,6 +525,8 @@ function draftComputerPlayer(availablePlayers, team) {
 }
 
 function displayAllFinalTeams() {
+    document.getElementById("allTeamsContainer").style.display = 'block';
+
     var userIndex = Number(userDraftPosition);
     var positions = ['Defender', 'Midfielder', 'Forward', 'Ruck', 'Bench'];
     var tempTeams = [[]].concat(allTeams);
@@ -566,6 +573,14 @@ function displayAllFinalTeams() {
     allTeamsTable.draw();
 }
 
+function updateDisplayArea(log) {
+    const title = "Pick Log:";
+    log = log.replace(/\n/g, "<br>");
+
+    const container = document.getElementById("pickLogModalContainer");
+    container.innerHTML = `<span class="close margin-top-10" onclick="closePickLogModal()">&times;</span>${title}<br>${log}`;
+}
+
 function showAlertModal(message) {
     const alertModal = document.getElementById('alertModal');
     const alertModalText = document.getElementsByClassName('alertModalText')[0];
@@ -587,10 +602,32 @@ function closePickLogModal() {
     document.getElementById('pickLogModal').style.display = 'none';
 }
 
+function restartApp() {
+    numPlayersPerTeam, chosenConfig, numTeams, userDraftPosition, draftType, userTeam, pickLog = '';
+    currentPickNumber = 0;
+    ADP, computerTeams, availablePlayers, allTeams = [];
+    
+    updateDisplayArea(pickLog);
+    document.getElementById('currentPickSelection').textContent = '';
+
+    document.getElementById('allTeamsContainer').style.display = 'none';
+    document.getElementById('restartDraftButton').style.display = 'none';
+    document.getElementById('showPickLogButton').style.display = 'none';
+    document.getElementById('playerListContainer').style.display = 'none';
+    document.getElementById('automatedTest').style.display = 'block';
+    document.getElementById('draftSetup').style.display = 'block';
+    document.getElementById('showADPContainer').style.display = 'block';
+    document.getElementById('configChoiceSection').style.display = 'block';
+    document.getElementById('startDraftButton').style.display = 'block';
+    document.getElementById('startDraftButton').disabled = true;
+
+    getADP();
+}
+
 /*********************************************/
 //TODO REMOVE THIS FOR PROD ONLY FOR TESTING
 async function getADP(flag) {
-    const adpData = await firebase.database().ref('X-ADP').once('value');
+    const adpData = await firebase.database().ref('X-ADP').limitToLast(100).once('value');
     const data = adpData.val();
 
     return showADP(data)
@@ -734,6 +771,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const draftSetupContainer = document.getElementById('draftSetup');
     const configChoiceContainer = document.getElementById('configChoiceSection'); 
     const startDraftButton = document.getElementById('startDraftButton');
+    const restartDraftButton = document.getElementById('restartDraftButton');
 
     showADPButton.addEventListener('click', function () {
         if (showADPButton.textContent === 'Show ADP') {
@@ -760,9 +798,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('setNumTeamsButton').addEventListener('click', setNumTeams);
     document.getElementById('setUserDraftPositionButton').addEventListener('click', setUserDraftPosition);
     document.getElementById('setDraftTypeButton').addEventListener('click', setDraftType);
-    document.getElementById('startDraftButton').addEventListener('click', () => {
-        document.getElementById('startDraftButton').style.display = 'none';
+    
+    startDraftButton.addEventListener('click', () => {
+        automatedTestContainer.style.display = 'none';
         document.getElementById('showADPContainer').style.display = 'none';
+        document.getElementById('automatedTest').style.display = 'none';
+        document.getElementById('startDraftButton').style.display = 'none';
         startDraftSimulation();
+    });
+
+    restartDraftButton.addEventListener('click', () => {
+        restartApp();
     });
 });
