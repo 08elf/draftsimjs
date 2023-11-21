@@ -135,11 +135,14 @@ class Team {
 }
 
 async function startDraftSimulation() {
+    const playersButton = document.getElementById('playersButton');
+    playersButton.click();
+
     const players = await setupDraft();
     createSelectPlayerTable(players);
     displayAllFinalTeams();
-    proceedToNextDraftRound(0); // Start with round 0
-    document.getElementById('showPickLogButton').style.display = 'block';
+    proceedToNextDraftRound(0);
+    // document.getElementById('showPickLogButton').style.display = 'block';
 }
 
 // Set the number of players per team
@@ -183,16 +186,12 @@ function setNumTeams() {
 function setUserDraftPosition() {
     userDraftPosition = document.getElementById('userDraftPosition').value;
     document.getElementById('draftTypeSection').style.display = 'block';
-
-    // Initialize the user team with the chosen configuration
     userTeam = new Team(numPlayersPerTeam, chosenConfig);
 
-    // Initialize computer teams. We'll assume 'numTeams' includes the user team.
     for (let i = 0; i < numTeams - 1; i++) {
         computerTeams.push(new Team(numPlayersPerTeam, chosenConfig));
     }
 
-    // Create an array of all teams and insert the user team at the specified draft position
     for (let i = 0; i < numTeams; i++) {
         if (i === userDraftPosition - 1) {
             allTeams.push(userTeam);
@@ -217,19 +216,11 @@ function setDraftType() {
     checkAllInputsSet();
 }
 
-// Check if all inputs are set
 function checkAllInputsSet() {
     if (numPlayersPerTeam && chosenConfig && numTeams && userDraftPosition && draftType) {
-        console.log(`All inputs set. Enabling start draft button. 
-            Chosen configuration: ${JSON.stringify(chosenConfig)},
-            Players per team: ${numPlayersPerTeam},
-            Number of teams: ${numTeams},
-            User draft position: ${userDraftPosition},
-            Draft type: ${draftType}`);
         document.getElementById('startDraftButton').disabled = false;
-        document.getElementById('draftSetup').style.display = 'none';
+        showElements(["startDraftButton"]);
     } else {
-        console.log('Not all inputs are set. Start draft button remains disabled.');
         document.getElementById('startDraftButton').disabled = true;
     }
 }
@@ -268,7 +259,7 @@ async function setupDraft() {
 }
 
 async function createSelectPlayerTable(availablePlayers, flag) {
-    document.getElementById('playerListContainer').style.display = 'block';
+    // document.getElementById('playerListContainer').style.display = 'block';
     const selectPlayerTable = $('#selectPlayerTable').DataTable({
         retrieve: true,
         sort: false,
@@ -564,7 +555,7 @@ function draftComputerPlayer(availablePlayers, team) {
 }
 
 function displayAllFinalTeams() {
-    document.getElementById("allTeamsContainer").style.display = 'block';
+    // document.getElementById("allTeamsContainer").style.display = 'block';
 
     var userIndex = Number(userDraftPosition);
     var positions = ['Defender', 'Midfielder', 'Forward', 'Ruck', 'Bench'];
@@ -613,11 +604,10 @@ function displayAllFinalTeams() {
 }
 
 function updateDisplayArea(log) {
-    const title = "Pick Log:";
     log = log.replace(/\n/g, "<br>");
 
     const container = document.getElementById("pickLogModalContainer");
-    container.innerHTML = `<span class="close margin-top-10" onclick="closePickLogModal()">&times;</span>${title}<br>${log}`;
+    container.innerHTML = `<span class="close margin-top-10" onclick="closePickLogModal()">&times;</span>${log}`;
 }
 
 function showAlertModal(message) {
@@ -649,15 +639,16 @@ function restartApp() {
     updateDisplayArea(pickLog);
     document.getElementById('currentPickSelection').textContent = '';
 
-    document.getElementById('allTeamsContainer').style.display = 'none';
-    document.getElementById('restartDraftButton').style.display = 'none';
-    document.getElementById('showPickLogButton').style.display = 'none';
-    document.getElementById('playerListContainer').style.display = 'none';
-    document.getElementById('automatedTest').style.display = 'block';
-    document.getElementById('draftSetup').style.display = 'block';
-    document.getElementById('showADPContainer').style.display = 'block';
-    document.getElementById('configChoiceSection').style.display = 'block';
-    document.getElementById('startDraftButton').style.display = 'block';
+    hideElements(["playersButton", "myTeamButton", "allTeamButton", "pickLogButton", "resetButton"]);
+    showElements(["adpButton", "autoDraftButton", "manualDraftButton"]);
+    // document.getElementById('allTeamsContainer').style.display = 'none';
+    // document.getElementById('restartDraftButton').style.display = 'none';
+    // document.getElementById('showPickLogButton').style.display = 'none';
+    // document.getElementById('playerListContainer').style.display = 'none';
+    // document.getElementById('automatedTest').style.display = 'block';
+    // document.getElementById('draftSetup').style.display = 'block';
+    // document.getElementById('configChoiceSection').style.display = 'block';
+    // document.getElementById('startDraftButton').style.display = 'block';
     document.getElementById('startDraftButton').disabled = true;
 
     getADP();
@@ -722,7 +713,7 @@ async function getADP(flag) {
         const adpTable = $('#ADPTable').DataTable({
             retrieve: true,
             sort: false,
-            searching: false,
+            searching: true,
             paging: false,
             lengthChange: false,
             info: false,
@@ -741,6 +732,42 @@ async function getADP(flag) {
 
         adpTable.draw();
     }
+}
+
+function hideElements(elementIds) {
+    elementIds.forEach(elementId => {
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.classList.add('hidden');
+        }
+    });
+}
+
+function showElements(elementIds) {
+    elementIds.forEach(elementId => {
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.classList.remove('hidden');
+        }
+    });
+}
+
+function openTab(evt, name) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+
+    tablinks = document.getElementsByClassName("tablinks");
+
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    document.getElementById(name).style.display = "block";
+    evt.currentTarget.className += " active";
 }
 
 /*********************************************/
@@ -788,65 +815,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
             numTeams = 2;
             userDraftPosition = 1;
-            document.getElementById('userDraftPosition').value = 1;
-            
-            setUserDraftPosition();
-
-            document.getElementById('automatedTest').style.display = 'none';
-            document.getElementById('configChoiceSection').style.display = 'none';
-            document.getElementById('draftTypeSection').style.display = 'none';
-
             draftType = 'snake';
+            document.getElementById('userDraftPosition').value = 1;
 
+            setUserDraftPosition();
             checkAllInputsSet();
         });
     });
 
     getADP();
 
-    const showADPButton = document.getElementById('showADPButton');
-    const showADPTable = document.getElementById('ADPTable');
     const automatedTestContainer = document.getElementById('automatedTest');
-    const draftSetupContainer = document.getElementById('draftSetup');
-    const configChoiceContainer = document.getElementById('configChoiceSection'); 
     const startDraftButton = document.getElementById('startDraftButton');
     const restartDraftButton = document.getElementById('restartDraftButton');
 
-    showADPButton.addEventListener('click', function () {
-        if (showADPButton.textContent === 'Show ADP') {
-            showADPTable.style.display = 'block';
-            automatedTestContainer.style.display = 'none';
-            draftSetupContainer.style.display = 'none';
-            configChoiceContainer.style.display = 'none';
-            startDraftButton.style.display = 'none';
-            showADPButton.textContent = 'Hide ADP';
-        } else {
-            showADPTable.style.display = 'none';
-            automatedTestContainer.style.display = 'block';
-            draftSetupContainer.style.display = 'block';
-            configChoiceContainer.style.display = 'block';
-            startDraftButton.style.display = 'block';
-            showADPButton.textContent = 'Show ADP';
-        }
-    });
-
     /*********************************************/
 
-    document.getElementById('showPickLogButton').addEventListener('click', showPickLog);
     document.getElementById('setNumPlayersPerTeamButton').addEventListener('click', setNumPlayersPerTeam);
     document.getElementById('setNumTeamsButton').addEventListener('click', setNumTeams);
     document.getElementById('setUserDraftPositionButton').addEventListener('click', setUserDraftPosition);
     document.getElementById('setDraftTypeButton').addEventListener('click', setDraftType);
     
     startDraftButton.addEventListener('click', () => {
-        automatedTestContainer.style.display = 'none';
-        document.getElementById('showADPContainer').style.display = 'none';
-        document.getElementById('automatedTest').style.display = 'none';
-        document.getElementById('startDraftButton').style.display = 'none';
+        hideElements(["autoDraftButton", "manualDraftButton", "startDraftButton"]);
+        showElements(["playersButton", "myTeamButton", "allTeamButton", "pickLogButton", "resetButton"]);
         startDraftSimulation();
     });
 
-    restartDraftButton.addEventListener('click', () => {
+    resetButton.addEventListener('click', () => {
+        const tabContents = document.getElementsByClassName("tabcontent");
+
+        for (const tabContent of tabContents) {
+            tabContent.classList.add("hidden");
+        }
+        
         restartApp();
     });
 });

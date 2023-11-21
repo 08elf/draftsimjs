@@ -23,25 +23,32 @@
 <body>
     <h1 class="margin-bottom-0">Team Draft Simulator</h1>
 
-    <!-- Show ADP -->
-    <div id="showADPContainer">
-        <p>Get current ADP for players</p>
-        <button id="showADPButton" class="test">Show ADP</button>
+    <div class="tab">
+        <button id="adpButton" class="tablinks" onclick="openTab(event, 'adp')">ADP</button>
+        <button id="autoDraftButton" class="tablinks" onclick="openTab(event, 'autoDraft')">Quick Draft</button>
+        <button id="manualDraftButton" class="tablinks" onclick="openTab(event, 'manualDraft')">Detailed Draft</button>
+        <button id="playersButton" class="tablinks hidden" onclick="openTab(event, 'players')">Select Player</button>
+        <button id="myTeamButton" class="tablinks hidden" onclick="openTab(event, 'myTeam')">My Team</button>
+        <button id="allTeamButton" class="tablinks hidden" onclick="openTab(event, 'allTeam')">All Teams</button>
+        <button id="pickLogButton" class="tablinks hidden" onclick="openTab(event, 'pickLog')">Pick Log</button>
+        <button id="resetButton" class="tablinks hidden red">Reset</button>
+      </div>
+      
+    <div id="adp" class="tabcontent">
+        <h3>Average Draft Position</h3>
         <table id="ADPTable"></table>
     </div>
-
-    <!-- Test setup -->
-    <div id="automatedTest">
-        <p>Automated setup</p>
+      
+    <div id="autoDraft" class="tabcontent">
+        <h3>Quick Draft Setup</h3>
+        <p>Choose an on-field position configuration:</p>
         <button class="test" id="test1">Test 2-3-1-2</button>
         <button class="test" id="test2">Test 5-7-1-5</button>
         <button class="test" id="test3">Test 6-8-2-6</button>
     </div>
-
-
-
-    <div id="draftSetup">
-        <!-- Configuration choice -->
+      
+    <div id="manualDraft" class="tabcontent">
+        <h3>Detailed Draft Setup</h3>
         <div id="configChoiceSection">
             <p>Choose an on-field position configuration:</p>
             <button class="configButton" data-config="1" data-min="8">2-3-1-2</button>
@@ -49,29 +56,25 @@
             <button class="configButton" data-config="3" data-min="22">6-8-2-6</button>
         </div>
 
-        <!-- Input for number of players per team -->
-        <div id="numPlayersPerTeamSection" style="display:none;">
+        <div id="numPlayersPerTeamSection" class="hidden">
             <label for="numPlayersPerTeam">Enter the number of players per team:</label>
             <input type="number" id="numPlayersPerTeam" min="1">
             <button id="setNumPlayersPerTeamButton">Set Max. Player</button>
         </div>
 
-        <!-- Number of teams -->
-        <div id="numTeamsSection" style="display:none;">
+        <div id="numTeamsSection" class="hidden">
             <label for="numTeams">Enter the number of teams in the draft:</label>
             <input type="number" id="numTeams" min="2">
             <button id="setNumTeamsButton">Set Teams</button>
         </div>
 
-        <!-- User's draft position -->
-        <div id="userDraftPositionSection" style="display:none;">
+        <div id="userDraftPositionSection" class="hidden">
             <label for="userDraftPosition">Enter your draft position:</label>
             <input type="number" id="userDraftPosition" min="1">
             <button id="setUserDraftPositionButton">Set Position</button>
         </div>
 
-        <!-- User's choice for draft type -->
-        <div id="draftTypeSection" style="display:none;">
+        <div id="draftTypeSection" class="hidden">
             <p>Select the type of draft:</p>
             <input type="radio" id="snake" name="draftType" value="snake">
             <label for="snake">Snake Draft</label><br>
@@ -81,30 +84,46 @@
         </div>
     </div>
 
-    <br>
-    <button id="startDraftButton" disabled>Start Draft</button>
-
-    <div class="inline-flex">
-        <button id="showPickLogButton" class="button-1">Show pick log</button>
-        <button id="restartDraftButton" class="button-1">Restart draft</button>
-    </div>
-
-    <div id="allTeamsContainer">
-        <table id="allTeamsTable"></table>
-    </div>
-
-    <br>
-    <div id="currentPickSelection"></div>
-    <br>
-
-    <div id="playerListContainer">
+    <div id="players" class="tabcontent">
+        <h3 id="currentPickSelection"></h3>
+        <h3>Select Player</h3>
         <table id="selectPlayerTable"></table>
     </div>
 
-    <!-- Modals -->
-    <div id="pickLogModal" class="modal modal-log">
+    <div id="myTeam" class="tabcontent">
+        <h3>My Team</h3>
+
+    </div>
+
+    <div id="allTeam" class="tabcontent">
+        <h3>All Teams</h3>
+        <table id="allTeamsTable"></table>
+    </div>
+
+    <div id="pickLog" class="tabcontent">
+        <h3>Pick Log</h3>
         <div id="pickLogModalContainer" class="modal-content-log">Empty log</div>
     </div>
+
+    <br>
+    <button id="startDraftButton" class="button-start hidden" disabled>Start Draft</button>
+
+    <!-- <div id="draftSetup">
+
+    </div> -->
+
+    <!-- <div id="allTeamsContainer">
+        <table id="allTeamsTable"></table>
+    </div> -->
+
+    <!-- <div id="playerListContainer">
+        <table id="selectPlayerTable"></table>
+    </div> -->
+
+    <!-- Modals -->
+    <!-- <div id="pickLogModal" class="modal modal-log">
+        <div id="pickLogModalContainer" class="modal-content-log">Empty log</div>
+    </div> -->
 
     <div id="positionSelectionModal" class="modal">
         <div id="buttonContainer" class="modal-content">
