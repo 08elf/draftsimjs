@@ -15,14 +15,12 @@ let numTeams;
 let userDraftPosition;
 let draftType;
 let userTeam;
-let pickLog = '';
 let currentPickNumber = 0;
+let pickLog = [{"pick":"", "name":"", "position":""}];
 let ADP = new Array;
 let computerTeams = new Array;
 let availablePlayers = new Array;
 let allTeams = new Array;
-
-// Function to start the draft simulation
 class Player {
     constructor(id, name, positions, rank, fantasy_average, team) {
         this.player_id = id;
@@ -82,18 +80,15 @@ class Team {
             showAlertModal(`${chosenPosition} position is full, adding ${player.name} to ${availablePositionsSrting}`);
             this.players[availablePositionsSrting].push(player);
             displayAllFinalTeams();
-            console.log(`DEBUG: ${player.name} added to ${availablePositionsSrting}.`);
             return true;
         } else if (availablePositions.length > 0) {
             this.players[chosenPosition].push(player);
             displayAllFinalTeams();
-            console.log(`DEBUG: ${player.name} added to ${chosenPosition}.`);
             return true;
         } else {
             showAlertModal(`${chosenPosition} position is full, adding ${player.name} to Bench`);
             this.players['Bench'].push(player);
             displayAllFinalTeams();
-            console.log(`DEBUG: ${player.name} added to Bench.`);
             return true;
         }
     }
@@ -142,15 +137,12 @@ async function startDraftSimulation() {
     createSelectPlayerTable(players);
     displayAllFinalTeams();
     proceedToNextDraftRound(0);
-    // document.getElementById('showPickLogButton').style.display = 'block';
 }
 
 // Set the number of players per team
 function setNumPlayersPerTeam() {
     numPlayersPerTeam = document.getElementById('numPlayersPerTeam').value;
-    console.log(document.getElementById('numPlayersPerTeam').value)
-    console.log(`Number of players per team is set to: ${numPlayersPerTeam}`);
-    document.getElementById('numTeamsSection').style.display = 'block';
+    showElements(['numTeamsSection']);
     checkAllInputsSet();
 }
 
@@ -169,23 +161,22 @@ function selectConfiguration(configNumber, minPlayers) {
 
     document.getElementById('numPlayersPerTeam').min = minPlayers;
     document.getElementById('numPlayersPerTeam').value = minPlayers;
-    document.getElementById('numPlayersPerTeamSection').style.display = 'block';
-    console.log("numPlayersPerTeamSection display set to block");
 
+    showElements(["numPlayersPerTeamSection"]);
     checkAllInputsSet();
 }
 
 // Set the number of teams
 function setNumTeams() {
     numTeams = document.getElementById('numTeams').value;
-    document.getElementById('userDraftPositionSection').style.display = 'block';
+    showElements(["userDraftPositionSection"]);
     checkAllInputsSet();
 }
 
 // Set the user's draft position
 function setUserDraftPosition() {
     userDraftPosition = document.getElementById('userDraftPosition').value;
-    document.getElementById('draftTypeSection').style.display = 'block';
+
     userTeam = new Team(numPlayersPerTeam, chosenConfig);
 
     for (let i = 0; i < numTeams - 1; i++) {
@@ -259,6 +250,7 @@ async function setupDraft() {
 }
 
 async function createSelectPlayerTable(availablePlayers, flag) {
+    //TODO
     // document.getElementById('playerListContainer').style.display = 'block';
     const selectPlayerTable = $('#selectPlayerTable').DataTable({
         retrieve: true,
@@ -303,7 +295,6 @@ async function proceedToNextDraftRound(roundNumber) {
         displayAllFinalTeams();
         writeADP();
 
-        document.getElementById('restartDraftButton').style.display = 'block';
         return document.getElementById('currentPickSelection').textContent = `Draft is complete`;
     }
 
@@ -323,8 +314,13 @@ async function proceedToNextDraftRound(roundNumber) {
                 await userPickPlayer(selectedPlayer);
                 removeFromAvailablePlayers(availablePlayers, selectedPlayer);
 
-                pickLog += `Pick ${currentPickNumber} - ${selectedPlayer.name}\n`;
-                updateDisplayArea(pickLog);
+                pickLog.push({
+                    "pick": currentPickNumber,
+                    "name": selectedPlayer.name,
+                    "position": selectedPlayer.currentPosition
+                });
+
+                updatePickLog(pickLog);
                 addToADP(selectedPlayer, currentPickNumber);
                 
                 user = true;
@@ -336,8 +332,13 @@ async function proceedToNextDraftRound(roundNumber) {
             if (selectedPlayer.player) {
                 removeFromAvailablePlayers(availablePlayers, selectedPlayer.player);
 
-                pickLog += `Pick ${currentPickNumber} - ${selectedPlayer.player.name}\n`;
-                updateDisplayArea(pickLog);
+                pickLog.push({
+                    "pick": currentPickNumber,
+                    "name": selectedPlayer.player.name,
+                    "position": selectedPlayer.player.currentPosition
+                });
+
+                updatePickLog(pickLog);
                 addToADP(selectedPlayer.player, currentPickNumber);
                 displayAllFinalTeams();
                 picksCompleted++;
@@ -555,6 +556,7 @@ function draftComputerPlayer(availablePlayers, team) {
 }
 
 function displayAllFinalTeams() {
+    //TODO
     // document.getElementById("allTeamsContainer").style.display = 'block';
 
     var userIndex = Number(userDraftPosition);
@@ -570,7 +572,20 @@ function displayAllFinalTeams() {
 
         headerObjects.push(headerObj);
     });
- 
+
+    const myTeamTable = $('#myTeamTable').DataTable({
+        retrieve: true,
+        sort: false,
+        searching: false,
+        paging: false,
+        lengthChange: false,
+        info: false,
+        columnDefs: [
+            { targets: [0], title: "" },
+            { targets: [1], title: "My Players" },
+        ],
+    });
+
     const allTeamsTable = $('#allTeamsTable').DataTable({
         retrieve: true,
         sort: false,
@@ -582,9 +597,11 @@ function displayAllFinalTeams() {
     });
 
     allTeamsTable.clear();
+    myTeamTable.clear();
 
     positions.forEach((position) => {
         var row = [position];
+        var myRow = [position];
 
         tempTeams.forEach((team, index) => {
             if (index === 0) {
@@ -595,19 +612,44 @@ function displayAllFinalTeams() {
             const playersInPosition = team.players[position];
             const playerNames = playersInPosition.map(player => player.name).join('<br>');
             row.push(playerNames);
+
+            if (index === userIndex) {
+                return myRow.push(playerNames);
+            }
         });
 
         allTeamsTable.row.add(row);
+        myTeamTable.row.add(myRow);
     });
 
+    myTeamTable.draw();
     allTeamsTable.draw();
 }
 
-function updateDisplayArea(log) {
-    log = log.replace(/\n/g, "<br>");
+function updatePickLog(log) {
+    const pickLogTable = $('#pickLogTable').DataTable({
+        retrieve: true,
+        sort: false,
+        searching: false,
+        paging: false,
+        lengthChange: false,
+        info: false,
+        columnDefs: [
+            { targets: [0], title: "Pick" },
+            { targets: [1], title: "Players" },
+            { targets: [2], title: "Position" },
+        ],
+    });
 
-    const container = document.getElementById("pickLogModalContainer");
-    container.innerHTML = `<span class="close margin-top-10" onclick="closePickLogModal()">&times;</span>${log}`;
+    pickLogTable.clear();
+
+    log.forEach((player, i) => {
+        if (i === 0) {
+            return true;
+        } else {
+            pickLogTable.row.add([player.pick, player.name, player.position]).draw();
+        }
+    });
 }
 
 function showAlertModal(message) {
@@ -623,27 +665,27 @@ function showAlertModal(message) {
     });
 }
 
-function showPickLog() {
-    document.getElementById('pickLogModal').style.display = 'block';
-}
-
-function closePickLogModal() {
-    document.getElementById('pickLogModal').style.display = 'none';
-}
-
 function restartApp() {
-    numPlayersPerTeam, chosenConfig, numTeams, userDraftPosition, draftType, userTeam, pickLog = '';
+    numPlayersPerTeam, chosenConfig, numTeams, userDraftPosition, draftType, userTeam;
     currentPickNumber = 0;
-    ADP, computerTeams, availablePlayers, allTeams = [];
+    ADP, computerTeams, availablePlayers, allTeams;
+    pickLog = [{"pick":"", "name":"", "position":""}];
     
-    updateDisplayArea(pickLog);
+    updatePickLog(pickLog);
     document.getElementById('currentPickSelection').textContent = '';
 
     hideElements(["playersButton", "myTeamButton", "allTeamButton", "pickLogButton", "resetButton"]);
     showElements(["adpButton", "autoDraftButton", "manualDraftButton"]);
+
+    const tabContents = document.getElementsByClassName("tabcontent");
+
+    for (const tabContent of tabContents) {
+        tabContent.classList.add("hidden");
+    }
+    
+    //TODO
     // document.getElementById('allTeamsContainer').style.display = 'none';
     // document.getElementById('restartDraftButton').style.display = 'none';
-    // document.getElementById('showPickLogButton').style.display = 'none';
     // document.getElementById('playerListContainer').style.display = 'none';
     // document.getElementById('automatedTest').style.display = 'block';
     // document.getElementById('draftSetup').style.display = 'block';
@@ -757,16 +799,16 @@ function openTab(evt, name) {
     tabcontent = document.getElementsByClassName("tabcontent");
 
     for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
+        hideElements([tabcontent[i].id]);
     }
 
     tablinks = document.getElementsByClassName("tablinks");
 
     for (i = 0; i < tablinks.length; i++) {
-      tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
 
-    document.getElementById(name).style.display = "block";
+    showElements([name]);
     evt.currentTarget.className += " active";
 }
 
@@ -843,12 +885,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     resetButton.addEventListener('click', () => {
-        const tabContents = document.getElementsByClassName("tabcontent");
-
-        for (const tabContent of tabContents) {
-            tabContent.classList.add("hidden");
-        }
-        
         restartApp();
     });
 });

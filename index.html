@@ -34,12 +34,12 @@
         <button id="resetButton" class="tablinks hidden red">Reset</button>
       </div>
       
-    <div id="adp" class="tabcontent">
+    <div id="adp" class="tabcontent hidden">
         <h3>Average Draft Position</h3>
         <table id="ADPTable"></table>
     </div>
       
-    <div id="autoDraft" class="tabcontent">
+    <div id="autoDraft" class="tabcontent hidden">
         <h3>Quick Draft Setup</h3>
         <p>Choose an on-field position configuration:</p>
         <button class="test" id="test1">Test 2-3-1-2</button>
@@ -47,7 +47,7 @@
         <button class="test" id="test3">Test 6-8-2-6</button>
     </div>
       
-    <div id="manualDraft" class="tabcontent">
+    <div id="manualDraft" class="tabcontent hidden">
         <h3>Detailed Draft Setup</h3>
         <div id="configChoiceSection">
             <p>Choose an on-field position configuration:</p>
@@ -84,25 +84,26 @@
         </div>
     </div>
 
-    <div id="players" class="tabcontent">
+    <div id="players" class="tabcontent hidden">
         <h3 id="currentPickSelection"></h3>
         <h3>Select Player</h3>
         <table id="selectPlayerTable"></table>
     </div>
 
-    <div id="myTeam" class="tabcontent">
+    <div id="myTeam" class="tabcontent hidden">
         <h3>My Team</h3>
-
+        <table id="myTeamTable"></table>
     </div>
 
-    <div id="allTeam" class="tabcontent">
+    <div id="allTeam" class="tabcontent hidden">
         <h3>All Teams</h3>
         <table id="allTeamsTable"></table>
     </div>
 
-    <div id="pickLog" class="tabcontent">
+    <div id="pickLog" class="tabcontent hidden">
         <h3>Pick Log</h3>
-        <div id="pickLogModalContainer" class="modal-content-log">Empty log</div>
+        <!-- <div id="pickLogModalContainer" class="modal-content-log">Empty log</div> -->
+        <table id="pickLogTable"></table>
     </div>
 
     <br>
@@ -118,11 +119,6 @@
 
     <!-- <div id="playerListContainer">
         <table id="selectPlayerTable"></table>
-    </div> -->
-
-    <!-- Modals -->
-    <!-- <div id="pickLogModal" class="modal modal-log">
-        <div id="pickLogModalContainer" class="modal-content-log">Empty log</div>
     </div> -->
 
     <div id="positionSelectionModal" class="modal">
