@@ -492,10 +492,43 @@ function draftComputerPlayer(availablePlayers, team) {
                 const rankScore = (1 / player.rank) * 0.6;
                 const positionalNeedScore = (unfilledPositions[position] / team.maxPlayers[position]) * 0.4;
                 const score = rankScore + positionalNeedScore;
+
+                // Find the corresponding player in fantasy2023 using the "id" field
+                const fantasyId = "CD_I" + player.player_id;
+                const fantasyPlayer = fantasy2023.find(fantasyPlayer => fantasyPlayer.id === fantasyId);
+
+                // Adjust age-related score
+                if (fantasyPlayer && fantasyPlayer.age >= 30) {
+                    // Reduce score for players aged 30 or older
+                    score *= 0.9; // Adjust the reduction factor as needed
+                }
+
+                // Compare with career average
+                if (fantasyPlayer && fantasyPlayer.stats && fantasyPlayer.stats.career_avg) {
+                    const careerAvg = fantasyPlayer.stats.career_avg;
+                    const playerAvg = player.fantasy_average;
+
+                    // Adjust score based on career average comparison
+                    if (playerAvg > careerAvg) {
+                        score *= 1.3; // Adjust the increase factor as needed
+                    }
+                }
+
                 playerScores.push({ score, player, position });
             }
         });
     });
+    
+        // Calculate score
+        // (preferredPosition ? [preferredPosition] : player.positions).forEach(position => {
+        //     if (unfilledPositions[position]) {
+        //         const rankScore = (1 / player.rank) * 0.6;
+        //         const positionalNeedScore = (unfilledPositions[position] / team.maxPlayers[position]) * 0.4;
+        //         const score = rankScore + positionalNeedScore;
+        //         playerScores.push({ score, player, position });
+        //     }
+        // });
+    // });
 
     // Sort players by score & randomize the order if scores are equal
     playerScores.sort((a, b) => {
