@@ -255,8 +255,6 @@ async function setupDraft() {
 }
 
 async function createSelectPlayerTable(availablePlayers, flag) {
-    //TODO
-    // document.getElementById('playerListContainer').style.display = 'block';
     const selectPlayerTable = $('#selectPlayerTable').DataTable({
         retrieve: true,
         sort: false,
@@ -561,9 +559,6 @@ function draftComputerPlayer(availablePlayers, team) {
 }
 
 function displayAllFinalTeams() {
-    //TODO
-    // document.getElementById("allTeamsContainer").style.display = 'block';
-
     var userIndex = Number(userDraftPosition);
     var positions = ['Defender', 'Midfielder', 'Forward', 'Ruck', 'Bench'];
     var tempTeams = [[]].concat(allTeams);
@@ -671,15 +666,30 @@ function showAlertModal(message) {
 }
 
 function restartApp() {
-    numPlayersPerTeam, chosenConfig, numTeams, userDraftPosition, draftType, userTeam;
+    numPlayersPerTeam = undefined;
+    chosenConfig = undefined;
+    numTeams = undefined;
+    userDraftPosition = undefined;
+    draftType = undefined;
+    userTeam = undefined;
     currentPickNumber = 0;
-    ADP, computerTeams, availablePlayers, allTeams;
     pickLog = [{"pick":"", "name":"", "position":""}];
-    
-    updatePickLog(pickLog);
-    document.getElementById('currentPickSelection').textContent = '';
+    ADP = [];
+    computerTeams = [];
+    availablePlayers = [];
+    allTeams = [];
 
-    hideElements(["playersButton", "myTeamButton", "allTeamButton", "pickLogButton", "resetButton"]);
+    updatePickLog(pickLog);
+
+    document.getElementById('currentPickSelection').textContent = '';
+    document.getElementById('numPlayersPerTeamSection').value = '';
+    document.getElementById('numTeamsSection').value = '';
+    document.getElementById('userDraftPositionSection').value = '';
+    document.getElementById('userDraftPosition').value = '';
+    document.getElementById('snake').unchecked;
+    document.getElementById('linear').unchecked;
+
+    hideElements(["playersButton", "myTeamButton", "allTeamButton", "pickLogButton", "resetButton", "numPlayersPerTeamSection", "numTeamsSection", "userDraftPositionSection"]);
     showElements(["adpButton", "autoDraftButton", "manualDraftButton"]);
 
     const tabContents = document.getElementsByClassName("tabcontent");
@@ -687,15 +697,7 @@ function restartApp() {
     for (const tabContent of tabContents) {
         tabContent.classList.add("hidden");
     }
-    
-    //TODO
-    // document.getElementById('allTeamsContainer').style.display = 'none';
-    // document.getElementById('restartDraftButton').style.display = 'none';
-    // document.getElementById('playerListContainer').style.display = 'none';
-    // document.getElementById('automatedTest').style.display = 'block';
-    // document.getElementById('draftSetup').style.display = 'block';
-    // document.getElementById('configChoiceSection').style.display = 'block';
-    // document.getElementById('startDraftButton').style.display = 'block';
+
     document.getElementById('startDraftButton').disabled = true;
 
     getADP();
@@ -864,18 +866,13 @@ document.addEventListener('DOMContentLoaded', () => {
             userDraftPosition = 1;
             draftType = 'snake';
             document.getElementById('userDraftPosition').value = 1;
-
+            computerTeams, availablePlayers, allTeams = [];
             setUserDraftPosition();
             checkAllInputsSet();
         });
     });
 
     getADP();
-
-    const automatedTestContainer = document.getElementById('automatedTest');
-    const startDraftButton = document.getElementById('startDraftButton');
-    const restartDraftButton = document.getElementById('restartDraftButton');
-
     /*********************************************/
 
     document.getElementById('setNumPlayersPerTeamButton').addEventListener('click', setNumPlayersPerTeam);
@@ -883,8 +880,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('setUserDraftPositionButton').addEventListener('click', setUserDraftPosition);
     document.getElementById('setDraftTypeButton').addEventListener('click', setDraftType);
     
+    const startDraftButton = document.getElementById('startDraftButton');
+
     startDraftButton.addEventListener('click', () => {
-        hideElements(["autoDraftButton", "manualDraftButton", "startDraftButton"]);
+        hideElements(["autoDraftButton", "manualDraftButton", "startDraftButton", "draftTypeSection"]);
         showElements(["playersButton", "myTeamButton", "allTeamButton", "pickLogButton", "resetButton"]);
         startDraftSimulation();
     });
