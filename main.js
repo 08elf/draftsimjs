@@ -563,7 +563,8 @@ function displayAllFinalTeams() {
     var positions = ['Defender', 'Midfielder', 'Forward', 'Ruck', 'Bench'];
     var tempTeams = [[]].concat(allTeams);
     var headerObjects = [];
-
+    console.log(tempTeams)
+    console.log(allTeams)
     tempTeams.forEach((team, index) => {
         const headerObj = {
             targets: [index],
@@ -679,6 +680,7 @@ function restartApp() {
     availablePlayers = [];
     allTeams = [];
 
+    destory();
     updatePickLog(pickLog);
 
     document.getElementById('currentPickSelection').textContent = '';
@@ -701,6 +703,16 @@ function restartApp() {
     document.getElementById('startDraftButton').disabled = true;
 
     getADP();
+
+    function destory() {
+        const allTeamsTable = $('#allTeamsTable');
+
+        allTeamsTable.DataTable().clear().destroy();
+        $('#allTeamsTable').remove(); 
+
+        const allTeam = document.getElementById("allTeam");
+        allTeam.querySelector("h3").insertAdjacentHTML("afterend", `<table id="allTeamsTable"></table>`);
+    }
 }
 
 /*********************************************/
