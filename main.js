@@ -130,6 +130,10 @@ class Team {
 }
 
 async function startDraftSimulation() {
+    const myTeamTab = document.getElementById("myTeam");
+    const newText = `My Team ${chosenConfig.defenders}-${chosenConfig.midfielders}-${chosenConfig.ruck}-${chosenConfig.forwards}`;
+    myTeamTab.querySelector("h3").textContent = newText;
+
     const playersButton = document.getElementById('playersButton');
     playersButton.click();
 
@@ -191,6 +195,7 @@ function setUserDraftPosition() {
         }
     }
 
+    showElements(['draftTypeSection']);
     checkAllInputsSet();
 }
 
