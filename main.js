@@ -269,13 +269,17 @@ async function createSelectPlayerTable(availablePlayers, flag) {
         ],
     });
 
-    selectPlayerTable.clear();
-
     availablePlayers.forEach(player => {
         selectPlayerTable.row.add([player.name, player.positions.join(', '), player.player_id]);
     });
 
     selectPlayerTable.draw();
+
+    // Add event listener for the position filter
+    $('#positionFilter').on('change', function() {
+        var searchTerm = this.value ? this.value : '';
+        selectPlayerTable.column(1).search(searchTerm).draw();
+    });
 
     if (flag) {
         return null;
