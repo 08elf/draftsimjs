@@ -3,6 +3,14 @@ table {
     width: 100%;
 }
 
+body {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+button, .tablinks {
+    font-family: 'Titillium Web', sans-serif;
+}
+
 th, td {
     border: 1px solid #dddddd;
     text-align: left;
@@ -145,6 +153,14 @@ th, td {
     transition: 0.3s;
     font-size: 17px;
 }
+
+.position-label {
+    float: left;
+    width: 50%;
+    text-align: left;
+    margin-left: 5px;
+    margin-top: 5px;
+}
   
 .tab button:hover {
     background-color: #ddd;
@@ -156,8 +172,14 @@ th, td {
   
 .tabcontent {
     padding: 6px 12px;
-    border: 1px solid #ccc;
     border-top: none;
+}
+
+#positionFilter {
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    padding: 5px;
+    background-color: transparent;
 }
 
 #selectPlayerTable_wrapper {
@@ -187,6 +209,11 @@ th, td {
     width: 50%;
 }
 
+#allTeamsTable th, #allTeamsTable td {
+    width: 150px; /* Example width */
+}
+
+
 #positionButtons {
     display: flex;
     justify-content: center;
@@ -208,4 +235,13 @@ th, td {
 
 .hidden {
     display: none;
+}
+
+/* Styles for .tab button on screens less than or equal to 600px wide */
+@media only screen and (max-width: 600px) {
+    .tab button {
+        padding: 10px 10px;
+        font-size: 15px;
+        /* Other styles remain the same, no need to repeat them */
+    }
 }
