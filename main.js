@@ -486,14 +486,16 @@ function draftComputerPlayer(availablePlayers, team) {
             if (unfilledPositions[position]) {
                 const rankScore = (1 / player.rank) * 0.6;
                 const positionalNeedScore = (unfilledPositions[position] / team.maxPlayers[position]) * 0.4;
-                const score = rankScore + positionalNeedScore;
+                let score = rankScore + positionalNeedScore;
 
-                // Find the corresponding player in fantasy2023 using the "id" field
-                const fantasyId = "CD_I" + player.player_id;
-                const fantasyPlayer = fantasy2023.find(fantasyPlayer => fantasyPlayer.id === fantasyId);
+                // Find player
+                const fantasyPlayer = players.find(fantasyPlayer => fantasyPlayer.player_id === player.player_id);
+                const dob = new Date(fantasyPlayer.dob);
+                const today = new Date();
+                const age = today.getFullYear() - dob.getFullYear();
 
                 // Adjust age-related score
-                if (fantasyPlayer && fantasyPlayer.age >= 30) {
+                if (fantasyPlayer && age >= 30) {
                     // Reduce score for players aged 30 or older
                     score *= 0.9; // Adjust the reduction factor as needed
                 }
@@ -563,8 +565,7 @@ function displayAllFinalTeams() {
     var positions = ['Defender', 'Midfielder', 'Forward', 'Ruck', 'Bench'];
     var tempTeams = [[]].concat(allTeams);
     var headerObjects = [];
-    console.log(tempTeams)
-    console.log(allTeams)
+
     tempTeams.forEach((team, index) => {
         const headerObj = {
             targets: [index],
