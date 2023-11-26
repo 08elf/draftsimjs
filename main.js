@@ -269,6 +269,8 @@ async function createSelectPlayerTable(availablePlayers, flag) {
         ],
     });
 
+    selectPlayerTable.clear();
+
     availablePlayers.forEach(player => {
         selectPlayerTable.row.add([player.name, player.positions.join(', '), player.player_id]);
     });
