@@ -22,7 +22,7 @@ let computerTeams = new Array;
 let availablePlayers = new Array;
 let allTeams = new Array;
 class Player {
-    constructor(id, name, positions, rank, fantasy_average, team) {
+    constructor(id, name, positions, rank, fantasy_average, team, dob, career_average) {
         this.player_id = id;
         this.name = name;
         this.positions = positions;
@@ -30,6 +30,8 @@ class Player {
         this.fantasy_average = fantasy_average;
         this.team = team; // The team the player belongs to
         this.currentPosition = positions[0]; // Default to the first position
+        this.dob = dob;
+        this.career_average = career_average;
     }
 }
     
@@ -240,13 +242,19 @@ async function setupDraft() {
     });
 
     const playerObjects = await Promise.all(playersByADP.map(async (playerData) => {
+        if (playerData.stats?.career_avg === undefined) {
+            console.log("Career average is undefined for player:", playerData);
+        }
+    
         return new Player(
             playerData.player_id,
             playerData.name,
             playerData.positions,
             playerData.rank,
             playerData.fantasy_average,
-            playerData.team
+            playerData.team,
+            playerData.dob,
+            playerData.stats.career_avg,
         );
     }));
 
@@ -265,14 +273,22 @@ async function createSelectPlayerTable(availablePlayers, flag) {
         columnDefs: [
             { targets: [0], title: "Players" },
             { targets: [1], title: "Position(s)" },
-            { targets: [2], title: "PlayerId", visible: false },
+            { targets: [2], title: "Age" },
+            { targets: [3], title: "'23 Avg'" },
+            { targets: [4], title: "PlayerId", visible: false },
         ],
     });
 
     selectPlayerTable.clear();
-
+    console.log(availablePlayers)
     availablePlayers.forEach(player => {
-        selectPlayerTable.row.add([player.name, player.positions.join(', '), player.player_id]);
+        selectPlayerTable.row.add([
+            player.name,
+            player.positions.join(', '),
+            calculateAge(player.dob),
+            player.fantasy_average,
+            player.player_id
+        ]);
     });
 
     selectPlayerTable.draw();
@@ -289,11 +305,21 @@ async function createSelectPlayerTable(availablePlayers, flag) {
         return new Promise((resolve) => {
             $('#selectPlayerTable tbody').on('click', 'tr', function () {
                 const rowData = selectPlayerTable.row(this).data();
-                const playerId = rowData[2];
+                const playerId = rowData[4];
                 const selectedPlayer = availablePlayers.find(player => player.player_id === playerId);
                 resolve(selectedPlayer);
             });
         });
+    }
+
+    function calculateAge(birthdateString) {
+        const birthdate = new Date(birthdateString);
+        const today = new Date();
+      
+        const ageInMilliseconds = today - birthdate;
+        const ageInYears = Math.floor(ageInMilliseconds / 31536000000); // Approximate milliseconds in a year
+      
+        return ageInYears;
     }
 }
 
