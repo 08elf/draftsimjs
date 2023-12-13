@@ -40,19 +40,19 @@ class Team {
         this.teamSize = teamSize;
         this.config = config;
         this.maxPlayers = {
-            'Ruck': this.config['ruck'],
-            'Midfielder': this.config['midfielders'],
-            'Defender': this.config['defenders'],
-            'Forward': this.config['forwards'],
+            'Defender': this.config['Defender'],
+            'Midfielder': this.config['Midfielder'],
+            'Forward': this.config['Forward'],
+            'Ruck': this.config['Ruck'],
             'Bench': Infinity // Represents float('inf') in Python
         };
 
         // Initialize the players dictionary with empty arrays for each position
         this.players = {
-            'Ruck': [],
-            'Midfielder': [],
             'Defender': [],
+            'Midfielder': [],
             'Forward': [],
+            'Ruck': [],
             'Bench': []
         };
     }
@@ -133,7 +133,7 @@ class Team {
 
 async function startDraftSimulation() {
     const myTeamTab = document.getElementById("myTeam");
-    const newText = `My Team ${chosenConfig.defenders}-${chosenConfig.midfielders}-${chosenConfig.ruck}-${chosenConfig.forwards}`;
+    const newText = `My Team ${chosenConfig.Defender}-${chosenConfig.Midfielder}-${chosenConfig.Ruck}-${chosenConfig.Forward}`;
     myTeamTab.querySelector("h3").textContent = newText;
 
     const playersButton = document.getElementById('playersButton');
@@ -157,9 +157,9 @@ function selectConfiguration(configNumber, minPlayers) {
     console.log("selectConfiguration called with configNumber:", configNumber);
 
     const positionConfigurations = {
-        1: { defenders: 2, midfielders: 3, ruck: 1, forwards: 2 },
-        2: { defenders: 5, midfielders: 7, ruck: 1, forwards: 5 },
-        3: { defenders: 6, midfielders: 8, ruck: 2, forwards: 6 }
+        1: { Defender: 2, Midfielder: 3, Ruck: 1, Forward: 2 },
+        2: { Defender: 5, Midfielder: 7, Ruck: 1, Forward: 5 },
+        3: { Defender: 6, Midfielder: 8, Ruck: 2, Forward: 6 }
     };
 
     chosenConfig = positionConfigurations[configNumber];
@@ -346,13 +346,19 @@ async function proceedToNextDraftRound(roundNumber) {
 
             while (!user) {
                 const selectedPlayer = await createSelectPlayerTable(availablePlayers);
-                await userPickPlayer(selectedPlayer);
+                try {
+                    await userPickPlayer(selectedPlayer);
+                } catch {
+                    return false;
+                }
+
                 removeFromAvailablePlayers(availablePlayers, selectedPlayer);
 
                 pickLog.push({
                     "pick": currentPickNumber,
                     "name": selectedPlayer.name,
-                    "position": selectedPlayer.currentPosition
+                    "position": selectedPlayer.currentPosition,
+                    "team": "User Team"
                 });
 
                 updatePickLog(pickLog);
@@ -370,7 +376,8 @@ async function proceedToNextDraftRound(roundNumber) {
                 pickLog.push({
                     "pick": currentPickNumber,
                     "name": selectedPlayer.player.name,
-                    "position": selectedPlayer.player.currentPosition
+                    "position": selectedPlayer.player.currentPosition,
+                    "team": `CPU Team ${teamIndex}`
                 });
 
                 updatePickLog(pickLog);
@@ -593,20 +600,9 @@ function draftComputerPlayer(availablePlayers, team) {
 }
 
 function displayAllFinalTeams() {
-    var userIndex = Number(userDraftPosition);
+    var userIndex = Number(userDraftPosition) - 1;
     var positions = ['Defender', 'Midfielder', 'Forward', 'Ruck', 'Bench'];
-    var tempTeams = [[]].concat(allTeams);
-    var headerObjects = [];
-
-    tempTeams.forEach((team, index) => {
-        const headerObj = {
-            targets: [index],
-            title: index === 0 ? '' : (index === userIndex ? 'User Team' : `CPU Team ${index}`),
-        };
-
-        headerObjects.push(headerObj);
-    });
-
+    
     const myTeamTable = $('#myTeamTable').DataTable({
         retrieve: true,
         sort: false,
@@ -620,29 +616,13 @@ function displayAllFinalTeams() {
         ],
     });
 
-    const allTeamsTable = $('#allTeamsTable').DataTable({
-        retrieve: true,
-        sort: false,
-        searching: false,
-        paging: false,
-        lengthChange: false,
-        info: false,
-        columnDefs: headerObjects,
-    });
-
-    allTeamsTable.clear();
     myTeamTable.clear();
 
     positions.forEach((position) => {
         var row = [position];
         var myRow = [position];
 
-        tempTeams.forEach((team, index) => {
-            if (index === 0) {
-                return; // Skip the first row
-            }
-
-            // Add player data based on positions
+        allTeams.forEach((team, index) => {
             const playersInPosition = team.players[position];
             const playerNames = playersInPosition.map(player => player.name).join('<br>');
             row.push(playerNames);
@@ -652,12 +632,57 @@ function displayAllFinalTeams() {
             }
         });
 
-        allTeamsTable.row.add(row);
         myTeamTable.row.add(myRow);
     });
 
     myTeamTable.draw();
-    allTeamsTable.draw();
+
+    /***************************************/
+
+    allTeams.forEach((team, index) => {
+        const isUserTeam = index === userIndex;
+        const teamName = isUserTeam ? 'User Team' : `CPU Team ${index}`;
+    
+        const tableId = 'teamTable_' + index;
+        const tableContainer = $('#' + tableId);
+    
+        let teamTable;
+    
+        if (tableContainer.length === 0) {
+            teamTable = $('<table>', { id: tableId }).appendTo('#allTeams').DataTable({
+                retrieve: true,
+                sort: false,
+                searching: false,
+                paging: false,
+                lengthChange: false,
+                info: false,
+                columnDefs: [
+                    { targets: [0], title: teamName },
+                    { targets: [1], title: "Defender" },
+                    { targets: [2], title: "Midfielder" },
+                    { targets: [3], title: "Forward" },
+                    { targets: [4], title: "Ruck" },
+                    { targets: [5], title: "Bench" },
+                ],
+            });
+    
+            $('#allTeams').append('<br>');
+        } else {
+            teamTable = $('#' + tableId).DataTable();
+            teamTable.clear();
+        }
+
+        var row = [""]
+
+        Object.values(team.players).forEach((position) => {
+            const playerNames = position.map(player => player.name).join('<br>');
+            row.push(playerNames);
+        });
+    
+        teamTable.row.add(row).draw();
+
+        teamTable.draw();
+    });  
 }
 
 function updatePickLog(log) {
@@ -713,7 +738,7 @@ function restartApp() {
     availablePlayers = [];
     allTeams = [];
 
-    destory();
+    $('#allTeams').empty();
     updatePickLog(pickLog);
 
     document.getElementById('currentPickSelection').textContent = '';
@@ -736,16 +761,6 @@ function restartApp() {
     document.getElementById('startDraftButton').disabled = true;
 
     getADP();
-
-    function destory() {
-        const allTeamsTable = $('#allTeamsTable');
-
-        allTeamsTable.DataTable().clear().destroy();
-        $('#allTeamsTable').remove(); 
-
-        const allTeam = document.getElementById("allTeam");
-        allTeam.querySelector("h3").insertAdjacentHTML("afterend", `<table id="allTeamsTable"></table>`);
-    }
 }
 
 /*********************************************/
@@ -883,26 +898,26 @@ document.addEventListener('DOMContentLoaded', () => {
     
             if (clickedId === 'test1') {
                 chosenConfig = {
-                    "defenders": 2,
-                    "midfielders": 3,
-                    "ruck": 1,
-                    "forwards": 2
+                    "Defender": 2,
+                    "Midfielder": 3,
+                    "Ruck": 1,
+                    "Forward": 2
                 };
                 numPlayersPerTeam = 8;
             } else if (clickedId === 'test2') {
                 chosenConfig = {
-                    "defenders": 5,
-                    "midfielders": 7,
-                    "ruck": 1,
-                    "forwards": 5
+                    "Defender": 5,
+                    "Midfielder": 7,
+                    "Ruck": 1,
+                    "Forward": 5
                 };
                 numPlayersPerTeam = 18;
             } else {
                 chosenConfig = {
-                    "defenders": 6,
-                    "midfielders": 8,
-                    "ruck": 2,
-                    "forwards": 6
+                    "Defender": 6,
+                    "Midfielder": 8,
+                    "Ruck": 2,
+                    "Forward": 6
                 };
                 numPlayersPerTeam = 22;
             }
