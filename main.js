@@ -224,25 +224,34 @@ function checkAllInputsSet() {
 }
 
 async function setupDraft() {
-    const res = await getADP(true);
+    let res;
+
+    try {
+        res = await getADP(true);
+    } catch (error) {
+        console.error('Error fetching ADP:', error.message);
+        res = players;
+    }
 
     function calculatePercentileRank(value, array) {
         const sortedArray = array.slice().sort((a, b) => a - b);
         const index = sortedArray.indexOf(value);
         return index / (sortedArray.length - 1);
     }
-    
+
     const playersByADP = players.map(player => {
-        const correspondingRes = res.find(resPlayer => resPlayer.player_id === player.player_id);
+        const correspondingRes = Array.isArray(res) ? res.find(resPlayer => resPlayer.player_id === player.player_id) : null;
+
         if (correspondingRes) {
             const percentileRank = calculatePercentileRank(correspondingRes.adp, res.map(p => p.adp));
             player.rank = Math.ceil(percentileRank * 100);
         }
+
         return player;
     });
 
     const playerObjects = await Promise.all(playersByADP.map(async (playerData) => {
-        if (playerData.stats?.career_avg === undefined) {
+        if (playerData?.career_avg === undefined) {
             console.log("Career average is undefined for player:", playerData);
         }
     
@@ -254,7 +263,7 @@ async function setupDraft() {
             playerData.fantasy_average,
             playerData.team,
             playerData.dob,
-            playerData.stats.career_avg,
+            playerData.career_avg,
         );
     }));
 
@@ -280,7 +289,7 @@ async function createSelectPlayerTable(availablePlayers, flag) {
     });
 
     selectPlayerTable.clear();
-    console.log(availablePlayers)
+
     availablePlayers.forEach(player => {
         selectPlayerTable.row.add([
             player.name,
@@ -535,13 +544,12 @@ function draftComputerPlayer(availablePlayers, team) {
 
                 // Adjust age-related score
                 if (fantasyPlayer && age >= 30) {
-                    // Reduce score for players aged 30 or older
-                    score *= 0.9; // Adjust the reduction factor as needed
+                    score *= 0.9;
                 }
 
                 // Compare with career average
-                if (fantasyPlayer && fantasyPlayer.stats && fantasyPlayer.stats.career_avg) {
-                    const careerAvg = fantasyPlayer.stats.career_avg;
+                if (fantasyPlayer && fantasyPlayer.career_avg) {
+                    const careerAvg = fantasyPlayer.career_avg;
                     const playerAvg = player.fantasy_average;
 
                     // Adjust score based on career average comparison
@@ -555,17 +563,6 @@ function draftComputerPlayer(availablePlayers, team) {
         });
     });
     
-        // Calculate score
-        // (preferredPosition ? [preferredPosition] : player.positions).forEach(position => {
-        //     if (unfilledPositions[position]) {
-        //         const rankScore = (1 / player.rank) * 0.6;
-        //         const positionalNeedScore = (unfilledPositions[position] / team.maxPlayers[position]) * 0.4;
-        //         const score = rankScore + positionalNeedScore;
-        //         playerScores.push({ score, player, position });
-        //     }
-        // });
-    // });
-
     // Sort players by score & randomize the order if scores are equal
     playerScores.sort((a, b) => {
         if (b.score === a.score) {
@@ -778,7 +775,7 @@ async function getADP(flag) {
             }
         })
         .catch((error) => {
-            return console.error('Error showing ADP array:', error);
+            return error;
         });
 
     async function showADP(data) {
