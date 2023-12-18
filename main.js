@@ -22,7 +22,7 @@ let computerTeams = new Array;
 let availablePlayers = new Array;
 let allTeams = new Array;
 class Player {
-    constructor(id, name, positions, rank, fantasy_average, team, dob, career_average) {
+    constructor(id, name, positions, rank, fantasy_average, team, dob, career_average, adp) {
         this.player_id = id;
         this.name = name;
         this.positions = positions;
@@ -32,6 +32,7 @@ class Player {
         this.currentPosition = positions[0]; // Default to the first position
         this.dob = dob;
         this.career_average = career_average;
+        this.rankADP = adp;
     }
 }
     
@@ -244,7 +245,7 @@ async function setupDraft() {
 
         if (correspondingRes) {
             const percentileRank = calculatePercentileRank(correspondingRes.adp, res.map(p => p.adp));
-            player.rank = Math.ceil(percentileRank * 100);
+            player.rankADP = Math.ceil(percentileRank * 100);
         }
 
         return player;
@@ -264,6 +265,7 @@ async function setupDraft() {
             playerData.team,
             playerData.dob,
             playerData.career_avg,
+            playerData.rankADP
         );
     }));
 
@@ -541,6 +543,9 @@ function draftComputerPlayer(availablePlayers, team) {
                 const dob = new Date(fantasyPlayer.dob);
                 const today = new Date();
                 const age = today.getFullYear() - dob.getFullYear();
+
+                // Adjust for user selection ADP
+                score += (1 / player.rankADP) * 0.2;
 
                 // Adjust age-related score
                 if (fantasyPlayer && age >= 30) {
