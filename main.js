@@ -276,17 +276,19 @@ async function setupDraft() {
 async function createSelectPlayerTable(availablePlayers, flag) {
     const selectPlayerTable = $('#selectPlayerTable').DataTable({
         retrieve: true,
-        sort: false,
+        sort: true,
         searching: true,
         paging: false,
         lengthChange: false,
         info: false,
+        order: [[3, 'desc']],
         columnDefs: [
             { targets: [0], title: "Players" },
             { targets: [1], title: "Position(s)" },
             { targets: [2], title: "Age" },
             { targets: [3], title: "'23 Avg'" },
-            { targets: [4], title: "PlayerId", visible: false },
+            { targets: [4], title: "ADP" }, // New ADP column
+            { targets: [5], title: "PlayerId", visible: false },
         ],
     });
 
@@ -298,6 +300,7 @@ async function createSelectPlayerTable(availablePlayers, flag) {
             player.positions.join(', '),
             calculateAge(player.dob),
             player.fantasy_average,
+            player.rankADP !== undefined ? player.rankADP : 'N/A',
             player.player_id
         ]);
     });
@@ -316,7 +319,7 @@ async function createSelectPlayerTable(availablePlayers, flag) {
         return new Promise((resolve) => {
             $('#selectPlayerTable tbody').on('click', 'tr', function () {
                 const rowData = selectPlayerTable.row(this).data();
-                const playerId = rowData[4];
+                const playerId = rowData[5];
                 const selectedPlayer = availablePlayers.find(player => player.player_id === playerId);
                 resolve(selectedPlayer);
             });
@@ -549,7 +552,7 @@ function draftComputerPlayer(availablePlayers, team) {
 
                 // Adjust age-related score
                 if (fantasyPlayer && age >= 30) {
-                    score *= 0.9;
+                    score *= 0.95;
                 }
 
                 // Compare with career average
