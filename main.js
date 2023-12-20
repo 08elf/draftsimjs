@@ -309,7 +309,8 @@ async function createSelectPlayerTable(availablePlayers, flag) {
             player.fantasy_average,
             playerAdp,
             player.player_id,
-            player.positions.join(', ')
+            player.positions.join(', '),
+            player.name
         ]);
     });
 
@@ -349,8 +350,8 @@ async function createSelectPlayerTable(availablePlayers, flag) {
             $('#selectPlayerTable tbody').on('click', 'tr', function () {
                 const rowId = selectPlayerTable.row(this).id();
                 const rowData = selectPlayerTable.row(this).data();
-                const playerName = rowData[6];
-                selectedPlayerId = rowData[5];
+                const playerName = rowData[5];
+                selectedPlayerId = rowData[3];
                 $('#selectPlayer').html(`Do you want to select ${playerName}?`);
                 modal.show();
                 $('#confirmBtn').on('click', confirmHandler);
