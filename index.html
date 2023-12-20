@@ -24,12 +24,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1 class="margin-bottom-0">Keeper League Mock Draft Simulator</h1>
-
     <div class="tab">
+        <button id="manualDraftButton" class="tablinks" onclick="openTab(event, 'manualDraft')">Draft Setup</button>
+        <!-- <button id="autoDraftButton" class="tablinks" onclick="openTab(event, 'autoDraft')">Quick Draft</button> -->
         <button id="adpButton" class="tablinks" onclick="openTab(event, 'adp')">ADP</button>
-        <button id="autoDraftButton" class="tablinks" onclick="openTab(event, 'autoDraft')">Quick Draft</button>
-        <button id="manualDraftButton" class="tablinks" onclick="openTab(event, 'manualDraft')">Detailed Draft</button>
         <button id="playersButton" class="tablinks hidden" onclick="openTab(event, 'players')">Select Player</button>
         <button id="myTeamButton" class="tablinks hidden" onclick="openTab(event, 'myTeam')">My Team</button>
         <button id="allTeamButton" class="tablinks hidden" onclick="openTab(event, 'allTeams')">All Teams</button>
@@ -95,10 +93,10 @@
             <br>
             <select id="positionFilter">
                 <option value="">All</option>
-                <option value="Defender">Defender</option>
-                <option value="Forward">Forward</option>
-                <option value="Ruck">Ruck</option>
-                <option value="Midfielder">Midfielder</option>
+                <option value="DEF">DEF</option>
+                <option value="MID">MID</option>
+                <option value="RUC">RUC</option>
+                <option value="FWD">FWD</option>
             </select>
    
         </label> 
@@ -119,6 +117,16 @@
 
     <br>
     <button id="startDraftButton" class="button-start hidden" disabled>Start Draft</button>
+
+    <div id="playerSelectModal" class="modal">
+        <div id="buttonContainer" class="modal-content">
+            <h3 id="selectPlayer" class="margin-top-0">Select Player</h3>
+            <div class="alertModalText">
+                <button type="button" class="button-1 button-cancel" id="cancelBtn">Cancel</button>
+                <button type="button" class="button-1 button-confirm" id="confirmBtn">Confirm</button>
+            </div>
+        </div>
+    </div>
 
     <div id="positionSelectionModal" class="modal">
         <div id="buttonContainer" class="modal-content">

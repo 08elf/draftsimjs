@@ -8,7 +8,7 @@ const players = [
         "fantasy_average":118.7,
         "career_avg":88.6535,
         "rank":3,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1023261",
@@ -18,7 +18,7 @@ const players = [
         "fantasy_average":108.8,
         "career_avg":97.2381,
         "rank":0,
-        "positions":["Defender", "Midfielder"]
+        "positions":["DEF", "MID"]
     },
     {
         "player_id":"CD_I297373",
@@ -28,7 +28,7 @@ const players = [
         "fantasy_average":117.0,
         "career_avg":97.9804,
         "rank":11,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1013128",
@@ -38,7 +38,7 @@ const players = [
         "fantasy_average":112.5,
         "career_avg":91.0968,
         "rank":1,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I996701",
@@ -48,7 +48,7 @@ const players = [
         "fantasy_average":113.8,
         "career_avg":102.9539,
         "rank":8,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1009528",
@@ -58,7 +58,7 @@ const players = [
         "fantasy_average":110.6,
         "career_avg":86.0476,
         "rank":2,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I992016",
@@ -68,7 +68,7 @@ const players = [
         "fantasy_average":112.9,
         "career_avg":103.5297,
         "rank":13,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I293222",
@@ -78,7 +78,7 @@ const players = [
         "fantasy_average":109.2,
         "career_avg":96.2212,
         "rank":21,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1009420",
@@ -88,7 +88,7 @@ const players = [
         "fantasy_average":108.1,
         "career_avg":88.1667,
         "rank":4,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I992468",
@@ -98,7 +98,7 @@ const players = [
         "fantasy_average":115.8,
         "career_avg":92.9907,
         "rank":12,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1002232",
@@ -108,7 +108,7 @@ const players = [
         "fantasy_average":110.3,
         "career_avg":91.3802,
         "rank":5,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I992242",
@@ -118,7 +118,7 @@ const players = [
         "fantasy_average":113.4,
         "career_avg":90.8426,
         "rank":10,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1001299",
@@ -128,7 +128,7 @@ const players = [
         "fantasy_average":105.9,
         "career_avg":80.14,
         "rank":6,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1006121",
@@ -138,7 +138,7 @@ const players = [
         "fantasy_average":99.5,
         "career_avg":78.023,
         "rank":7,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I998172",
@@ -148,7 +148,7 @@ const players = [
         "fantasy_average":112.4,
         "career_avg":97.9134,
         "rank":15,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1006094",
@@ -158,7 +158,7 @@ const players = [
         "fantasy_average":94.6,
         "career_avg":96.1146,
         "rank":9,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I295518",
@@ -168,7 +168,7 @@ const players = [
         "fantasy_average":104.5,
         "career_avg":93.2744,
         "rank":26,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I993817",
@@ -178,7 +178,7 @@ const players = [
         "fantasy_average":106.9,
         "career_avg":85.9184,
         "rank":19,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I993834",
@@ -188,7 +188,7 @@ const players = [
         "fantasy_average":104.4,
         "career_avg":96.8254,
         "rank":20,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1023518",
@@ -198,7 +198,7 @@ const players = [
         "fantasy_average":97.3,
         "career_avg":97.3478,
         "rank":14,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I298210",
@@ -208,7 +208,7 @@ const players = [
         "fantasy_average":106.0,
         "career_avg":88.4518,
         "rank":16,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I294307",
@@ -218,7 +218,7 @@ const players = [
         "fantasy_average":103.3,
         "career_avg":97.7468,
         "rank":22,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I994389",
@@ -228,7 +228,7 @@ const players = [
         "fantasy_average":102.2,
         "career_avg":77.1481,
         "rank":17,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I297566",
@@ -238,7 +238,7 @@ const players = [
         "fantasy_average":104.5,
         "career_avg":83.0992,
         "rank":18,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I291790",
@@ -248,7 +248,7 @@ const players = [
         "fantasy_average":105.3,
         "career_avg":102.565,
         "rank":62,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I291969",
@@ -258,7 +258,7 @@ const players = [
         "fantasy_average":101.6,
         "career_avg":94.2402,
         "rank":27,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I290799",
@@ -268,7 +268,7 @@ const players = [
         "fantasy_average":103.3,
         "career_avg":87.6782,
         "rank":39,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1009199",
@@ -278,7 +278,7 @@ const players = [
         "fantasy_average":100.5,
         "career_avg":86.358,
         "rank":23,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I296205",
@@ -288,7 +288,7 @@ const players = [
         "fantasy_average":97.9,
         "career_avg":97.3484,
         "rank":24,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I291902",
@@ -298,7 +298,7 @@ const players = [
         "fantasy_average":100.0,
         "career_avg":87.3871,
         "rank":57,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I296347",
@@ -308,7 +308,7 @@ const players = [
         "fantasy_average":97.9,
         "career_avg":95.776,
         "rank":25,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I298272",
@@ -318,7 +318,7 @@ const players = [
         "fantasy_average":96.2,
         "career_avg":90.7514,
         "rank":46,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I293535",
@@ -328,7 +328,7 @@ const players = [
         "fantasy_average":97.0,
         "career_avg":99.0093,
         "rank":40,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1002267",
@@ -338,7 +338,7 @@ const players = [
         "fantasy_average":97.4,
         "career_avg":76.2824,
         "rank":28,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I298174",
@@ -348,7 +348,7 @@ const players = [
         "fantasy_average":102.3,
         "career_avg":84.0656,
         "rank":54,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1009260",
@@ -358,7 +358,7 @@ const players = [
         "fantasy_average":89.6,
         "career_avg":62.6977,
         "rank":29,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1002239",
@@ -368,7 +368,7 @@ const players = [
         "fantasy_average":96.6,
         "career_avg":75.9381,
         "rank":30,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1008550",
@@ -378,7 +378,7 @@ const players = [
         "fantasy_average":95.3,
         "career_avg":74.7037,
         "rank":31,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1015507",
@@ -388,7 +388,7 @@ const players = [
         "fantasy_average":91.3,
         "career_avg":79.5897,
         "rank":32,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1009256",
@@ -398,7 +398,7 @@ const players = [
         "fantasy_average":89.2,
         "career_avg":81.3455,
         "rank":33,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I295898",
@@ -408,7 +408,7 @@ const players = [
         "fantasy_average":98.7,
         "career_avg":88.5714,
         "rank":53,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I998659",
@@ -418,7 +418,7 @@ const players = [
         "fantasy_average":99.4,
         "career_avg":83.3154,
         "rank":34,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I297907",
@@ -428,7 +428,7 @@ const players = [
         "fantasy_average":98.0,
         "career_avg":86.4231,
         "rank":35,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I291800",
@@ -438,7 +438,7 @@ const players = [
         "fantasy_average":96.3,
         "career_avg":86.4925,
         "rank":41,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I998145",
@@ -448,7 +448,7 @@ const players = [
         "fantasy_average":95.4,
         "career_avg":80.6771,
         "rank":36,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1020895",
@@ -458,7 +458,7 @@ const players = [
         "fantasy_average":93.3,
         "career_avg":86.56,
         "rank":37,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1026850",
@@ -468,7 +468,7 @@ const players = [
         "fantasy_average":85.2,
         "career_avg":82.5909,
         "rank":38,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I295467",
@@ -477,8 +477,8 @@ const players = [
         "team":"WB",
         "fantasy_average":91.8,
         "career_avg":102.8716,
-        "rank":48,
-        "positions":["Midfielder", "Forward"]
+        "rank":26,
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I290528",
@@ -488,7 +488,7 @@ const players = [
         "fantasy_average":92.1,
         "career_avg":97.6032,
         "rank":56,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I298268",
@@ -498,7 +498,7 @@ const players = [
         "fantasy_average":96.3,
         "career_avg":71.7237,
         "rank":45,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I992049",
@@ -508,7 +508,7 @@ const players = [
         "fantasy_average":92.5,
         "career_avg":79.0699,
         "rank":64,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1005054",
@@ -518,7 +518,7 @@ const players = [
         "fantasy_average":94.7,
         "career_avg":77.2421,
         "rank":42,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1012014",
@@ -528,7 +528,7 @@ const players = [
         "fantasy_average":92.7,
         "career_avg":83.6182,
         "rank":43,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1009399",
@@ -538,7 +538,7 @@ const players = [
         "fantasy_average":84.7,
         "career_avg":70.0714,
         "rank":44,
-        "positions":["Ruck", "Forward"]
+        "positions":["RUC", "FWD"]
     },
     {
         "player_id":"CD_I294305",
@@ -548,7 +548,7 @@ const players = [
         "fantasy_average":94.7,
         "career_avg":90.4742,
         "rank":63,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I994295",
@@ -558,7 +558,7 @@ const players = [
         "fantasy_average":92.7,
         "career_avg":81.0432,
         "rank":58,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1006130",
@@ -567,8 +567,8 @@ const players = [
         "team":"WB",
         "fantasy_average":83.3,
         "career_avg":82.25,
-        "rank":47,
-        "positions":["Midfielder", "Forward"]
+        "rank":87,
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1000978",
@@ -578,7 +578,7 @@ const players = [
         "fantasy_average":89.3,
         "career_avg":86.0979,
         "rank":50,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1009208",
@@ -588,7 +588,7 @@ const players = [
         "fantasy_average":92.0,
         "career_avg":77.1452,
         "rank":49,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I291856",
@@ -598,7 +598,7 @@ const players = [
         "fantasy_average":91.8,
         "career_avg":106.0924,
         "rank":72,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I990704",
@@ -608,7 +608,7 @@ const players = [
         "fantasy_average":88.4,
         "career_avg":93.0222,
         "rank":73,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I295136",
@@ -618,7 +618,7 @@ const players = [
         "fantasy_average":89.9,
         "career_avg":81.0788,
         "rank":51,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I281065",
@@ -628,7 +628,7 @@ const players = [
         "fantasy_average":91.3,
         "career_avg":95.9602,
         "rank":127,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I993993",
@@ -638,7 +638,7 @@ const players = [
         "fantasy_average":86.8,
         "career_avg":71.5333,
         "rank":52,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I290550",
@@ -648,7 +648,7 @@ const players = [
         "fantasy_average":86.8,
         "career_avg":80.6667,
         "rank":182,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I290778",
@@ -658,7 +658,7 @@ const players = [
         "fantasy_average":89.9,
         "career_avg":96.5236,
         "rank":102,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I293957",
@@ -668,7 +668,7 @@ const players = [
         "fantasy_average":75.0,
         "career_avg":98.0703,
         "rank":55,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I291975",
@@ -678,7 +678,7 @@ const players = [
         "fantasy_average":90.8,
         "career_avg":84.2727,
         "rank":70,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1008436",
@@ -688,7 +688,7 @@ const players = [
         "fantasy_average":94.1,
         "career_avg":79.9565,
         "rank":67,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I993905",
@@ -698,7 +698,7 @@ const players = [
         "fantasy_average":84.1,
         "career_avg":84.6259,
         "rank":86,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I295344",
@@ -708,7 +708,7 @@ const players = [
         "fantasy_average":88.5,
         "career_avg":85.7582,
         "rank":59,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1006314",
@@ -718,7 +718,7 @@ const players = [
         "fantasy_average":88.0,
         "career_avg":80.5067,
         "rank":60,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I997078",
@@ -728,7 +728,7 @@ const players = [
         "fantasy_average":85.8,
         "career_avg":72.0594,
         "rank":61,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I295342",
@@ -738,7 +738,7 @@ const players = [
         "fantasy_average":89.7,
         "career_avg":89.932,
         "rank":71,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I297523",
@@ -748,7 +748,7 @@ const players = [
         "fantasy_average":88.4,
         "career_avg":89.66,
         "rank":96,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I996731",
@@ -758,7 +758,7 @@ const players = [
         "fantasy_average":86.8,
         "career_avg":73.2523,
         "rank":65,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I295340",
@@ -768,7 +768,7 @@ const players = [
         "fantasy_average":91.6,
         "career_avg":68.9211,
         "rank":104,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I290847",
@@ -778,7 +778,7 @@ const players = [
         "fantasy_average":90.0,
         "career_avg":95.6381,
         "rank":66,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I296296",
@@ -788,7 +788,7 @@ const players = [
         "fantasy_average":89.6,
         "career_avg":79.4552,
         "rank":95,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I297354",
@@ -798,7 +798,7 @@ const players = [
         "fantasy_average":86.8,
         "career_avg":78.4071,
         "rank":74,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I990291",
@@ -808,7 +808,7 @@ const players = [
         "fantasy_average":84.0,
         "career_avg":73.2813,
         "rank":68,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1004965",
@@ -818,7 +818,7 @@ const players = [
         "fantasy_average":66.0,
         "career_avg":54.0303,
         "rank":69,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I297401",
@@ -828,7 +828,7 @@ const players = [
         "fantasy_average":89.3,
         "career_avg":93.5956,
         "rank":103,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I298279",
@@ -838,7 +838,7 @@ const players = [
         "fantasy_average":85.3,
         "career_avg":81.0506,
         "rank":88,
-        "positions":["Defender", "Midfielder"]
+        "positions":["DEF", "MID"]
     },
     {
         "player_id":"CD_I296294",
@@ -848,7 +848,7 @@ const players = [
         "fantasy_average":87.8,
         "career_avg":74.3714,
         "rank":83,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I260257",
@@ -858,7 +858,7 @@ const players = [
         "fantasy_average":88.0,
         "career_avg":100.1364,
         "rank":90,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I996708",
@@ -868,7 +868,7 @@ const players = [
         "fantasy_average":85.3,
         "career_avg":71.784,
         "rank":75,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I998215",
@@ -878,7 +878,7 @@ const players = [
         "fantasy_average":92.0,
         "career_avg":69.8333,
         "rank":143,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1002222",
@@ -888,7 +888,7 @@ const players = [
         "fantasy_average":86.3,
         "career_avg":80.35,
         "rank":76,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1023517",
@@ -898,7 +898,7 @@ const players = [
         "fantasy_average":82.9,
         "career_avg":82.8889,
         "rank":77,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I994185",
@@ -908,7 +908,7 @@ const players = [
         "fantasy_average":86.8,
         "career_avg":78.2621,
         "rank":78,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I993998",
@@ -918,7 +918,7 @@ const players = [
         "fantasy_average":75.8,
         "career_avg":74.7985,
         "rank":79,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1017088",
@@ -928,7 +928,7 @@ const players = [
         "fantasy_average":76.5,
         "career_avg":69.2353,
         "rank":80,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1011640",
@@ -938,7 +938,7 @@ const players = [
         "fantasy_average":68.0,
         "career_avg":65.5641,
         "rank":81,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I293871",
@@ -948,7 +948,7 @@ const players = [
         "fantasy_average":82.9,
         "career_avg":89.0792,
         "rank":109,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1006058",
@@ -958,7 +958,7 @@ const players = [
         "fantasy_average":85.6,
         "career_avg":66.4935,
         "rank":82,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1005729",
@@ -968,7 +968,7 @@ const players = [
         "fantasy_average":79.3,
         "career_avg":65.6812,
         "rank":84,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I296733",
@@ -978,7 +978,7 @@ const players = [
         "fantasy_average":81.5,
         "career_avg":74.7027,
         "rank":120,
-        "positions":["Midfielder", "Ruck"]
+        "positions":["MID", "RUC"]
     },
     {
         "player_id":"CD_I291776",
@@ -988,7 +988,7 @@ const players = [
         "fantasy_average":76.5,
         "career_avg":92.5525,
         "rank":85,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I261224",
@@ -998,7 +998,7 @@ const players = [
         "fantasy_average":84.8,
         "career_avg":94.0676,
         "rank":94,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1015889",
@@ -1008,7 +1008,7 @@ const players = [
         "fantasy_average":75.9,
         "career_avg":68.4091,
         "rank":87,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I296422",
@@ -1018,7 +1018,7 @@ const players = [
         "fantasy_average":87.2,
         "career_avg":66.3302,
         "rank":136,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I293845",
@@ -1028,7 +1028,7 @@ const players = [
         "fantasy_average":83.0,
         "career_avg":72.9146,
         "rank":93,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1006103",
@@ -1038,7 +1038,7 @@ const players = [
         "fantasy_average":75.1,
         "career_avg":70.4444,
         "rank":89,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1009253",
@@ -1048,7 +1048,7 @@ const players = [
         "fantasy_average":84.3,
         "career_avg":70.8533,
         "rank":91,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1023272",
@@ -1058,7 +1058,7 @@ const players = [
         "fantasy_average":73.9,
         "career_avg":68.7931,
         "rank":92,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I294674",
@@ -1068,7 +1068,7 @@ const players = [
         "fantasy_average":81.2,
         "career_avg":71.7538,
         "rank":129,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1005521",
@@ -1078,7 +1078,7 @@ const players = [
         "fantasy_average":82.7,
         "career_avg":68.6957,
         "rank":118,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I998102",
@@ -1088,7 +1088,7 @@ const players = [
         "fantasy_average":81.8,
         "career_avg":77.0305,
         "rank":97,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I998129",
@@ -1098,7 +1098,7 @@ const players = [
         "fantasy_average":67.0,
         "career_avg":80.8824,
         "rank":300,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I298539",
@@ -1108,7 +1108,7 @@ const players = [
         "fantasy_average":80.0,
         "career_avg":82.6319,
         "rank":98,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I298524",
@@ -1118,7 +1118,7 @@ const players = [
         "fantasy_average":83.8,
         "career_avg":72.8971,
         "rank":128,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I993946",
@@ -1128,7 +1128,7 @@ const players = [
         "fantasy_average":77.3,
         "career_avg":79.1239,
         "rank":99,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1001026",
@@ -1138,7 +1138,7 @@ const players = [
         "fantasy_average":80.8,
         "career_avg":75.619,
         "rank":100,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I290629",
@@ -1148,7 +1148,7 @@ const players = [
         "fantasy_average":81.6,
         "career_avg":94.6489,
         "rank":131,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I294518",
@@ -1158,7 +1158,7 @@ const players = [
         "fantasy_average":76.2,
         "career_avg":67.6845,
         "rank":101,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1000981",
@@ -1168,7 +1168,7 @@ const players = [
         "fantasy_average":80.3,
         "career_avg":61.9932,
         "rank":139,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I291748",
@@ -1178,7 +1178,7 @@ const players = [
         "fantasy_average":81.4,
         "career_avg":77.7961,
         "rank":132,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I294318",
@@ -1188,7 +1188,7 @@ const players = [
         "fantasy_average":77.7,
         "career_avg":92.0231,
         "rank":113,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1005988",
@@ -1198,7 +1198,7 @@ const players = [
         "fantasy_average":76.8,
         "career_avg":53.381,
         "rank":105,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I994386",
@@ -1208,7 +1208,7 @@ const players = [
         "fantasy_average":79.9,
         "career_avg":67.3579,
         "rank":106,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I998128",
@@ -1218,7 +1218,7 @@ const players = [
         "fantasy_average":78.4,
         "career_avg":83.4,
         "rank":155,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1006059",
@@ -1228,7 +1228,7 @@ const players = [
         "fantasy_average":69.6,
         "career_avg":62.9434,
         "rank":107,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1006126",
@@ -1238,7 +1238,7 @@ const players = [
         "fantasy_average":79.3,
         "career_avg":72.8046,
         "rank":116,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1008280",
@@ -1248,7 +1248,7 @@ const players = [
         "fantasy_average":79.8,
         "career_avg":59.901,
         "rank":108,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1007124",
@@ -1258,7 +1258,7 @@ const players = [
         "fantasy_average":82.0,
         "career_avg":63.1429,
         "rank":110,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I280506",
@@ -1268,7 +1268,7 @@ const players = [
         "fantasy_average":80.4,
         "career_avg":71.6772,
         "rank":177,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I993903",
@@ -1278,7 +1278,7 @@ const players = [
         "fantasy_average":80.8,
         "career_avg":79.4103,
         "rank":111,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I290627",
@@ -1288,7 +1288,7 @@ const players = [
         "fantasy_average":75.9,
         "career_avg":89.9643,
         "rank":112,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1024272",
@@ -1298,7 +1298,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":114,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I294557",
@@ -1308,7 +1308,7 @@ const players = [
         "fantasy_average":79.2,
         "career_avg":87.4262,
         "rank":115,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1006152",
@@ -1318,7 +1318,7 @@ const players = [
         "fantasy_average":76.5,
         "career_avg":71.6892,
         "rank":124,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I270917",
@@ -1328,7 +1328,7 @@ const players = [
         "fantasy_average":79.9,
         "career_avg":99.2749,
         "rank":180,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1000972",
@@ -1338,7 +1338,7 @@ const players = [
         "fantasy_average":76.9,
         "career_avg":74.5263,
         "rank":117,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1007881",
@@ -1348,7 +1348,7 @@ const players = [
         "fantasy_average":82.1,
         "career_avg":63.5747,
         "rank":119,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1001398",
@@ -1358,7 +1358,7 @@ const players = [
         "fantasy_average":74.6,
         "career_avg":72.6154,
         "rank":166,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1000072",
@@ -1368,7 +1368,7 @@ const players = [
         "fantasy_average":81.0,
         "career_avg":72.1059,
         "rank":157,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I998529",
@@ -1378,7 +1378,7 @@ const players = [
         "fantasy_average":78.6,
         "career_avg":59.9074,
         "rank":121,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I294036",
@@ -1388,7 +1388,7 @@ const players = [
         "fantasy_average":74.1,
         "career_avg":71.226,
         "rank":178,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1006114",
@@ -1398,7 +1398,7 @@ const players = [
         "fantasy_average":76.7,
         "career_avg":61.7755,
         "rank":122,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I293713",
@@ -1408,7 +1408,7 @@ const players = [
         "fantasy_average":75.6,
         "career_avg":86.0829,
         "rank":159,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I993902",
@@ -1418,7 +1418,7 @@ const players = [
         "fantasy_average":73.8,
         "career_avg":70.4848,
         "rank":123,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I993794",
@@ -1428,7 +1428,7 @@ const players = [
         "fantasy_average":81.0,
         "career_avg":68.6966,
         "rank":135,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I296359",
@@ -1438,7 +1438,7 @@ const players = [
         "fantasy_average":77.5,
         "career_avg":76.5973,
         "rank":125,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1000963",
@@ -1448,7 +1448,7 @@ const players = [
         "fantasy_average":76.5,
         "career_avg":68.5795,
         "rank":161,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I993107",
@@ -1458,7 +1458,7 @@ const players = [
         "fantasy_average":72.3,
         "career_avg":62.529,
         "rank":126,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I296254",
@@ -1468,7 +1468,7 @@ const players = [
         "fantasy_average":80.6,
         "career_avg":63.716,
         "rank":137,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I292128",
@@ -1478,7 +1478,7 @@ const players = [
         "fantasy_average":70.1,
         "career_avg":82.9191,
         "rank":130,
-        "positions":["Defender", "Midfielder"]
+        "positions":["DEF", "MID"]
     },
     {
         "player_id":"CD_I296355",
@@ -1488,7 +1488,7 @@ const players = [
         "fantasy_average":75.2,
         "career_avg":69.8523,
         "rank":183,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I280965",
@@ -1498,7 +1498,7 @@ const players = [
         "fantasy_average":78.8,
         "career_avg":95.2938,
         "rank":181,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1000860",
@@ -1508,7 +1508,7 @@ const players = [
         "fantasy_average":78.5,
         "career_avg":62.6477,
         "rank":145,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1009378",
@@ -1518,7 +1518,7 @@ const players = [
         "fantasy_average":76.5,
         "career_avg":62.0714,
         "rank":133,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I298421",
@@ -1528,7 +1528,7 @@ const players = [
         "fantasy_average":73.6,
         "career_avg":72.2593,
         "rank":149,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023266",
@@ -1538,7 +1538,7 @@ const players = [
         "fantasy_average":75.8,
         "career_avg":71.087,
         "rank":134,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I280737",
@@ -1548,7 +1548,7 @@ const players = [
         "fantasy_average":77.3,
         "career_avg":85.2211,
         "rank":342,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I294613",
@@ -1558,7 +1558,7 @@ const players = [
         "fantasy_average":75.4,
         "career_avg":88.2086,
         "rank":164,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1004863",
@@ -1568,7 +1568,7 @@ const players = [
         "fantasy_average":75.7,
         "career_avg":67.2558,
         "rank":160,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1017051",
@@ -1578,7 +1578,7 @@ const players = [
         "fantasy_average":71.9,
         "career_avg":64.2941,
         "rank":138,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I998133",
@@ -1588,7 +1588,7 @@ const players = [
         "fantasy_average":73.8,
         "career_avg":71.5702,
         "rank":184,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I998130",
@@ -1598,7 +1598,7 @@ const players = [
         "fantasy_average":74.1,
         "career_avg":67.7778,
         "rank":147,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023025",
@@ -1608,7 +1608,7 @@ const players = [
         "fantasy_average":57.9,
         "career_avg":57.9412,
         "rank":140,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I295067",
@@ -1618,7 +1618,7 @@ const players = [
         "fantasy_average":73.5,
         "career_avg":68.8333,
         "rank":185,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1023477",
@@ -1628,7 +1628,7 @@ const players = [
         "fantasy_average":65.0,
         "career_avg":65.0,
         "rank":141,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I295461",
@@ -1638,7 +1638,7 @@ const players = [
         "fantasy_average":73.9,
         "career_avg":67.422,
         "rank":172,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1023492",
@@ -1648,7 +1648,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":142,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I295584",
@@ -1658,7 +1658,7 @@ const players = [
         "fantasy_average":74.5,
         "career_avg":74.7981,
         "rank":188,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1017094",
@@ -1668,7 +1668,7 @@ const players = [
         "fantasy_average":70.7,
         "career_avg":63.775,
         "rank":144,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I992644",
@@ -1678,7 +1678,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":69.25,
         "rank":648,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1004938",
@@ -1688,7 +1688,7 @@ const players = [
         "fantasy_average":75.5,
         "career_avg":66.6022,
         "rank":146,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1001195",
@@ -1698,7 +1698,7 @@ const players = [
         "fantasy_average":74.2,
         "career_avg":59.5882,
         "rank":148,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I296324",
@@ -1708,7 +1708,7 @@ const players = [
         "fantasy_average":73.9,
         "career_avg":74.8088,
         "rank":150,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I298630",
@@ -1718,7 +1718,7 @@ const players = [
         "fantasy_average":73.0,
         "career_avg":71.1783,
         "rank":151,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1017110",
@@ -1728,7 +1728,7 @@ const players = [
         "fantasy_average":74.9,
         "career_avg":73.3667,
         "rank":153,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1002312",
@@ -1738,7 +1738,7 @@ const players = [
         "fantasy_average":72.4,
         "career_avg":65.0283,
         "rank":152,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I290832",
@@ -1748,7 +1748,7 @@ const players = [
         "fantasy_average":72.4,
         "career_avg":82.2941,
         "rank":230,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I293846",
@@ -1758,7 +1758,7 @@ const players = [
         "fantasy_average":69.9,
         "career_avg":84.6031,
         "rank":247,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I999827",
@@ -1768,7 +1768,7 @@ const players = [
         "fantasy_average":69.0,
         "career_avg":62.2056,
         "rank":154,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I270963",
@@ -1778,7 +1778,7 @@ const players = [
         "fantasy_average":74.5,
         "career_avg":92.9427,
         "rank":351,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1023500",
@@ -1788,7 +1788,7 @@ const players = [
         "fantasy_average":51.3,
         "career_avg":51.3158,
         "rank":156,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I996464",
@@ -1798,7 +1798,7 @@ const players = [
         "fantasy_average":76.1,
         "career_avg":69.086,
         "rank":189,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1001396",
@@ -1808,7 +1808,7 @@ const players = [
         "fantasy_average":68.3,
         "career_avg":77.4571,
         "rank":175,
-        "positions":["Defender", "Midfielder"]
+        "positions":["DEF", "MID"]
     },
     {
         "player_id":"CD_I992010",
@@ -1818,7 +1818,7 @@ const players = [
         "fantasy_average":74.6,
         "career_avg":73.5407,
         "rank":158,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I291783",
@@ -1828,7 +1828,7 @@ const players = [
         "fantasy_average":69.0,
         "career_avg":86.8842,
         "rank":256,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I997142",
@@ -1838,7 +1838,7 @@ const players = [
         "fantasy_average":76.2,
         "career_avg":69.6458,
         "rank":227,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1004912",
@@ -1848,7 +1848,7 @@ const players = [
         "fantasy_average":66.3,
         "career_avg":59.5789,
         "rank":162,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I294472",
@@ -1858,7 +1858,7 @@ const players = [
         "fantasy_average":74.7,
         "career_avg":70.8819,
         "rank":163,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I280109",
@@ -1868,7 +1868,7 @@ const players = [
         "fantasy_average":71.9,
         "career_avg":88.8276,
         "rank":235,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I298111",
@@ -1878,7 +1878,7 @@ const players = [
         "fantasy_average":72.6,
         "career_avg":63.7941,
         "rank":229,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1027033",
@@ -1888,7 +1888,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":165,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1003130",
@@ -1898,7 +1898,7 @@ const players = [
         "fantasy_average":69.7,
         "career_avg":70.4471,
         "rank":179,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I998205",
@@ -1908,7 +1908,7 @@ const players = [
         "fantasy_average":70.5,
         "career_avg":73.8265,
         "rank":186,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1000223",
@@ -1918,7 +1918,7 @@ const players = [
         "fantasy_average":69.8,
         "career_avg":67.3824,
         "rank":167,
-        "positions":["Defender", "Forward"]
+        "positions":["DEF", "FWD"]
     },
     {
         "player_id":"CD_I1015873",
@@ -1928,7 +1928,7 @@ const players = [
         "fantasy_average":67.3,
         "career_avg":59.55,
         "rank":168,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023785",
@@ -1938,7 +1938,7 @@ const players = [
         "fantasy_average":64.3,
         "career_avg":64.25,
         "rank":169,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I271129",
@@ -1948,7 +1948,7 @@ const players = [
         "fantasy_average":73.3,
         "career_avg":88.0175,
         "rank":202,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1000887",
@@ -1958,7 +1958,7 @@ const players = [
         "fantasy_average":71.9,
         "career_avg":59.0606,
         "rank":170,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1006028",
@@ -1968,7 +1968,7 @@ const players = [
         "fantasy_average":71.4,
         "career_avg":61.75,
         "rank":187,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1004095",
@@ -1978,7 +1978,7 @@ const players = [
         "fantasy_average":72.1,
         "career_avg":68.0632,
         "rank":171,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I290188",
@@ -1988,7 +1988,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":64.3016,
         "rank":692,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1013133",
@@ -1998,7 +1998,7 @@ const players = [
         "fantasy_average":65.2,
         "career_avg":57.4286,
         "rank":173,
-        "positions":["Defender", "Midfielder"]
+        "positions":["DEF", "MID"]
     },
     {
         "player_id":"CD_I990882",
@@ -2008,7 +2008,7 @@ const players = [
         "fantasy_average":71.4,
         "career_avg":66.4583,
         "rank":174,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I993940",
@@ -2018,7 +2018,7 @@ const players = [
         "fantasy_average":72.8,
         "career_avg":54.1429,
         "rank":205,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I992059",
@@ -2028,7 +2028,7 @@ const players = [
         "fantasy_average":63.1,
         "career_avg":59.8485,
         "rank":176,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I290801",
@@ -2038,7 +2038,7 @@ const players = [
         "fantasy_average":71.7,
         "career_avg":92.6756,
         "rank":236,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I994385",
@@ -2048,7 +2048,7 @@ const players = [
         "fantasy_average":76.7,
         "career_avg":59.1053,
         "rank":198,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I298264",
@@ -2058,7 +2058,7 @@ const players = [
         "fantasy_average":72.4,
         "career_avg":78.44,
         "rank":231,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I296420",
@@ -2068,7 +2068,7 @@ const players = [
         "fantasy_average":72.7,
         "career_avg":68.049,
         "rank":206,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I297452",
@@ -2078,7 +2078,7 @@ const players = [
         "fantasy_average":69.1,
         "career_avg":69.325,
         "rank":203,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1011936",
@@ -2088,7 +2088,7 @@ const players = [
         "fantasy_average":70.8,
         "career_avg":66.3582,
         "rank":240,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I280711",
@@ -2098,7 +2098,7 @@ const players = [
         "fantasy_average":72.3,
         "career_avg":66.0629,
         "rank":253,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I296351",
@@ -2108,7 +2108,7 @@ const players = [
         "fantasy_average":60.7,
         "career_avg":83.4837,
         "rank":233,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I998103",
@@ -2118,7 +2118,7 @@ const players = [
         "fantasy_average":71.0,
         "career_avg":65.9779,
         "rank":197,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1005577",
@@ -2128,7 +2128,7 @@ const players = [
         "fantasy_average":66.6,
         "career_avg":59.4107,
         "rank":190,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I294101",
@@ -2138,7 +2138,7 @@ const players = [
         "fantasy_average":73.5,
         "career_avg":70.2151,
         "rank":191,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1020670",
@@ -2148,7 +2148,7 @@ const players = [
         "fantasy_average":46.3,
         "career_avg":46.2857,
         "rank":192,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1009241",
@@ -2158,7 +2158,7 @@ const players = [
         "fantasy_average":70.1,
         "career_avg":65.25,
         "rank":201,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1008089",
@@ -2168,7 +2168,7 @@ const players = [
         "fantasy_average":68.5,
         "career_avg":64.1688,
         "rank":193,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1002251",
@@ -2178,7 +2178,7 @@ const players = [
         "fantasy_average":70.2,
         "career_avg":56.6267,
         "rank":207,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023270",
@@ -2188,7 +2188,7 @@ const players = [
         "fantasy_average":63.2,
         "career_avg":57.1143,
         "rank":194,
-        "positions":["Defender", "Midfielder"]
+        "positions":["DEF", "MID"]
     },
     {
         "player_id":"CD_I294685",
@@ -2198,7 +2198,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":74.728,
         "rank":623,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1013224",
@@ -2208,7 +2208,7 @@ const players = [
         "fantasy_average":60.3,
         "career_avg":64.6667,
         "rank":195,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1008312",
@@ -2218,7 +2218,7 @@ const players = [
         "fantasy_average":70.5,
         "career_avg":59.72,
         "rank":196,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I290826",
@@ -2228,7 +2228,7 @@ const players = [
         "fantasy_average":69.4,
         "career_avg":69.495,
         "rank":255,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1008454",
@@ -2238,7 +2238,7 @@ const players = [
         "fantasy_average":73.5,
         "career_avg":50.4286,
         "rank":225,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1005992",
@@ -2248,7 +2248,7 @@ const players = [
         "fantasy_average":51.4,
         "career_avg":47.0,
         "rank":199,
-        "positions":["Defender", "Forward"]
+        "positions":["DEF", "FWD"]
     },
     {
         "player_id":"CD_I1004870",
@@ -2258,7 +2258,7 @@ const players = [
         "fantasy_average":70.1,
         "career_avg":60.3768,
         "rank":200,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1006133",
@@ -2268,7 +2268,7 @@ const players = [
         "fantasy_average":71.6,
         "career_avg":62.7193,
         "rank":237,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I297255",
@@ -2278,7 +2278,7 @@ const players = [
         "fantasy_average":70.7,
         "career_avg":60.4135,
         "rank":245,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I298144",
@@ -2288,7 +2288,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":61.0,
         "rank":756,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I280317",
@@ -2298,7 +2298,7 @@ const players = [
         "fantasy_average":71.3,
         "career_avg":68.9245,
         "rank":239,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1000864",
@@ -2308,7 +2308,7 @@ const players = [
         "fantasy_average":62.2,
         "career_avg":63.6,
         "rank":204,
-        "positions":["Defender", "Midfielder"]
+        "positions":["DEF", "MID"]
     },
     {
         "player_id":"CD_I993799",
@@ -2318,7 +2318,7 @@ const players = [
         "fantasy_average":70.8,
         "career_avg":85.4505,
         "rank":241,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1000953",
@@ -2328,7 +2328,7 @@ const players = [
         "fantasy_average":69.6,
         "career_avg":64.3238,
         "rank":212,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I292511",
@@ -2338,7 +2338,7 @@ const players = [
         "fantasy_average":66.7,
         "career_avg":70.8829,
         "rank":283,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I294859",
@@ -2348,7 +2348,7 @@ const players = [
         "fantasy_average":70.3,
         "career_avg":67.8625,
         "rank":249,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I998484",
@@ -2358,7 +2358,7 @@ const players = [
         "fantasy_average":64.5,
         "career_avg":58.2828,
         "rank":208,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1020137",
@@ -2368,7 +2368,7 @@ const players = [
         "fantasy_average":52.2,
         "career_avg":52.2174,
         "rank":209,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I997033",
@@ -2378,7 +2378,7 @@ const players = [
         "fantasy_average":69.9,
         "career_avg":57.52,
         "rank":254,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1012218",
@@ -2388,7 +2388,7 @@ const players = [
         "fantasy_average":58.2,
         "career_avg":54.8333,
         "rank":210,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I996554",
@@ -2398,7 +2398,7 @@ const players = [
         "fantasy_average":74.1,
         "career_avg":59.9125,
         "rank":211,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I281085",
@@ -2408,7 +2408,7 @@ const players = [
         "fantasy_average":69.5,
         "career_avg":64.9792,
         "rank":252,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1002404",
@@ -2418,7 +2418,7 @@ const players = [
         "fantasy_average":66.9,
         "career_avg":62.0172,
         "rank":213,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1008752",
@@ -2428,7 +2428,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":62.2,
         "rank":610,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I990827",
@@ -2438,7 +2438,7 @@ const players = [
         "fantasy_average":61.0,
         "career_avg":70.7736,
         "rank":214,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1011659",
@@ -2448,7 +2448,7 @@ const players = [
         "fantasy_average":57.4,
         "career_avg":59.8667,
         "rank":215,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I250365",
@@ -2458,7 +2458,7 @@ const players = [
         "fantasy_average":62.2,
         "career_avg":91.6667,
         "rank":590,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1008384",
@@ -2468,7 +2468,7 @@ const players = [
         "fantasy_average":52.9,
         "career_avg":53.413,
         "rank":216,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I293716",
@@ -2478,7 +2478,7 @@ const players = [
         "fantasy_average":50.6,
         "career_avg":87.0625,
         "rank":429,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1023494",
@@ -2488,7 +2488,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":217,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1013409",
@@ -2498,7 +2498,7 @@ const players = [
         "fantasy_average":50.3,
         "career_avg":65.2,
         "rank":218,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1012805",
@@ -2508,7 +2508,7 @@ const players = [
         "fantasy_average":70.7,
         "career_avg":56.7174,
         "rank":246,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1012829",
@@ -2518,7 +2518,7 @@ const players = [
         "fantasy_average":66.8,
         "career_avg":55.9667,
         "rank":219,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I293801",
@@ -2528,7 +2528,7 @@ const players = [
         "fantasy_average":66.8,
         "career_avg":71.5294,
         "rank":266,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1017109",
@@ -2538,7 +2538,7 @@ const players = [
         "fantasy_average":67.6,
         "career_avg":63.4324,
         "rank":220,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I993832",
@@ -2548,7 +2548,7 @@ const players = [
         "fantasy_average":70.4,
         "career_avg":59.8462,
         "rank":248,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I297899",
@@ -2558,7 +2558,7 @@ const players = [
         "fantasy_average":46.8,
         "career_avg":72.2324,
         "rank":221,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I998114",
@@ -2568,7 +2568,7 @@ const players = [
         "fantasy_average":66.5,
         "career_avg":67.6386,
         "rank":244,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1001017",
@@ -2578,7 +2578,7 @@ const players = [
         "fantasy_average":60.0,
         "career_avg":51.9149,
         "rank":222,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I298289",
@@ -2588,7 +2588,7 @@ const players = [
         "fantasy_average":58.0,
         "career_avg":65.9661,
         "rank":223,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1006143",
@@ -2598,7 +2598,7 @@ const players = [
         "fantasy_average":57.7,
         "career_avg":54.3824,
         "rank":224,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I992128",
@@ -2608,7 +2608,7 @@ const players = [
         "fantasy_average":64.2,
         "career_avg":71.3077,
         "rank":272,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1001024",
@@ -2618,7 +2618,7 @@ const players = [
         "fantasy_average":60.9,
         "career_avg":61.3421,
         "rank":226,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1006136",
@@ -2628,7 +2628,7 @@ const players = [
         "fantasy_average":67.8,
         "career_avg":63.7308,
         "rank":258,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I992351",
@@ -2638,7 +2638,7 @@ const players = [
         "fantasy_average":69.9,
         "career_avg":65.2397,
         "rank":250,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I291570",
@@ -2648,7 +2648,7 @@ const players = [
         "fantasy_average":49.3,
         "career_avg":92.6584,
         "rank":228,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I295203",
@@ -2658,7 +2658,7 @@ const players = [
         "fantasy_average":66.9,
         "career_avg":58.7105,
         "rank":264,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1006096",
@@ -2668,7 +2668,7 @@ const players = [
         "fantasy_average":66.3,
         "career_avg":66.9104,
         "rank":232,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I999391",
@@ -2678,7 +2678,7 @@ const players = [
         "fantasy_average":66.6,
         "career_avg":59.4839,
         "rank":271,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1004364",
@@ -2688,7 +2688,7 @@ const players = [
         "fantasy_average":72.3,
         "career_avg":57.5663,
         "rank":234,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I996765",
@@ -2698,7 +2698,7 @@ const players = [
         "fantasy_average":66.2,
         "career_avg":67.6974,
         "rank":274,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I996059",
@@ -2708,7 +2708,7 @@ const players = [
         "fantasy_average":68.8,
         "career_avg":57.9138,
         "rank":259,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I261510",
@@ -2718,7 +2718,7 @@ const players = [
         "fantasy_average":63.0,
         "career_avg":72.6786,
         "rank":292,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1020695",
@@ -2728,7 +2728,7 @@ const players = [
         "fantasy_average":71.5,
         "career_avg":71.5,
         "rank":238,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I998791",
@@ -2738,7 +2738,7 @@ const players = [
         "fantasy_average":66.6,
         "career_avg":57.6154,
         "rank":273,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I298280",
@@ -2748,7 +2748,7 @@ const players = [
         "fantasy_average":67.4,
         "career_avg":59.6111,
         "rank":261,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1002253",
@@ -2758,7 +2758,7 @@ const players = [
         "fantasy_average":64.5,
         "career_avg":56.1449,
         "rank":243,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I993820",
@@ -2768,7 +2768,7 @@ const players = [
         "fantasy_average":65.9,
         "career_avg":54.3488,
         "rank":242,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1012807",
@@ -2778,7 +2778,7 @@ const players = [
         "fantasy_average":49.3,
         "career_avg":62.6154,
         "rank":445,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1002264",
@@ -2788,7 +2788,7 @@ const players = [
         "fantasy_average":67.8,
         "career_avg":66.25,
         "rank":260,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I990609",
@@ -2798,7 +2798,7 @@ const players = [
         "fantasy_average":63.6,
         "career_avg":62.918,
         "rank":284,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1008083",
@@ -2808,7 +2808,7 @@ const players = [
         "fantasy_average":67.0,
         "career_avg":58.6032,
         "rank":263,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I295265",
@@ -2818,7 +2818,7 @@ const players = [
         "fantasy_average":66.5,
         "career_avg":68.4696,
         "rank":257,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I993979",
@@ -2828,7 +2828,7 @@ const players = [
         "fantasy_average":61.4,
         "career_avg":68.8258,
         "rank":309,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1006203",
@@ -2838,7 +2838,7 @@ const players = [
         "fantasy_average":67.3,
         "career_avg":49.44,
         "rank":251,
-        "positions":["Defender", "Midfielder"]
+        "positions":["DEF", "MID"]
     },
     {
         "player_id":"CD_I1001028",
@@ -2848,7 +2848,7 @@ const players = [
         "fantasy_average":63.4,
         "career_avg":60.2783,
         "rank":285,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I997846",
@@ -2858,7 +2858,7 @@ const players = [
         "fantasy_average":65.1,
         "career_avg":62.99,
         "rank":277,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1003203",
@@ -2868,7 +2868,7 @@ const players = [
         "fantasy_average":65.6,
         "career_avg":57.7347,
         "rank":275,
-        "positions":["Ruck", "Forward"]
+        "positions":["RUC", "FWD"]
     },
     {
         "player_id":"CD_I1031801",
@@ -2878,7 +2878,7 @@ const players = [
         "fantasy_average":17.5,
         "career_avg":17.5,
         "rank":601,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1015822",
@@ -2888,7 +2888,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":41.5,
         "rank":697,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1023533",
@@ -2898,7 +2898,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":621,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1017065",
@@ -2908,7 +2908,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":611,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1024187",
@@ -2918,7 +2918,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":705,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1004848",
@@ -2928,7 +2928,7 @@ const players = [
         "fantasy_average":54.9,
         "career_avg":56.0,
         "rank":262,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1002235",
@@ -2938,7 +2938,7 @@ const players = [
         "fantasy_average":63.7,
         "career_avg":57.4615,
         "rank":265,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1024057",
@@ -2948,7 +2948,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":766,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1027058",
@@ -2958,7 +2958,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":768,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1008825",
@@ -2968,7 +2968,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":641,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1020339",
@@ -2978,7 +2978,7 @@ const players = [
         "fantasy_average":62.4,
         "career_avg":58.125,
         "rank":267,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1017939",
@@ -2988,7 +2988,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":776,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1015810",
@@ -2998,7 +2998,7 @@ const players = [
         "fantasy_average":63.0,
         "career_avg":59.1667,
         "rank":268,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1027673",
@@ -3008,7 +3008,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":712,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1016825",
@@ -3018,7 +3018,7 @@ const players = [
         "fantasy_average":56.7,
         "career_avg":56.7222,
         "rank":269,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I293813",
@@ -3028,7 +3028,7 @@ const players = [
         "fantasy_average":51.8,
         "career_avg":70.5196,
         "rank":412,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1002256",
@@ -3038,7 +3038,7 @@ const players = [
         "fantasy_average":56.7,
         "career_avg":53.0857,
         "rank":270,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1004385",
@@ -3048,7 +3048,7 @@ const players = [
         "fantasy_average":64.1,
         "career_avg":58.6914,
         "rank":280,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1011633",
@@ -3058,7 +3058,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":640,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1024188",
@@ -3068,7 +3068,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":769,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1027935",
@@ -3078,7 +3078,7 @@ const players = [
         "fantasy_average":64.5,
         "career_avg":64.4706,
         "rank":279,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I991930",
@@ -3088,7 +3088,7 @@ const players = [
         "fantasy_average":61.2,
         "career_avg":70.5783,
         "rank":329,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1031829",
@@ -3098,7 +3098,7 @@ const players = [
         "fantasy_average":77.0,
         "career_avg":77.0,
         "rank":276,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1022915",
@@ -3108,7 +3108,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":626,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1002245",
@@ -3118,7 +3118,7 @@ const players = [
         "fantasy_average":64.7,
         "career_avg":54.4875,
         "rank":278,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I998134",
@@ -3128,7 +3128,7 @@ const players = [
         "fantasy_average":62.0,
         "career_avg":62.5521,
         "rank":593,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1023537",
@@ -3138,7 +3138,7 @@ const players = [
         "fantasy_average":36.0,
         "career_avg":36.0,
         "rank":544,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1015330",
@@ -3148,7 +3148,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":669,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1008139",
@@ -3158,7 +3158,7 @@ const players = [
         "fantasy_average":63.7,
         "career_avg":54.5385,
         "rank":281,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1018123",
@@ -3168,7 +3168,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":732,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1002227",
@@ -3178,7 +3178,7 @@ const players = [
         "fantasy_average":63.7,
         "career_avg":63.5253,
         "rank":282,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023680",
@@ -3188,7 +3188,7 @@ const players = [
         "fantasy_average":62.5,
         "career_avg":62.5,
         "rank":298,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1019916",
@@ -3198,7 +3198,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":758,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1023681",
@@ -3208,7 +3208,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":726,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I298288",
@@ -3218,7 +3218,7 @@ const players = [
         "fantasy_average":63.4,
         "career_avg":57.4071,
         "rank":286,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I291548",
@@ -3228,7 +3228,7 @@ const players = [
         "fantasy_average":63.1,
         "career_avg":61.0861,
         "rank":287,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I291313",
@@ -3238,7 +3238,7 @@ const players = [
         "fantasy_average":62.9,
         "career_avg":73.8925,
         "rank":295,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1001438",
@@ -3248,7 +3248,7 @@ const players = [
         "fantasy_average":63.1,
         "career_avg":64.8889,
         "rank":288,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I997100",
@@ -3258,7 +3258,7 @@ const players = [
         "fantasy_average":63.0,
         "career_avg":59.0923,
         "rank":293,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1008541",
@@ -3268,7 +3268,7 @@ const players = [
         "fantasy_average":63.1,
         "career_avg":56.3333,
         "rank":289,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I290757",
@@ -3278,7 +3278,7 @@ const players = [
         "fantasy_average":63.1,
         "career_avg":61.3624,
         "rank":290,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1018335",
@@ -3288,7 +3288,7 @@ const players = [
         "fantasy_average":63.0,
         "career_avg":44.0833,
         "rank":291,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1018016",
@@ -3298,7 +3298,7 @@ const players = [
         "fantasy_average":62.9,
         "career_avg":62.9286,
         "rank":296,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1017087",
@@ -3308,7 +3308,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":294,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I298419",
@@ -3318,7 +3318,7 @@ const players = [
         "fantasy_average":55.1,
         "career_avg":70.6542,
         "rank":379,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1000998",
@@ -3328,7 +3328,7 @@ const players = [
         "fantasy_average":62.5,
         "career_avg":53.4694,
         "rank":297,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1006137",
@@ -3338,7 +3338,7 @@ const players = [
         "fantasy_average":61.3,
         "career_avg":58.8209,
         "rank":327,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1008154",
@@ -3348,7 +3348,7 @@ const players = [
         "fantasy_average":62.3,
         "career_avg":58.0,
         "rank":299,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1028671",
@@ -3358,7 +3358,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":701,
-        "positions":["Defender", "Midfielder"]
+        "positions":["DEF", "MID"]
     },
     {
         "player_id":"CD_I1009195",
@@ -3368,7 +3368,7 @@ const players = [
         "fantasy_average":60.0,
         "career_avg":58.619,
         "rank":307,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1021031",
@@ -3378,7 +3378,7 @@ const players = [
         "fantasy_average":61.8,
         "career_avg":61.75,
         "rank":301,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1012825",
@@ -3388,7 +3388,7 @@ const players = [
         "fantasy_average":62.3,
         "career_avg":61.9048,
         "rank":303,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1010174",
@@ -3398,7 +3398,7 @@ const players = [
         "fantasy_average":61.5,
         "career_avg":53.3061,
         "rank":302,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1026960",
@@ -3408,7 +3408,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":730,
-        "positions":["Defender", "Midfielder"]
+        "positions":["DEF", "MID"]
     },
     {
         "player_id":"CD_I1023167",
@@ -3418,7 +3418,7 @@ const players = [
         "fantasy_average":61.5,
         "career_avg":56.1333,
         "rank":304,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1013464",
@@ -3428,7 +3428,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":725,
-        "positions":["Defender", "Midfielder"]
+        "positions":["DEF", "MID"]
     },
     {
         "player_id":"CD_I1017067",
@@ -3438,7 +3438,7 @@ const players = [
         "fantasy_average":60.7,
         "career_avg":60.6957,
         "rank":305,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I290246",
@@ -3448,7 +3448,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":59.9592,
         "rank":685,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I998260",
@@ -3458,7 +3458,7 @@ const players = [
         "fantasy_average":60.7,
         "career_avg":65.64,
         "rank":306,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1004998",
@@ -3468,7 +3468,7 @@ const players = [
         "fantasy_average":60.2,
         "career_avg":57.9213,
         "rank":337,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1009191",
@@ -3478,7 +3478,7 @@ const players = [
         "fantasy_average":60.0,
         "career_avg":63.4902,
         "rank":308,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I998390",
@@ -3488,7 +3488,7 @@ const players = [
         "fantasy_average":56.5,
         "career_avg":62.8,
         "rank":310,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1027678",
@@ -3498,7 +3498,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":708,
-        "positions":["Defender", "Midfielder"]
+        "positions":["DEF", "MID"]
     },
     {
         "player_id":"CD_I1017118",
@@ -3508,7 +3508,7 @@ const players = [
         "fantasy_average":54.5,
         "career_avg":57.0909,
         "rank":311,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1027821",
@@ -3518,7 +3518,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":745,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1005247",
@@ -3528,7 +3528,7 @@ const players = [
         "fantasy_average":55.9,
         "career_avg":55.5,
         "rank":312,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I281091",
@@ -3538,7 +3538,7 @@ const players = [
         "fantasy_average":59.3,
         "career_avg":76.8348,
         "rank":350,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1011583",
@@ -3548,7 +3548,7 @@ const players = [
         "fantasy_average":44.6,
         "career_avg":45.1875,
         "rank":313,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I293884",
@@ -3558,7 +3558,7 @@ const players = [
         "fantasy_average":62.0,
         "career_avg":64.1319,
         "rank":591,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1005144",
@@ -3568,7 +3568,7 @@ const players = [
         "fantasy_average":41.8,
         "career_avg":47.9333,
         "rank":314,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I993878",
@@ -3578,7 +3578,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":727,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1005717",
@@ -3588,7 +3588,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":60.2,
         "rank":315,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1024096",
@@ -3598,7 +3598,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":686,
-        "positions":["Defender", "Midfielder"]
+        "positions":["DEF", "MID"]
     },
     {
         "player_id":"CD_I1024279",
@@ -3608,7 +3608,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":316,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1027656",
@@ -3618,7 +3618,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":721,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I294508",
@@ -3628,7 +3628,7 @@ const players = [
         "fantasy_average":58.8,
         "career_avg":47.3636,
         "rank":317,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1017089",
@@ -3638,7 +3638,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":646,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1029261",
@@ -3648,7 +3648,7 @@ const players = [
         "fantasy_average":52.5,
         "career_avg":52.5,
         "rank":318,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1024023",
@@ -3658,7 +3658,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":700,
-        "positions":["Defender", "Midfielder"]
+        "positions":["DEF", "MID"]
     },
     {
         "player_id":"CD_I1016268",
@@ -3668,7 +3668,7 @@ const players = [
         "fantasy_average":48.1,
         "career_avg":48.0625,
         "rank":319,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1027959",
@@ -3678,7 +3678,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":684,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1017095",
@@ -3688,7 +3688,7 @@ const players = [
         "fantasy_average":44.9,
         "career_avg":41.6923,
         "rank":320,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1021353",
@@ -3698,7 +3698,7 @@ const players = [
         "fantasy_average":40.6,
         "career_avg":40.5714,
         "rank":321,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1011985",
@@ -3708,7 +3708,7 @@ const players = [
         "fantasy_average":38.9,
         "career_avg":44.3871,
         "rank":322,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1027925",
@@ -3718,7 +3718,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":738,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1011954",
@@ -3728,7 +3728,7 @@ const players = [
         "fantasy_average":54.9,
         "career_avg":52.3571,
         "rank":323,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1020057",
@@ -3738,7 +3738,7 @@ const players = [
         "fantasy_average":9.0,
         "career_avg":9.0,
         "rank":324,
-        "positions":["Ruck", "Forward"]
+        "positions":["RUC", "FWD"]
     },
     {
         "player_id":"CD_I294596",
@@ -3748,7 +3748,7 @@ const players = [
         "fantasy_average":54.4,
         "career_avg":67.8228,
         "rank":392,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1013462",
@@ -3758,7 +3758,7 @@ const players = [
         "fantasy_average":35.8,
         "career_avg":50.0833,
         "rank":325,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1009317",
@@ -3768,7 +3768,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":706,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1020104",
@@ -3778,7 +3778,7 @@ const players = [
         "fantasy_average":19.0,
         "career_avg":19.0,
         "rank":326,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1014013",
@@ -3788,7 +3788,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":753,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1019939",
@@ -3798,7 +3798,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":734,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1002228",
@@ -3808,7 +3808,7 @@ const players = [
         "fantasy_average":61.2,
         "career_avg":59.4706,
         "rank":328,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1020881",
@@ -3818,7 +3818,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":728,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1023473",
@@ -3828,7 +3828,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":742,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1006135",
@@ -3838,7 +3838,7 @@ const players = [
         "fantasy_average":60.9,
         "career_avg":49.9524,
         "rank":330,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1029262",
@@ -3848,7 +3848,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":754,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I993816",
@@ -3858,7 +3858,7 @@ const players = [
         "fantasy_average":60.8,
         "career_avg":62.3871,
         "rank":331,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I294592",
@@ -3868,7 +3868,7 @@ const players = [
         "fantasy_average":59.7,
         "career_avg":61.828,
         "rank":341,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I999331",
@@ -3878,7 +3878,7 @@ const players = [
         "fantasy_average":60.4,
         "career_avg":51.141,
         "rank":332,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I280744",
@@ -3888,7 +3888,7 @@ const players = [
         "fantasy_average":60.4,
         "career_avg":69.8982,
         "rank":333,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I291962",
@@ -3898,7 +3898,7 @@ const players = [
         "fantasy_average":60.4,
         "career_avg":79.0829,
         "rank":334,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1005330",
@@ -3908,7 +3908,7 @@ const players = [
         "fantasy_average":59.0,
         "career_avg":51.3462,
         "rank":335,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1027875",
@@ -3918,7 +3918,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":763,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I291849",
@@ -3928,7 +3928,7 @@ const players = [
         "fantasy_average":60.3,
         "career_avg":61.2768,
         "rank":336,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1015329",
@@ -3938,7 +3938,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":608,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1008855",
@@ -3948,7 +3948,7 @@ const players = [
         "fantasy_average":60.2,
         "career_avg":58.5161,
         "rank":338,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1027704",
@@ -3958,7 +3958,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":777,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1009301",
@@ -3968,7 +3968,7 @@ const players = [
         "fantasy_average":60.0,
         "career_avg":53.5349,
         "rank":339,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I298470",
@@ -3978,7 +3978,7 @@ const players = [
         "fantasy_average":59.7,
         "career_avg":55.1,
         "rank":340,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1017970",
@@ -3988,7 +3988,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":634,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1027969",
@@ -3998,7 +3998,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":770,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I992330",
@@ -4008,7 +4008,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":61.0909,
         "rank":670,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I290307",
@@ -4018,7 +4018,7 @@ const players = [
         "fantasy_average":59.6,
         "career_avg":64.9619,
         "rank":343,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1023475",
@@ -4028,7 +4028,7 @@ const players = [
         "fantasy_average":26.3,
         "career_avg":26.25,
         "rank":344,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1020032",
@@ -4038,7 +4038,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":772,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I998647",
@@ -4048,7 +4048,7 @@ const players = [
         "fantasy_average":59.4,
         "career_avg":54.9604,
         "rank":345,
-        "positions":["Ruck", "Forward"]
+        "positions":["RUC", "FWD"]
     },
     {
         "player_id":"CD_I1000980",
@@ -4058,7 +4058,7 @@ const players = [
         "fantasy_average":59.4,
         "career_avg":54.4516,
         "rank":346,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1027949",
@@ -4068,7 +4068,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":746,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I993953",
@@ -4078,7 +4078,7 @@ const players = [
         "fantasy_average":59.3,
         "career_avg":53.8881,
         "rank":347,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1027790",
@@ -4088,7 +4088,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":764,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1007099",
@@ -4098,7 +4098,7 @@ const players = [
         "fantasy_average":59.3,
         "career_avg":37.2222,
         "rank":348,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1011994",
@@ -4108,7 +4108,7 @@ const players = [
         "fantasy_average":62.0,
         "career_avg":60.5116,
         "rank":594,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I993795",
@@ -4118,7 +4118,7 @@ const players = [
         "fantasy_average":59.3,
         "career_avg":56.4118,
         "rank":349,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1011981",
@@ -4128,7 +4128,7 @@ const players = [
         "fantasy_average":59.1,
         "career_avg":54.4118,
         "rank":353,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I992374",
@@ -4138,7 +4138,7 @@ const players = [
         "fantasy_average":59.2,
         "career_avg":56.0976,
         "rank":352,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I297473",
@@ -4148,7 +4148,7 @@ const players = [
         "fantasy_average":58.9,
         "career_avg":58.5724,
         "rank":354,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1007102",
@@ -4158,7 +4158,7 @@ const players = [
         "fantasy_average":61.9,
         "career_avg":57.0722,
         "rank":595,
-        "positions":["Defender", "Midfielder"]
+        "positions":["DEF", "MID"]
     },
     {
         "player_id":"CD_I298290",
@@ -4168,7 +4168,7 @@ const players = [
         "fantasy_average":58.7,
         "career_avg":58.0357,
         "rank":355,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I990740",
@@ -4178,7 +4178,7 @@ const players = [
         "fantasy_average":58.5,
         "career_avg":65.0331,
         "rank":356,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I290838",
@@ -4188,7 +4188,7 @@ const players = [
         "fantasy_average":58.4,
         "career_avg":68.1927,
         "rank":357,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1011803",
@@ -4198,7 +4198,7 @@ const players = [
         "fantasy_average":58.4,
         "career_avg":53.6364,
         "rank":358,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I991988",
@@ -4208,7 +4208,7 @@ const players = [
         "fantasy_average":54.5,
         "career_avg":69.7008,
         "rank":389,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1023495",
@@ -4218,7 +4218,7 @@ const players = [
         "fantasy_average":58.2,
         "career_avg":58.1765,
         "rank":359,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I999321",
@@ -4228,7 +4228,7 @@ const players = [
         "fantasy_average":58.1,
         "career_avg":51.9464,
         "rank":360,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1012833",
@@ -4238,7 +4238,7 @@ const players = [
         "fantasy_average":57.6,
         "career_avg":53.45,
         "rank":361,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1008882",
@@ -4248,7 +4248,7 @@ const players = [
         "fantasy_average":57.3,
         "career_avg":53.6273,
         "rank":362,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1009708",
@@ -4258,7 +4258,7 @@ const players = [
         "fantasy_average":57.2,
         "career_avg":53.9,
         "rank":363,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I297456",
@@ -4268,7 +4268,7 @@ const players = [
         "fantasy_average":57.0,
         "career_avg":57.3091,
         "rank":364,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1006232",
@@ -4278,7 +4278,7 @@ const players = [
         "fantasy_average":56.8,
         "career_avg":52.1277,
         "rank":365,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I997316",
@@ -4288,7 +4288,7 @@ const players = [
         "fantasy_average":56.7,
         "career_avg":53.5636,
         "rank":366,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1011589",
@@ -4298,7 +4298,7 @@ const players = [
         "fantasy_average":56.7,
         "career_avg":59.8571,
         "rank":367,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1013220",
@@ -4308,7 +4308,7 @@ const players = [
         "fantasy_average":56.5,
         "career_avg":59.3,
         "rank":368,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I298302",
@@ -4318,7 +4318,7 @@ const players = [
         "fantasy_average":56.0,
         "career_avg":56.3158,
         "rank":369,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1017126",
@@ -4328,7 +4328,7 @@ const players = [
         "fantasy_average":20.0,
         "career_avg":41.1667,
         "rank":370,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I999326",
@@ -4338,7 +4338,7 @@ const players = [
         "fantasy_average":55.9,
         "career_avg":59.2,
         "rank":371,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1012860",
@@ -4348,7 +4348,7 @@ const players = [
         "fantasy_average":55.9,
         "career_avg":51.9333,
         "rank":372,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I293581",
@@ -4358,7 +4358,7 @@ const players = [
         "fantasy_average":55.5,
         "career_avg":57.6614,
         "rank":373,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1000932",
@@ -4368,7 +4368,7 @@ const players = [
         "fantasy_average":55.5,
         "career_avg":62.9146,
         "rank":374,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I291720",
@@ -4378,7 +4378,7 @@ const players = [
         "fantasy_average":55.5,
         "career_avg":64.7944,
         "rank":375,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1013268",
@@ -4388,7 +4388,7 @@ const players = [
         "fantasy_average":55.4,
         "career_avg":48.76,
         "rank":376,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I281124",
@@ -4398,7 +4398,7 @@ const players = [
         "fantasy_average":55.4,
         "career_avg":55.8032,
         "rank":377,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I291848",
@@ -4408,7 +4408,7 @@ const players = [
         "fantasy_average":55.3,
         "career_avg":52.6667,
         "rank":378,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1009226",
@@ -4418,7 +4418,7 @@ const players = [
         "fantasy_average":55.0,
         "career_avg":45.9412,
         "rank":380,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I291978",
@@ -4428,7 +4428,7 @@ const players = [
         "fantasy_average":55.0,
         "career_avg":63.0175,
         "rank":381,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I291351",
@@ -4438,7 +4438,7 @@ const players = [
         "fantasy_average":54.8,
         "career_avg":77.4924,
         "rank":382,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I296225",
@@ -4448,7 +4448,7 @@ const players = [
         "fantasy_average":54.8,
         "career_avg":56.6875,
         "rank":383,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I298281",
@@ -4458,7 +4458,7 @@ const players = [
         "fantasy_average":54.7,
         "career_avg":57.6757,
         "rank":384,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1013230",
@@ -4468,7 +4468,7 @@ const players = [
         "fantasy_average":54.7,
         "career_avg":50.6098,
         "rank":385,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1008123",
@@ -4478,7 +4478,7 @@ const players = [
         "fantasy_average":54.6,
         "career_avg":54.8636,
         "rank":386,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I996580",
@@ -4488,7 +4488,7 @@ const players = [
         "fantasy_average":54.5,
         "career_avg":57.51,
         "rank":387,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I291819",
@@ -4498,7 +4498,7 @@ const players = [
         "fantasy_average":54.5,
         "career_avg":64.8397,
         "rank":388,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I990290",
@@ -4508,7 +4508,7 @@ const players = [
         "fantasy_average":53.9,
         "career_avg":57.0569,
         "rank":396,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I295446",
@@ -4518,7 +4518,7 @@ const players = [
         "fantasy_average":54.4,
         "career_avg":52.5577,
         "rank":390,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1004985",
@@ -4528,7 +4528,7 @@ const players = [
         "fantasy_average":54.4,
         "career_avg":56.1692,
         "rank":391,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I296190",
@@ -4538,7 +4538,7 @@ const players = [
         "fantasy_average":54.1,
         "career_avg":69.6781,
         "rank":393,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1021013",
@@ -4548,7 +4548,7 @@ const players = [
         "fantasy_average":54.0,
         "career_avg":54.0,
         "rank":394,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I997230",
@@ -4558,7 +4558,7 @@ const players = [
         "fantasy_average":53.9,
         "career_avg":57.2456,
         "rank":395,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I297504",
@@ -4568,7 +4568,7 @@ const players = [
         "fantasy_average":53.8,
         "career_avg":52.1455,
         "rank":397,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1006550",
@@ -4578,7 +4578,7 @@ const players = [
         "fantasy_average":53.8,
         "career_avg":49.1,
         "rank":398,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1009380",
@@ -4588,7 +4588,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":54.2727,
         "rank":422,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1002240",
@@ -4598,7 +4598,7 @@ const players = [
         "fantasy_average":53.6,
         "career_avg":67.451,
         "rank":399,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1005000",
@@ -4608,7 +4608,7 @@ const players = [
         "fantasy_average":53.1,
         "career_avg":47.5641,
         "rank":400,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1018075",
@@ -4618,7 +4618,7 @@ const players = [
         "fantasy_average":52.8,
         "career_avg":44.5,
         "rank":401,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1014038",
@@ -4628,7 +4628,7 @@ const players = [
         "fantasy_average":52.8,
         "career_avg":51.6957,
         "rank":402,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I993480",
@@ -4638,7 +4638,7 @@ const players = [
         "fantasy_average":52.8,
         "career_avg":51.4017,
         "rank":403,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1002143",
@@ -4648,7 +4648,7 @@ const players = [
         "fantasy_average":52.6,
         "career_avg":43.6197,
         "rank":404,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I291533",
@@ -4658,7 +4658,7 @@ const players = [
         "fantasy_average":52.5,
         "career_avg":70.2556,
         "rank":405,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1015370",
@@ -4668,7 +4668,7 @@ const players = [
         "fantasy_average":52.4,
         "career_avg":52.3636,
         "rank":406,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1004757",
@@ -4678,7 +4678,7 @@ const players = [
         "fantasy_average":52.4,
         "career_avg":48.9038,
         "rank":407,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1012819",
@@ -4688,7 +4688,7 @@ const players = [
         "fantasy_average":52.3,
         "career_avg":46.6944,
         "rank":408,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1004034",
@@ -4698,7 +4698,7 @@ const players = [
         "fantasy_average":52.2,
         "career_avg":47.7255,
         "rank":409,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I997933",
@@ -4708,7 +4708,7 @@ const players = [
         "fantasy_average":51.9,
         "career_avg":49.7532,
         "rank":410,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1008893",
@@ -4718,7 +4718,7 @@ const players = [
         "fantasy_average":51.8,
         "career_avg":44.7719,
         "rank":411,
-        "positions":["Defender", "Forward"]
+        "positions":["DEF", "FWD"]
     },
     {
         "player_id":"CD_I1006127",
@@ -4728,7 +4728,7 @@ const players = [
         "fantasy_average":51.7,
         "career_avg":51.5455,
         "rank":415,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I994599",
@@ -4738,7 +4738,7 @@ const players = [
         "fantasy_average":51.3,
         "career_avg":63.3146,
         "rank":420,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1020250",
@@ -4748,7 +4748,7 @@ const players = [
         "fantasy_average":51.7,
         "career_avg":53.0,
         "rank":413,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1013197",
@@ -4758,7 +4758,7 @@ const players = [
         "fantasy_average":51.7,
         "career_avg":51.6667,
         "rank":414,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1017720",
@@ -4768,7 +4768,7 @@ const players = [
         "fantasy_average":51.6,
         "career_avg":51.6316,
         "rank":416,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1013511",
@@ -4778,7 +4778,7 @@ const players = [
         "fantasy_average":51.5,
         "career_avg":47.8462,
         "rank":417,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I290797",
@@ -4788,7 +4788,7 @@ const players = [
         "fantasy_average":51.4,
         "career_avg":52.8788,
         "rank":418,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1021103",
@@ -4798,7 +4798,7 @@ const players = [
         "fantasy_average":51.3,
         "career_avg":50.0,
         "rank":419,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1012210",
@@ -4808,7 +4808,7 @@ const players = [
         "fantasy_average":30.8,
         "career_avg":27.2857,
         "rank":567,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1013974",
@@ -4818,7 +4818,7 @@ const players = [
         "fantasy_average":51.2,
         "career_avg":47.9,
         "rank":421,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1012862",
@@ -4828,7 +4828,7 @@ const players = [
         "fantasy_average":51.1,
         "career_avg":59.0,
         "rank":423,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I298437",
@@ -4838,7 +4838,7 @@ const players = [
         "fantasy_average":50.9,
         "career_avg":50.963,
         "rank":424,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1018106",
@@ -4848,7 +4848,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":656,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I294469",
@@ -4858,7 +4858,7 @@ const players = [
         "fantasy_average":50.9,
         "career_avg":58.1057,
         "rank":425,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1020424",
@@ -4868,7 +4868,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":629,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1008091",
@@ -4878,7 +4878,7 @@ const players = [
         "fantasy_average":50.8,
         "career_avg":49.1111,
         "rank":426,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1029973",
@@ -4888,7 +4888,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":663,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1008543",
@@ -4898,7 +4898,7 @@ const players = [
         "fantasy_average":50.7,
         "career_avg":59.8246,
         "rank":427,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1017961",
@@ -4908,7 +4908,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":630,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I291867",
@@ -4918,7 +4918,7 @@ const players = [
         "fantasy_average":50.7,
         "career_avg":62.2675,
         "rank":428,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1006193",
@@ -4928,7 +4928,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":23.0,
         "rank":666,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1013996",
@@ -4938,7 +4938,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":774,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1013973",
@@ -4948,7 +4948,7 @@ const players = [
         "fantasy_average":50.6,
         "career_avg":51.0,
         "rank":430,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I991773",
@@ -4958,7 +4958,7 @@ const players = [
         "fantasy_average":50.6,
         "career_avg":50.6923,
         "rank":431,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1015323",
@@ -4968,7 +4968,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":680,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I996232",
@@ -4978,7 +4978,7 @@ const players = [
         "fantasy_average":50.5,
         "career_avg":55.5806,
         "rank":432,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I290085",
@@ -4988,7 +4988,7 @@ const players = [
         "fantasy_average":50.5,
         "career_avg":64.8807,
         "rank":433,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1023144",
@@ -4998,7 +4998,7 @@ const players = [
         "fantasy_average":19.0,
         "career_avg":19.0,
         "rank":596,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023784",
@@ -5008,7 +5008,7 @@ const players = [
         "fantasy_average":50.4,
         "career_avg":50.3529,
         "rank":434,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1028105",
@@ -5018,7 +5018,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":616,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023708",
@@ -5028,7 +5028,7 @@ const players = [
         "fantasy_average":50.3,
         "career_avg":50.2727,
         "rank":435,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1000061",
@@ -5038,7 +5038,7 @@ const players = [
         "fantasy_average":50.3,
         "career_avg":53.9286,
         "rank":436,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1020097",
@@ -5048,7 +5048,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":709,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I291357",
@@ -5058,7 +5058,7 @@ const players = [
         "fantasy_average":50.2,
         "career_avg":51.7123,
         "rank":437,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023142",
@@ -5068,7 +5068,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":695,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I993771",
@@ -5078,7 +5078,7 @@ const players = [
         "fantasy_average":50.2,
         "career_avg":56.7917,
         "rank":438,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1023640",
@@ -5088,7 +5088,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":744,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1006148",
@@ -5098,7 +5098,7 @@ const players = [
         "fantasy_average":50.1,
         "career_avg":47.4833,
         "rank":439,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1027899",
@@ -5108,7 +5108,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":716,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1017700",
@@ -5118,7 +5118,7 @@ const players = [
         "fantasy_average":49.7,
         "career_avg":45.8333,
         "rank":440,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1034066",
@@ -5128,7 +5128,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":739,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I293738",
@@ -5138,7 +5138,7 @@ const players = [
         "fantasy_average":49.6,
         "career_avg":50.3203,
         "rank":441,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1008510",
@@ -5148,7 +5148,7 @@ const players = [
         "fantasy_average":49.5,
         "career_avg":43.2353,
         "rank":442,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1020072",
@@ -5158,7 +5158,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":619,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1000937",
@@ -5168,7 +5168,7 @@ const players = [
         "fantasy_average":49.5,
         "career_avg":51.4519,
         "rank":443,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1023275",
@@ -5178,7 +5178,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":677,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I281007",
@@ -5188,7 +5188,7 @@ const players = [
         "fantasy_average":49.4,
         "career_avg":73.8021,
         "rank":444,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023542",
@@ -5198,7 +5198,7 @@ const players = [
         "fantasy_average":18.0,
         "career_avg":18.0,
         "rank":599,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023736",
@@ -5208,7 +5208,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":731,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1002401",
@@ -5218,7 +5218,7 @@ const players = [
         "fantasy_average":49.3,
         "career_avg":50.7011,
         "rank":446,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I296291",
@@ -5228,7 +5228,7 @@ const players = [
         "fantasy_average":49.3,
         "career_avg":50.7548,
         "rank":447,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1008239",
@@ -5238,7 +5238,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":627,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1029416",
@@ -5248,7 +5248,7 @@ const players = [
         "fantasy_average":49.3,
         "career_avg":49.3,
         "rank":448,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I298358",
@@ -5258,7 +5258,7 @@ const players = [
         "fantasy_average":49.1,
         "career_avg":57.4225,
         "rank":449,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I994077",
@@ -5268,7 +5268,7 @@ const players = [
         "fantasy_average":49.0,
         "career_avg":50.5667,
         "rank":450,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1027921",
@@ -5278,7 +5278,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":651,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1017396",
@@ -5288,7 +5288,7 @@ const players = [
         "fantasy_average":48.9,
         "career_avg":48.8095,
         "rank":451,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I280824",
@@ -5298,7 +5298,7 @@ const players = [
         "fantasy_average":48.8,
         "career_avg":62.9032,
         "rank":452,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1019975",
@@ -5308,7 +5308,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":720,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1006030",
@@ -5318,7 +5318,7 @@ const players = [
         "fantasy_average":48.8,
         "career_avg":49.1915,
         "rank":453,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1020650",
@@ -5328,7 +5328,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":649,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023482",
@@ -5338,7 +5338,7 @@ const players = [
         "fantasy_average":48.6,
         "career_avg":48.6429,
         "rank":454,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023056",
@@ -5348,7 +5348,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":678,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1002795",
@@ -5358,7 +5358,7 @@ const players = [
         "fantasy_average":48.5,
         "career_avg":46.4,
         "rank":455,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1024064",
@@ -5368,7 +5368,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":775,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I992048",
@@ -5378,7 +5378,7 @@ const players = [
         "fantasy_average":48.5,
         "career_avg":46.463,
         "rank":456,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1027965",
@@ -5388,7 +5388,7 @@ const players = [
         "fantasy_average":30.5,
         "career_avg":30.5,
         "rank":569,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1016433",
@@ -5398,7 +5398,7 @@ const players = [
         "fantasy_average":48.0,
         "career_avg":41.6,
         "rank":457,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1029158",
@@ -5408,7 +5408,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":755,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1017063",
@@ -5418,7 +5418,7 @@ const players = [
         "fantasy_average":48.0,
         "career_avg":48.0,
         "rank":458,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1035129",
@@ -5428,7 +5428,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":707,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1006013",
@@ -5438,7 +5438,7 @@ const players = [
         "fantasy_average":48.0,
         "career_avg":49.68,
         "rank":459,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1020594",
@@ -5448,7 +5448,7 @@ const players = [
         "fantasy_average":47.9,
         "career_avg":48.0435,
         "rank":460,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023486",
@@ -5458,7 +5458,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":662,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1009229",
@@ -5468,7 +5468,7 @@ const players = [
         "fantasy_average":47.9,
         "career_avg":47.225,
         "rank":461,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I993806",
@@ -5478,7 +5478,7 @@ const players = [
         "fantasy_average":47.6,
         "career_avg":44.5833,
         "rank":462,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023787",
@@ -5488,7 +5488,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":696,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I998180",
@@ -5498,7 +5498,7 @@ const players = [
         "fantasy_average":47.5,
         "career_avg":50.2857,
         "rank":463,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1028019",
@@ -5508,7 +5508,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":703,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1009189",
@@ -5518,7 +5518,7 @@ const players = [
         "fantasy_average":47.5,
         "career_avg":45.5814,
         "rank":464,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1032100",
@@ -5528,7 +5528,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":743,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1006576",
@@ -5538,7 +5538,7 @@ const players = [
         "fantasy_average":47.1,
         "career_avg":48.5833,
         "rank":465,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1012828",
@@ -5548,7 +5548,7 @@ const players = [
         "fantasy_average":47.0,
         "career_avg":40.0,
         "rank":466,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1017093",
@@ -5558,7 +5558,7 @@ const players = [
         "fantasy_average":47.0,
         "career_avg":51.0,
         "rank":467,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1012048",
@@ -5568,7 +5568,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":639,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1017091",
@@ -5578,7 +5578,7 @@ const players = [
         "fantasy_average":47.0,
         "career_avg":40.75,
         "rank":468,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1022383",
@@ -5588,7 +5588,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":757,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1020959",
@@ -5598,7 +5598,7 @@ const players = [
         "fantasy_average":47.0,
         "career_avg":40.3333,
         "rank":469,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1023530",
@@ -5608,7 +5608,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":689,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1010708",
@@ -5618,7 +5618,7 @@ const players = [
         "fantasy_average":46.6,
         "career_avg":41.1176,
         "rank":470,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1012386",
@@ -5628,7 +5628,7 @@ const players = [
         "fantasy_average":46.6,
         "career_avg":43.4,
         "rank":471,
-        "positions":["Ruck", "Forward"]
+        "positions":["RUC", "FWD"]
     },
     {
         "player_id":"CD_I1002347",
@@ -5638,7 +5638,7 @@ const players = [
         "fantasy_average":46.5,
         "career_avg":48.7273,
         "rank":472,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1015714",
@@ -5648,7 +5648,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":682,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023496",
@@ -5658,7 +5658,7 @@ const players = [
         "fantasy_average":46.5,
         "career_avg":46.4737,
         "rank":473,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1016140",
@@ -5668,7 +5668,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":653,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I997823",
@@ -5678,7 +5678,7 @@ const players = [
         "fantasy_average":46.4,
         "career_avg":57.1695,
         "rank":474,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1020066",
@@ -5688,7 +5688,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":672,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1017703",
@@ -5698,7 +5698,7 @@ const players = [
         "fantasy_average":46.1,
         "career_avg":46.1304,
         "rank":475,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1032042",
@@ -5708,7 +5708,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":737,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1005199",
@@ -5718,7 +5718,7 @@ const players = [
         "fantasy_average":46.0,
         "career_avg":50.439,
         "rank":476,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1013165",
@@ -5728,7 +5728,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":658,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I997974",
@@ -5738,7 +5738,7 @@ const players = [
         "fantasy_average":45.7,
         "career_avg":48.2381,
         "rank":477,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1017959",
@@ -5748,7 +5748,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":762,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1012857",
@@ -5758,7 +5758,7 @@ const players = [
         "fantasy_average":45.7,
         "career_avg":49.0278,
         "rank":478,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1019945",
@@ -5768,7 +5768,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":643,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1008198",
@@ -5778,7 +5778,7 @@ const players = [
         "fantasy_average":45.7,
         "career_avg":45.6731,
         "rank":479,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1027870",
@@ -5788,7 +5788,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":752,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1006144",
@@ -5798,7 +5798,7 @@ const players = [
         "fantasy_average":45.6,
         "career_avg":44.2877,
         "rank":480,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1002282",
@@ -5808,7 +5808,7 @@ const players = [
         "fantasy_average":45.5,
         "career_avg":52.0909,
         "rank":481,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1009392",
@@ -5818,7 +5818,7 @@ const players = [
         "fantasy_average":19.0,
         "career_avg":19.0,
         "rank":597,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1002403",
@@ -5828,7 +5828,7 @@ const players = [
         "fantasy_average":45.4,
         "career_avg":43.5417,
         "rank":482,
-        "positions":["Ruck", "Forward"]
+        "positions":["RUC", "FWD"]
     },
     {
         "player_id":"CD_I1023531",
@@ -5838,7 +5838,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":655,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I298211",
@@ -5848,7 +5848,7 @@ const players = [
         "fantasy_average":45.3,
         "career_avg":53.375,
         "rank":483,
-        "positions":["Ruck", "Forward"]
+        "positions":["RUC", "FWD"]
     },
     {
         "player_id":"CD_I1023544",
@@ -5858,7 +5858,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":667,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I999824",
@@ -5868,7 +5868,7 @@ const players = [
         "fantasy_average":45.3,
         "career_avg":55.7429,
         "rank":484,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1027985",
@@ -5878,7 +5878,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":704,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1005986",
@@ -5888,7 +5888,7 @@ const players = [
         "fantasy_average":45.2,
         "career_avg":44.2162,
         "rank":485,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1020979",
@@ -5898,7 +5898,7 @@ const players = [
         "fantasy_average":44.7,
         "career_avg":44.6667,
         "rank":486,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1008185",
@@ -5908,7 +5908,7 @@ const players = [
         "fantasy_average":44.5,
         "career_avg":47.7333,
         "rank":487,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I990816",
@@ -5918,7 +5918,7 @@ const players = [
         "fantasy_average":44.5,
         "career_avg":48.5758,
         "rank":488,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1018018",
@@ -5928,7 +5928,7 @@ const players = [
         "fantasy_average":44.4,
         "career_avg":46.8571,
         "rank":489,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1005107",
@@ -5938,7 +5938,7 @@ const players = [
         "fantasy_average":44.2,
         "career_avg":44.7347,
         "rank":490,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1015827",
@@ -5948,7 +5948,7 @@ const players = [
         "fantasy_average":44.2,
         "career_avg":52.5161,
         "rank":491,
-        "positions":["Defender", "Midfielder"]
+        "positions":["DEF", "MID"]
     },
     {
         "player_id":"CD_I298409",
@@ -5958,7 +5958,7 @@ const players = [
         "fantasy_average":44.2,
         "career_avg":42.8762,
         "rank":492,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1015886",
@@ -5968,7 +5968,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":683,
-        "positions":["Ruck", "Forward"]
+        "positions":["RUC", "FWD"]
     },
     {
         "player_id":"CD_I1024666",
@@ -5978,7 +5978,7 @@ const players = [
         "fantasy_average":44.0,
         "career_avg":44.0,
         "rank":493,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1002947",
@@ -5988,7 +5988,7 @@ const players = [
         "fantasy_average":43.9,
         "career_avg":47.0278,
         "rank":494,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1013201",
@@ -5998,7 +5998,7 @@ const players = [
         "fantasy_average":43.8,
         "career_avg":43.6522,
         "rank":495,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I993917",
@@ -6008,7 +6008,7 @@ const players = [
         "fantasy_average":43.8,
         "career_avg":49.2747,
         "rank":496,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1022844",
@@ -6018,7 +6018,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":628,
-        "positions":["Ruck", "Forward"]
+        "positions":["RUC", "FWD"]
     },
     {
         "player_id":"CD_I295222",
@@ -6028,7 +6028,7 @@ const players = [
         "fantasy_average":43.8,
         "career_avg":49.0116,
         "rank":497,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1013153",
@@ -6038,7 +6038,7 @@ const players = [
         "fantasy_average":43.6,
         "career_avg":46.5,
         "rank":498,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1009308",
@@ -6048,7 +6048,7 @@ const players = [
         "fantasy_average":43.2,
         "career_avg":51.875,
         "rank":499,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1009386",
@@ -6058,7 +6058,7 @@ const players = [
         "fantasy_average":43.0,
         "career_avg":47.9667,
         "rank":500,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1031792",
@@ -6068,7 +6068,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":751,
-        "positions":["Ruck", "Forward"]
+        "positions":["RUC", "FWD"]
     },
     {
         "player_id":"CD_I1009421",
@@ -6078,7 +6078,7 @@ const players = [
         "fantasy_average":43.0,
         "career_avg":47.5313,
         "rank":501,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I990840",
@@ -6088,7 +6088,7 @@ const players = [
         "fantasy_average":43.0,
         "career_avg":58.0,
         "rank":502,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1013611",
@@ -6098,7 +6098,7 @@ const players = [
         "fantasy_average":42.9,
         "career_avg":41.3333,
         "rank":503,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1011755",
@@ -6108,7 +6108,7 @@ const players = [
         "fantasy_average":42.8,
         "career_avg":42.5161,
         "rank":504,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I281078",
@@ -6118,7 +6118,7 @@ const players = [
         "fantasy_average":42.6,
         "career_avg":47.4085,
         "rank":505,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1016189",
@@ -6128,7 +6128,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":614,
-        "positions":["Ruck", "Forward"]
+        "positions":["RUC", "FWD"]
     },
     {
         "player_id":"CD_I290527",
@@ -6138,7 +6138,7 @@ const players = [
         "fantasy_average":42.5,
         "career_avg":59.4083,
         "rank":506,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1017057",
@@ -6148,7 +6148,7 @@ const players = [
         "fantasy_average":42.5,
         "career_avg":42.5,
         "rank":507,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1021660",
@@ -6158,7 +6158,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":676,
-        "positions":["Ruck", "Forward"]
+        "positions":["RUC", "FWD"]
     },
     {
         "player_id":"CD_I294013",
@@ -6168,7 +6168,7 @@ const players = [
         "fantasy_average":42.3,
         "career_avg":48.8483,
         "rank":508,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1008975",
@@ -6178,7 +6178,7 @@ const players = [
         "fantasy_average":42.0,
         "career_avg":38.5,
         "rank":509,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1004948",
@@ -6188,7 +6188,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":51.8,
         "rank":657,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1021200",
@@ -6198,7 +6198,7 @@ const players = [
         "fantasy_average":42.0,
         "career_avg":42.0,
         "rank":510,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1027693",
@@ -6208,7 +6208,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":771,
-        "positions":["Ruck", "Forward"]
+        "positions":["RUC", "FWD"]
     },
     {
         "player_id":"CD_I293854",
@@ -6218,7 +6218,7 @@ const players = [
         "fantasy_average":41.3,
         "career_avg":59.547,
         "rank":511,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1004819",
@@ -6228,7 +6228,7 @@ const players = [
         "fantasy_average":41.3,
         "career_avg":40.75,
         "rank":512,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1028291",
@@ -6238,7 +6238,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":773,
-        "positions":["Ruck", "Forward"]
+        "positions":["RUC", "FWD"]
     },
     {
         "player_id":"CD_I1008478",
@@ -6248,7 +6248,7 @@ const players = [
         "fantasy_average":41.2,
         "career_avg":43.25,
         "rank":513,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1015781",
@@ -6258,7 +6258,7 @@ const players = [
         "fantasy_average":41.1,
         "career_avg":39.5556,
         "rank":514,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1020802",
@@ -6268,7 +6268,7 @@ const players = [
         "fantasy_average":41.0,
         "career_avg":52.7778,
         "rank":515,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I996743",
@@ -6278,7 +6278,7 @@ const players = [
         "fantasy_average":40.9,
         "career_avg":43.6552,
         "rank":516,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1002220",
@@ -6288,7 +6288,7 @@ const players = [
         "fantasy_average":40.5,
         "career_avg":45.7571,
         "rank":517,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1011243",
@@ -6298,7 +6298,7 @@ const players = [
         "fantasy_average":40.3,
         "career_avg":40.2308,
         "rank":518,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I293883",
@@ -6308,7 +6308,7 @@ const players = [
         "fantasy_average":40.1,
         "career_avg":47.6689,
         "rank":519,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1008230",
@@ -6318,7 +6318,7 @@ const players = [
         "fantasy_average":39.9,
         "career_avg":37.5814,
         "rank":520,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1017128",
@@ -6328,7 +6328,7 @@ const players = [
         "fantasy_average":39.7,
         "career_avg":39.6667,
         "rank":521,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1017043",
@@ -6338,7 +6338,7 @@ const players = [
         "fantasy_average":39.7,
         "career_avg":40.1875,
         "rank":522,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I296269",
@@ -6348,7 +6348,7 @@ const players = [
         "fantasy_average":39.5,
         "career_avg":49.8446,
         "rank":523,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1015332",
@@ -6358,7 +6358,7 @@ const players = [
         "fantasy_average":39.5,
         "career_avg":39.5,
         "rank":524,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I991939",
@@ -6368,7 +6368,7 @@ const players = [
         "fantasy_average":39.2,
         "career_avg":43.8115,
         "rank":525,
-        "positions":["Defender", "Forward"]
+        "positions":["DEF", "FWD"]
     },
     {
         "player_id":"CD_I1009029",
@@ -6378,7 +6378,7 @@ const players = [
         "fantasy_average":39.0,
         "career_avg":39.0,
         "rank":526,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1017255",
@@ -6388,7 +6388,7 @@ const players = [
         "fantasy_average":39.0,
         "career_avg":37.125,
         "rank":527,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1030866",
@@ -6398,7 +6398,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":661,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1015777",
@@ -6408,7 +6408,7 @@ const players = [
         "fantasy_average":38.9,
         "career_avg":37.1875,
         "rank":528,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I997501",
@@ -6418,7 +6418,7 @@ const players = [
         "fantasy_average":38.8,
         "career_avg":37.7292,
         "rank":529,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1018296",
@@ -6428,7 +6428,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":615,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1012127",
@@ -6438,7 +6438,7 @@ const players = [
         "fantasy_average":38.7,
         "career_avg":38.6667,
         "rank":530,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023446",
@@ -6448,7 +6448,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":617,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1009385",
@@ -6458,7 +6458,7 @@ const players = [
         "fantasy_average":38.6,
         "career_avg":51.0909,
         "rank":531,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1023489",
@@ -6468,7 +6468,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":620,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1009410",
@@ -6478,7 +6478,7 @@ const players = [
         "fantasy_average":38.6,
         "career_avg":46.9302,
         "rank":532,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1009320",
@@ -6488,7 +6488,7 @@ const players = [
         "fantasy_average":38.5,
         "career_avg":38.5,
         "rank":533,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1027701",
@@ -6498,7 +6498,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":638,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1018425",
@@ -6508,7 +6508,7 @@ const players = [
         "fantasy_average":38.5,
         "career_avg":38.5,
         "rank":534,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1027702",
@@ -6518,7 +6518,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":778,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1005053",
@@ -6528,7 +6528,7 @@ const players = [
         "fantasy_average":38.3,
         "career_avg":54.6863,
         "rank":535,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I296334",
@@ -6538,7 +6538,7 @@ const players = [
         "fantasy_average":37.7,
         "career_avg":64.2872,
         "rank":536,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1021015",
@@ -6548,7 +6548,7 @@ const players = [
         "fantasy_average":37.5,
         "career_avg":37.5,
         "rank":537,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I280819",
@@ -6558,7 +6558,7 @@ const players = [
         "fantasy_average":37.1,
         "career_avg":47.7513,
         "rank":538,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1020371",
@@ -6568,7 +6568,7 @@ const players = [
         "fantasy_average":37.1,
         "career_avg":33.8182,
         "rank":539,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1028371",
@@ -6578,7 +6578,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":722,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1006533",
@@ -6588,7 +6588,7 @@ const players = [
         "fantasy_average":37.0,
         "career_avg":41.8889,
         "rank":540,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I999715",
@@ -6598,7 +6598,7 @@ const players = [
         "fantasy_average":36.9,
         "career_avg":49.1765,
         "rank":541,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1018433",
@@ -6608,7 +6608,7 @@ const players = [
         "fantasy_average":36.9,
         "career_avg":36.8947,
         "rank":542,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1027901",
@@ -6618,7 +6618,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":767,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1003520",
@@ -6628,7 +6628,7 @@ const players = [
         "fantasy_average":36.0,
         "career_avg":34.7647,
         "rank":543,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1005326",
@@ -6638,7 +6638,7 @@ const players = [
         "fantasy_average":35.9,
         "career_avg":42.8824,
         "rank":545,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1017933",
@@ -6648,7 +6648,7 @@ const players = [
         "fantasy_average":35.8,
         "career_avg":35.8,
         "rank":546,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023346",
@@ -6658,7 +6658,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":637,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1017114",
@@ -6668,7 +6668,7 @@ const players = [
         "fantasy_average":35.7,
         "career_avg":53.6667,
         "rank":547,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023743",
@@ -6678,7 +6678,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":652,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1005547",
@@ -6688,7 +6688,7 @@ const players = [
         "fantasy_average":35.2,
         "career_avg":45.9744,
         "rank":548,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1035199",
@@ -6698,7 +6698,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":759,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I291753",
@@ -6708,7 +6708,7 @@ const players = [
         "fantasy_average":35.0,
         "career_avg":50.5781,
         "rank":549,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1012881",
@@ -6718,7 +6718,7 @@ const players = [
         "fantasy_average":35.0,
         "career_avg":35.0,
         "rank":550,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1027966",
@@ -6728,7 +6728,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":717,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1003546",
@@ -6738,7 +6738,7 @@ const players = [
         "fantasy_average":34.8,
         "career_avg":36.5,
         "rank":551,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1012144",
@@ -6748,7 +6748,7 @@ const players = [
         "fantasy_average":34.0,
         "career_avg":54.6,
         "rank":552,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I992472",
@@ -6758,7 +6758,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":50.0,
         "rank":718,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1017751",
@@ -6768,7 +6768,7 @@ const players = [
         "fantasy_average":33.7,
         "career_avg":33.7143,
         "rank":553,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1020586",
@@ -6778,7 +6778,7 @@ const players = [
         "fantasy_average":33.7,
         "career_avg":33.6923,
         "rank":554,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1011944",
@@ -6788,7 +6788,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":723,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1011437",
@@ -6798,7 +6798,7 @@ const players = [
         "fantasy_average":33.5,
         "career_avg":45.6667,
         "rank":555,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1004995",
@@ -6808,7 +6808,7 @@ const players = [
         "fantasy_average":33.4,
         "career_avg":37.85,
         "rank":556,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1012852",
@@ -6818,7 +6818,7 @@ const players = [
         "fantasy_average":33.3,
         "career_avg":38.12,
         "rank":557,
-        "positions":["Midfielder", "Forward"]
+        "positions":["MID", "FWD"]
     },
     {
         "player_id":"CD_I1015473",
@@ -6828,7 +6828,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":665,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1008616",
@@ -6838,7 +6838,7 @@ const players = [
         "fantasy_average":33.3,
         "career_avg":33.25,
         "rank":558,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1032966",
@@ -6848,7 +6848,7 @@ const players = [
         "fantasy_average":33.1,
         "career_avg":33.0833,
         "rank":559,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1027837",
@@ -6858,7 +6858,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":654,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1006100",
@@ -6868,7 +6868,7 @@ const players = [
         "fantasy_average":33.0,
         "career_avg":31.85,
         "rank":560,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1031506",
@@ -6878,7 +6878,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":750,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1025034",
@@ -6888,7 +6888,7 @@ const players = [
         "fantasy_average":32.8,
         "career_avg":31.8571,
         "rank":561,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1020627",
@@ -6898,7 +6898,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":668,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1020968",
@@ -6908,7 +6908,7 @@ const players = [
         "fantasy_average":32.8,
         "career_avg":37.25,
         "rank":562,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1024304",
@@ -6918,7 +6918,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":729,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1014026",
@@ -6928,7 +6928,7 @@ const players = [
         "fantasy_average":32.3,
         "career_avg":32.0,
         "rank":563,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I290314",
@@ -6938,7 +6938,7 @@ const players = [
         "fantasy_average":32.3,
         "career_avg":42.2,
         "rank":564,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1015929",
@@ -6948,7 +6948,7 @@ const players = [
         "fantasy_average":31.0,
         "career_avg":52.3333,
         "rank":565,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1024982",
@@ -6958,7 +6958,7 @@ const players = [
         "fantasy_average":30.8,
         "career_avg":30.8333,
         "rank":566,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1017665",
@@ -6968,7 +6968,7 @@ const players = [
         "fantasy_average":30.7,
         "career_avg":30.6667,
         "rank":568,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1008691",
@@ -6978,7 +6978,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":49.25,
         "rank":650,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1011449",
@@ -6988,7 +6988,7 @@ const players = [
         "fantasy_average":30.5,
         "career_avg":32.5,
         "rank":570,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1017718",
@@ -6998,7 +6998,7 @@ const players = [
         "fantasy_average":30.3,
         "career_avg":37.7895,
         "rank":571,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1009551",
@@ -7008,7 +7008,7 @@ const players = [
         "fantasy_average":29.7,
         "career_avg":35.5385,
         "rank":572,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1032017",
@@ -7018,7 +7018,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":711,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1021122",
@@ -7028,7 +7028,7 @@ const players = [
         "fantasy_average":29.4,
         "career_avg":29.4286,
         "rank":573,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1032629",
@@ -7038,7 +7038,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":736,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1004530",
@@ -7048,7 +7048,7 @@ const players = [
         "fantasy_average":28.8,
         "career_avg":50.2857,
         "rank":574,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1035198",
@@ -7058,7 +7058,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":760,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1009015",
@@ -7068,7 +7068,7 @@ const players = [
         "fantasy_average":27.5,
         "career_avg":39.4872,
         "rank":575,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I996692",
@@ -7078,7 +7078,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":61.8571,
         "rank":779,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I291509",
@@ -7088,7 +7088,7 @@ const players = [
         "fantasy_average":26.0,
         "career_avg":57.771,
         "rank":576,
-        "positions":["Defender", "Forward"]
+        "positions":["DEF", "FWD"]
     },
     {
         "player_id":"CD_I1013093",
@@ -7098,7 +7098,7 @@ const players = [
         "fantasy_average":25.9,
         "career_avg":32.4286,
         "rank":577,
-        "positions":["Defender", "Forward"]
+        "positions":["DEF", "FWD"]
     },
     {
         "player_id":"CD_I1017122",
@@ -7108,7 +7108,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":659,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I296280",
@@ -7118,7 +7118,7 @@ const players = [
         "fantasy_average":25.8,
         "career_avg":25.2,
         "rank":578,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023547",
@@ -7128,7 +7128,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":681,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1027971",
@@ -7138,7 +7138,7 @@ const players = [
         "fantasy_average":25.7,
         "career_avg":25.6667,
         "rank":579,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I993841",
@@ -7148,7 +7148,7 @@ const players = [
         "fantasy_average":25.0,
         "career_avg":50.5147,
         "rank":580,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I294643",
@@ -7158,7 +7158,7 @@ const players = [
         "fantasy_average":24.8,
         "career_avg":53.9231,
         "rank":581,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I297767",
@@ -7168,7 +7168,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":38.087,
         "rank":622,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1019038",
@@ -7178,7 +7178,7 @@ const players = [
         "fantasy_average":24.5,
         "career_avg":24.5,
         "rank":582,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1012826",
@@ -7188,7 +7188,7 @@ const players = [
         "fantasy_average":24.5,
         "career_avg":24.5,
         "rank":583,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1008460",
@@ -7198,7 +7198,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":688,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1011839",
@@ -7208,7 +7208,7 @@ const players = [
         "fantasy_average":24.3,
         "career_avg":27.1739,
         "rank":584,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1015830",
@@ -7218,7 +7218,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":618,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1021152",
@@ -7228,7 +7228,7 @@ const players = [
         "fantasy_average":23.8,
         "career_avg":23.75,
         "rank":585,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1022999",
@@ -7238,7 +7238,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":675,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1000068",
@@ -7248,7 +7248,7 @@ const players = [
         "fantasy_average":22.0,
         "career_avg":45.3889,
         "rank":586,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023498",
@@ -7258,7 +7258,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":687,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1018424",
@@ -7268,7 +7268,7 @@ const players = [
         "fantasy_average":20.7,
         "career_avg":20.6667,
         "rank":587,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1013278",
@@ -7278,7 +7278,7 @@ const players = [
         "fantasy_average":20.6,
         "career_avg":28.9,
         "rank":588,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1013257",
@@ -7288,7 +7288,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":733,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1017078",
@@ -7298,7 +7298,7 @@ const players = [
         "fantasy_average":19.7,
         "career_avg":23.75,
         "rank":589,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I1021296",
@@ -7308,7 +7308,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":673,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1022410",
@@ -7318,7 +7318,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":740,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1017086",
@@ -7328,7 +7328,7 @@ const players = [
         "fantasy_average":62.0,
         "career_avg":62.0,
         "rank":592,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1023625",
@@ -7338,7 +7338,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":748,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1020668",
@@ -7348,7 +7348,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":636,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1013978",
@@ -7358,7 +7358,7 @@ const players = [
         "fantasy_average":18.0,
         "career_avg":38.3077,
         "rank":598,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1023534",
@@ -7368,7 +7368,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":609,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1015862",
@@ -7378,7 +7378,7 @@ const players = [
         "fantasy_average":17.7,
         "career_avg":29.4286,
         "rank":600,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1027852",
@@ -7388,7 +7388,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":642,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1027877",
@@ -7398,7 +7398,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":724,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1021108",
@@ -7408,7 +7408,7 @@ const players = [
         "fantasy_average":16.0,
         "career_avg":31.4,
         "rank":602,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1027893",
@@ -7418,7 +7418,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":699,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I294504",
@@ -7428,7 +7428,7 @@ const players = [
         "fantasy_average":16.0,
         "career_avg":50.281,
         "rank":603,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1002138",
@@ -7438,7 +7438,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":747,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I998782",
@@ -7448,7 +7448,7 @@ const players = [
         "fantasy_average":15.0,
         "career_avg":42.7,
         "rank":604,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1013260",
@@ -7458,7 +7458,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":47.0,
         "rank":613,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1013233",
@@ -7468,7 +7468,7 @@ const players = [
         "fantasy_average":13.0,
         "career_avg":46.0,
         "rank":605,
-        "positions":["Midfielder"]
+        "positions":["MID"]
     },
     {
         "player_id":"CD_I997254",
@@ -7478,7 +7478,7 @@ const players = [
         "fantasy_average":10.0,
         "career_avg":32.0,
         "rank":606,
-        "positions":["Ruck", "Forward"]
+        "positions":["RUC", "FWD"]
     },
     {
         "player_id":"CD_I1022927",
@@ -7488,7 +7488,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":635,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1027021",
@@ -7498,7 +7498,7 @@ const players = [
         "fantasy_average":8.0,
         "career_avg":47.4286,
         "rank":607,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1023487",
@@ -7508,7 +7508,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":631,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1017757",
@@ -7518,7 +7518,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":691,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1021276",
@@ -7528,7 +7528,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":671,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1022473",
@@ -7538,7 +7538,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":741,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1008159",
@@ -7548,7 +7548,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":37.1622,
         "rank":612,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1023174",
@@ -7558,7 +7558,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":660,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1027990",
@@ -7568,7 +7568,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":719,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1032119",
@@ -7578,7 +7578,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":735,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1020595",
@@ -7588,7 +7588,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":694,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1009197",
@@ -7598,7 +7598,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":625,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1017077",
@@ -7608,7 +7608,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":679,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1023017",
@@ -7618,7 +7618,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":698,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1015748",
@@ -7628,7 +7628,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":43.6667,
         "rank":624,
-        "positions":["Ruck"]
+        "positions":["RUC"]
     },
     {
         "player_id":"CD_I1013315",
@@ -7638,7 +7638,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":647,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1015457",
@@ -7648,7 +7648,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":690,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1023515",
@@ -7658,7 +7658,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":715,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1027706",
@@ -7668,7 +7668,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":714,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1027964",
@@ -7678,7 +7678,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":710,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1023502",
@@ -7688,7 +7688,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":693,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1027872",
@@ -7698,7 +7698,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":761,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1012521",
@@ -7708,7 +7708,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":22.0,
         "rank":632,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1012817",
@@ -7718,7 +7718,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":41.5,
         "rank":633,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1024685",
@@ -7728,7 +7728,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":765,
-        "positions":["Defender", "Forward"]
+        "positions":["DEF", "FWD"]
     },
     {
         "player_id":"CD_I1028551",
@@ -7738,7 +7738,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":749,
-        "positions":["Defender", "Forward"]
+        "positions":["DEF", "FWD"]
     },
     {
         "player_id":"CD_I1032650",
@@ -7748,7 +7748,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":0.0,
         "rank":702,
-        "positions":["Defender", "Ruck"]
+        "positions":["DEF", "RUC"]
     },
     {
         "player_id":"CD_I1005150",
@@ -7758,7 +7758,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":36.4286,
         "rank":644,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1006087",
@@ -7768,7 +7768,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":36.2162,
         "rank":645,
-        "positions":["Defender"]
+        "positions":["DEF"]
     },
     {
         "player_id":"CD_I1013532",
@@ -7778,7 +7778,7 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":39.1333,
         "rank":664,
-        "positions":["Forward"]
+        "positions":["FWD"]
     },
     {
         "player_id":"CD_I1017059",
@@ -7788,6 +7788,6 @@ const players = [
         "fantasy_average":0.0,
         "career_avg":40.4706,
         "rank":674,
-        "positions":["Defender"]
+        "positions":["DEF"]
     }
 ]
