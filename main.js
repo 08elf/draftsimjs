@@ -295,23 +295,30 @@ async function createSelectPlayerTable(availablePlayers, flag) {
             { targets: [2], title: "ADP", className: "dt-center", type: "adp-sort" },
             { targets: [3], title: "PlayerId", visible: false },
             { targets: [4], title: "Pos", visible: false },
-            {
-                targets: [5],
-                title: "Favourite",
-                className: "dt-center",
-                render: function() {
-                    return '<input type="checkbox" class="favourite-checkbox">';
-                }
-            },
+            { targets: [5], title: "Name", visible: false },
+            { targets: [6], title: "Favourite", className: "dt-center", orderable: false },
         ],
     });
+
+    const playerIdsBeforeClear = selectPlayerTable
+        .column(6)
+        .nodes()
+        .to$()
+        .find('.favourite-checkbox:checked')
+        .map(function () {
+            const row = $(this).closest('tr');
+            return selectPlayerTable.row(row).data()[3];
+        })
+        .toArray();
 
     selectPlayerTable.clear();
 
     availablePlayers.forEach(player => {
         const playerAdp = adpData.find(p => p.player_id === player.player_id)?.adp || 'N/A';
         const formattedPlayer = `<div>${player.name}</div><div style="font-size: smaller;"><b>Position: ${player.positions.join(' | ')}</b> (Age: ${calculateAge(player.dob)})</div>`;
-
+        const isFavorite = playerIdsBeforeClear.includes(player.player_id);
+        const checkboxHtml = `<input type="checkbox" class="favourite-checkbox" ${isFavorite ? 'checked' : ''}>`;
+    
         selectPlayerTable.row.add([
             formattedPlayer,
             player.fantasy_average,
@@ -319,7 +326,7 @@ async function createSelectPlayerTable(availablePlayers, flag) {
             player.player_id,
             player.positions.join(', '),
             player.name,
-            ''  // Placeholder for the favourite checkbox
+            checkboxHtml
         ]);
     });
 
