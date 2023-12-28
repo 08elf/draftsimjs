@@ -37,6 +37,16 @@
 
     <div id="adp" class="tabcontent hidden">
         <h3>Average Draft Position</h3>
+        <!-- Dropdown for filtering positions -->
+        Position:
+        <br>
+        <select id="positionFilter">
+            <option value="">All</option>
+            <option value="DEF">DEF</option>
+            <option value="MID">MID</option>
+            <option value="RUC">RUC</option>
+            <option value="FWD">FWD</option>
+        </select>
         <table id="ADPTable"></table>
     </div>
       
@@ -88,20 +98,25 @@
     <div id="players" class="tabcontent hidden">
         <h3 id="currentPickSelection"></h3>
         <h3>Select Player</h3>
-        <label class="position-label">
-            Position:
-            <br>
-            <select id="positionFilter">
-                <option value="">All</option>
-                <option value="DEF">DEF</option>
-                <option value="MID">MID</option>
-                <option value="RUC">RUC</option>
-                <option value="FWD">FWD</option>
-            </select>
-   
-        </label> 
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <div style="margin-right: 20px;">
+                <label for="positionFilterSelectPlayer" class="position-label">Position:</label>
+                <select id="positionFilterSelectPlayer" class="position-select">
+                    <option value="">All</option>
+                    <option value="DEF">DEF</option>
+                    <option value="MID">MID</option>
+                    <option value="RUC">RUC</option>
+                    <option value="FWD">FWD</option>
+                </select>
+            </div>
+
+            <div>
+                <input type="checkbox" id="showFavourites" class="favourites-checkbox" />
+                <label for="showFavourites">Show Favourites</label>
+            </div>
+        </div>
         <table id="selectPlayerTable"></table>
-    </div>
+    </div> 
 
     <div id="myTeam" class="tabcontent hidden">
         <h3>My Team</h3>
