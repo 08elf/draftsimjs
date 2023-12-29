@@ -13,6 +13,7 @@ let numPlayersPerTeam;
 let chosenConfig;
 let numTeams;
 let userDraftPosition;
+let removePlayers;
 let draftType;
 let userTeam;
 let currentPickNumber = 0;
@@ -198,6 +199,13 @@ function setUserDraftPosition() {
         }
     }
 
+    showElements(['excludePlayersOnAverageSection']);
+    checkAllInputsSet();
+}
+
+function setExcludePlayersOnAverage() {
+    removePlayers = document.getElementById('excludePlayersOnAverage').value;
+
     showElements(['draftTypeSection']);
     checkAllInputsSet();
 }
@@ -269,8 +277,11 @@ async function setupDraft() {
         );
     }));
 
-    availablePlayers = playerObjects;
-    return playerObjects;
+    const sortedArrayDesc = playerObjects.slice().sort((a, b) => b.fantasy_average - a.fantasy_average);
+    const removeUnwated = sortedArrayDesc.slice(removePlayers);
+
+    availablePlayers = removeUnwated;
+    return removeUnwated;
 }
 
 async function createSelectPlayerTable(availablePlayers, flag) {
@@ -334,7 +345,7 @@ async function createSelectPlayerTable(availablePlayers, flag) {
 
     $('#positionFilterSelectPlayer').on('change', function() {
         var searchTerm = this.value ? this.value : '';
-        selectPlayerTable.column(5).search(searchTerm).draw();
+        selectPlayerTable.column(4).search(searchTerm).draw();
     });
 
     $('#showFavourites').on('change', function() {
@@ -379,6 +390,8 @@ async function createSelectPlayerTable(availablePlayers, flag) {
             $('#selectPlayerTable tbody').on('click', 'tr', function (e) {
                 // Ignore clicks on the "Favourite" checkbox
                 if (e.target.type === 'checkbox') {
+                    return;
+                } else if (document.getElementById('currentPickSelection').textContent === `Draft is complete`) {
                     return;
                 }
 
@@ -554,12 +567,17 @@ async function proceedToNextDraftRound(roundNumber) {
     }
 
     function writeADP() {
+        const updatedPlayersArray = ADP.map(player => ({
+            ...player,
+            pick: Number(player.pick) + Number(removePlayers)
+        }));
+
         const adpRef = firebase.database().ref('X-ADP');
         const newDraftId = adpRef.push().key;
         const adpData = {
-          [newDraftId]: ADP,
+            [newDraftId]: updatedPlayersArray,
         };
-      
+
         adpRef.update(adpData)
         .then(() => {
             console.log(`ADP array written to X-ADP with draftId: ${newDraftId}`);
@@ -813,6 +831,7 @@ function restartApp() {
     chosenConfig = undefined;
     numTeams = undefined;
     userDraftPosition = undefined;
+    removePlayers = 0;
     draftType = undefined;
     userTeam = undefined;
     currentPickNumber = 0;
@@ -829,11 +848,12 @@ function restartApp() {
     document.getElementById('numPlayersPerTeamSection').value = '';
     document.getElementById('numTeamsSection').value = '';
     document.getElementById('userDraftPositionSection').value = '';
+    document.getElementById('excludePlayersOnAverage').value = 0;
     document.getElementById('userDraftPosition').value = '';
     document.getElementById('snake').unchecked;
     document.getElementById('linear').unchecked;
 
-    hideElements(["playersButton", "myTeamButton", "allTeamButton", "pickLogButton", "resetButton", "numPlayersPerTeamSection", "numTeamsSection", "userDraftPositionSection"]);
+    hideElements(["playersButton", "myTeamButton", "allTeamButton", "pickLogButton", "resetButton", "numPlayersPerTeamSection", "numTeamsSection", "userDraftPositionSection", "excludePlayersOnAverageSection"]);
     showElements(["adpButton", "autoDraftButton", "manualDraftButton"]);
 
     const tabContents = document.getElementsByClassName("tabcontent");
@@ -847,8 +867,6 @@ function restartApp() {
     getADP();
 }
 
-/*********************************************/
-//TODO REMOVE THIS FOR PROD ONLY FOR TESTING
 async function getADP(flag) {
     const adpData = await firebase.database().ref('X-ADP').limitToLast(30).once('value');
     const data = adpData.val();
@@ -983,46 +1001,47 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     /*********************************************/
-    //TODO REMOVE THIS FOR PROD ONLY FOR TESTING
-    document.querySelectorAll('.test').forEach(button => {
-        button.addEventListener('click', () => {
-            const clickedId = button.id;
+    //TESTING ONLY
+    // document.querySelectorAll('.test').forEach(button => {
+    //     button.addEventListener('click', () => {
+    //         const clickedId = button.id;
     
-            if (clickedId === 'test1') {
-                chosenConfig = {
-                    "DEF": 2,
-                    "MID": 3,
-                    "RUC": 1,
-                    "FWD": 2
-                };
-                numPlayersPerTeam = 8;
-            } else if (clickedId === 'test2') {
-                chosenConfig = {
-                    "DEF": 5,
-                    "MID": 7,
-                    "RUC": 1,
-                    "FWD": 5
-                };
-                numPlayersPerTeam = 22;
-            } else {
-                chosenConfig = {
-                    "DEF": 6,
-                    "MID": 8,
-                    "RUC": 2,
-                    "FWD": 6
-                };
-                numPlayersPerTeam = 22;
-            }
+    //         if (clickedId === 'test1') {
+    //             chosenConfig = {
+    //                 "DEF": 2,
+    //                 "MID": 3,
+    //                 "RUC": 1,
+    //                 "FWD": 2
+    //             };
+    //             numPlayersPerTeam = 8;
+    //         } else if (clickedId === 'test2') {
+    //             chosenConfig = {
+    //                 "DEF": 5,
+    //                 "MID": 7,
+    //                 "RUC": 1,
+    //                 "FWD": 5
+    //             };
+    //             numPlayersPerTeam = 22;
+    //         } else {
+    //             chosenConfig = {
+    //                 "DEF": 6,
+    //                 "MID": 8,
+    //                 "RUC": 2,
+    //                 "FWD": 6
+    //             };
+    //             numPlayersPerTeam = 22;
+    //         }
 
-            numTeams = 8;
-            userDraftPosition = 1;
-            draftType = 'snake';
-            document.getElementById('userDraftPosition').value = 1;
-            computerTeams, availablePlayers, allTeams = [];
-            setUserDraftPosition();
-            checkAllInputsSet();
-        });
-    });
+    //         numTeams = 8;
+    //         userDraftPosition = 1;
+    //         draftType = 'snake';
+    //         document.getElementById('userDraftPosition').value = 1;
+    //         document.getElementById('excludePlayersOnAverage').value = 0;
+    //         computerTeams, availablePlayers, allTeams = [];
+    //         setUserDraftPosition();
+    //         checkAllInputsSet();
+    //     });
+    // });
 
     getADP();
     /*********************************************/
@@ -1030,6 +1049,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('setNumPlayersPerTeamButton').addEventListener('click', setNumPlayersPerTeam);
     document.getElementById('setNumTeamsButton').addEventListener('click', setNumTeams);
     document.getElementById('setUserDraftPositionButton').addEventListener('click', setUserDraftPosition);
+    document.getElementById('setExcludePlayersOnAverageButton').addEventListener('click', setExcludePlayersOnAverage);
     document.getElementById('setDraftTypeButton').addEventListener('click', setDraftType);
     
     const startDraftButton = document.getElementById('startDraftButton');
