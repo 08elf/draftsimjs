@@ -455,7 +455,7 @@ async function proceedToNextDraftRound(roundNumber) {
                 });
 
                 updatePickLog(pickLog);
-                addToADP(selectedPlayer, currentPickNumber);
+                addToADP(selectedPlayer, currentPickNumber, 'user');
                 
                 user = true;
                 picksCompleted++;
@@ -474,7 +474,7 @@ async function proceedToNextDraftRound(roundNumber) {
                 });
 
                 updatePickLog(pickLog);
-                addToADP(selectedPlayer.player, currentPickNumber);
+                addToADP(selectedPlayer.player, currentPickNumber, 'cpu');
                 displayAllFinalTeams();
                 picksCompleted++;
 
@@ -499,12 +499,13 @@ async function proceedToNextDraftRound(roundNumber) {
         });
     }
 
-    function addToADP(player, pick) {
+    function addToADP(player, pick, type) {
         const newPlayerObject = {
             "player_id": player.player_id,
             "name": player.name,
             "positions": player.positions,
             "pick": pick,
+            "type": type,
         };
           
         ADP.push(newPlayerObject);
@@ -574,7 +575,7 @@ async function proceedToNextDraftRound(roundNumber) {
         const adpRef = firebase.database().ref('X-ADP');
         const newDraftId = adpRef.push().key;
         const adpData = {
-            [newDraftId]: updatedPlayersArray,
+            [newDraftId]: ADP,
         };
 
         adpRef.update(adpData)
