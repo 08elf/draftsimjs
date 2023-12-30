@@ -567,10 +567,9 @@ async function proceedToNextDraftRound(roundNumber) {
     }
 
     function writeADP() {
-        const updatedPlayersArray = ADP.map(player => ({
-            ...player,
-            pick: Number(player.pick) + Number(removePlayers)
-        }));
+        if (removePlayers > 0) {
+            return;
+        }
 
         const adpRef = firebase.database().ref('X-ADP');
         const newDraftId = adpRef.push().key;
