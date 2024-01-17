@@ -1,8 +1,15 @@
+// const firebaseConfig = {
+//     apiKey: "AIzaSyBFwrNNgLWCZSkUGgKaDXeOY5Vem13uQfg",
+//     databaseURL: "https://aflfantasypod-default-rtdb.firebaseio.com",
+//     projectId: "aflfantasypod",
+//     appId: "1:141895384483:web:565271ffa59bb56b45ae16"
+// };
+
 const firebaseConfig = {
-    apiKey: "AIzaSyBFwrNNgLWCZSkUGgKaDXeOY5Vem13uQfg",
-    databaseURL: "https://aflfantasypod-default-rtdb.firebaseio.com",
-    projectId: "aflfantasypod",
-    appId: "1:141895384483:web:565271ffa59bb56b45ae16"
+    apiKey: "AIzaSyDLVlK3umH_y-1n8oOH_GMXi4O0FaPvNwU",
+    databaseURL: "https://keeperleaguepod-mockdraft-default-rtdb.asia-southeast1.firebasedatabase.app/",
+    projectId: "keeperleaguepod-mockdraft",
+    appId: "1:823192050898:web:e406f0fc957215870aa10b"
 };
   
 // Initialize Firebase
