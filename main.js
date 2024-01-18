@@ -875,8 +875,33 @@ function restartApp() {
 }
 
 async function getADP(flag) {
-    const adpData = await firebase.database().ref('X-ADP').limitToLast(30).once('value');
-    const data = adpData.val();
+    const adpDataPromise = firebase.database().ref('X-ADP').limitToLast(30).once('value');
+    let data;
+    
+    if (sessionStorage) {
+        const storedData = sessionStorage.getItem('X-ADP');
+    
+        if (storedData) {
+            data = JSON.parse(storedData);
+        } else {
+            try {
+                const adpDataSnapshot = await adpDataPromise;
+                data = adpDataSnapshot.val();
+                
+                sessionStorage.setItem('X-ADP', JSON.stringify(data));
+                console.log('Data retrieved from endpoint and stored in session storage:', data);
+            } catch (error) {
+                console.error('Error fetching data from Firebase:', error);
+            }
+        }
+    } else {
+        try {
+            const adpDataSnapshot = await adpDataPromise;
+            data = adpDataSnapshot.val();
+        } catch (error) {
+            console.error('Error fetching data from Firebase:', error);
+        }
+    }
 
     return showADP(data)
         .then((data) => {
