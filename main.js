@@ -5,11 +5,18 @@
 //     appId: "1:141895384483:web:565271ffa59bb56b45ae16"
 // };
 
+// const firebaseConfig = {
+//     apiKey: "AIzaSyDLVlK3umH_y-1n8oOH_GMXi4O0FaPvNwU",
+//     databaseURL: "https://keeperleaguepod-mockdraft-default-rtdb.asia-southeast1.firebasedatabase.app/",
+//     projectId: "keeperleaguepod-mockdraft",
+//     appId: "1:823192050898:web:e406f0fc957215870aa10b"
+// };
+
 const firebaseConfig = {
-    apiKey: "AIzaSyDLVlK3umH_y-1n8oOH_GMXi4O0FaPvNwU",
-    databaseURL: "https://keeperleaguepod-mockdraft-default-rtdb.asia-southeast1.firebasedatabase.app/",
-    projectId: "keeperleaguepod-mockdraft",
-    appId: "1:823192050898:web:e406f0fc957215870aa10b"
+    apiKey: "AIzaSyAvCtdMuwwyZtBofDwgd4AkivocZa1u_Yc",
+    databaseURL: "https://keeperleaguepod-mockdraft2-default-rtdb.firebaseio.com/",
+    projectId: "keeperleaguepod-mockdraft2",
+    appId: "1:392632074604:web:11a3998070551076a6f349"
 };
   
 // Initialize Firebase
@@ -163,7 +170,7 @@ function setNumPlayersPerTeam() {
 
 // Set the chosen configuration
 function selectConfiguration(configNumber, minPlayers) {
-    console.log("selectConfiguration called with configNumber:", configNumber);
+    // console.log("selectConfiguration called with configNumber:", configNumber);
 
     const positionConfigurations = {
         1: { DEF: 2, MID: 3, RUC: 1, FWD: 2 },
@@ -172,7 +179,7 @@ function selectConfiguration(configNumber, minPlayers) {
     };
 
     chosenConfig = positionConfigurations[configNumber];
-    console.log("Chosen configuration:", chosenConfig);
+    // console.log("Chosen configuration:", chosenConfig);
 
     document.getElementById('numPlayersPerTeam').min = minPlayers;
     document.getElementById('numPlayersPerTeam').value = minPlayers;
@@ -240,33 +247,7 @@ function checkAllInputsSet() {
 }
 
 async function setupDraft() {
-    let res;
-
-    try {
-        res = await getADP(true);
-    } catch (error) {
-        console.error('Error fetching ADP:', error.message);
-        res = players;
-    }
-
-    function calculatePercentileRank(value, array) {
-        const sortedArray = array.slice().sort((a, b) => a - b);
-        const index = sortedArray.indexOf(value);
-        return index / (sortedArray.length - 1);
-    }
-
-    const playersByADP = players.map(player => {
-        const correspondingRes = Array.isArray(res) ? res.find(resPlayer => resPlayer.player_id === player.player_id) : null;
-
-        if (correspondingRes) {
-            const percentileRank = calculatePercentileRank(correspondingRes.adp, res.map(p => p.adp));
-            player.rankADP = Math.ceil(percentileRank * 100);
-        }
-
-        return player;
-    });
-
-    const playerObjects = await Promise.all(playersByADP.map(async (playerData) => {
+    const playerObjects = await Promise.all(players.map(async (playerData) => {
         if (playerData?.career_avg === undefined) {
             console.log("Career average is undefined for player:", playerData);
         }
@@ -292,8 +273,6 @@ async function setupDraft() {
 }
 
 async function createSelectPlayerTable(availablePlayers, flag) {
-    const adpData = await getADP(true);
-
     // Custom sorting function to handle "N/A" in ADP column
     $.fn.dataTable.ext.type.order['adp-sort-pre'] = function (data) {
         return data === 'N/A' ? 99999 : parseFloat(data);
@@ -330,9 +309,9 @@ async function createSelectPlayerTable(availablePlayers, flag) {
         .toArray();
 
     selectPlayerTable.clear();
-
+    
     availablePlayers.forEach(player => {
-        const playerAdp = adpData.find(p => p.player_id === player.player_id)?.adp || 'N/A';
+        const playerAdp = player.rankADP ? player.rankADP : 'N/A';
         const formattedPlayer = `<div>${player.name}</div><div style="font-size: smaller;"><b>Position: ${player.positions.join(' | ')}</b> (Age: ${calculateAge(player.dob)})</div>`;
         const isFavorite = playerIdsBeforeClear.includes(player.player_id);
         const checkboxHtml = `<input type="checkbox" class="favourite-checkbox" ${isFavorite ? 'checked' : ''}>`;
@@ -870,119 +849,40 @@ function restartApp() {
     }
 
     document.getElementById('startDraftButton').disabled = true;
-
-    getADP();
 }
 
-async function getADP(flag) {
-    const adpDataPromise = firebase.database().ref('X-ADP').limitToLast(30).once('value');
-    let data;
+function showADPTable(data) {
+    const adpTable = $('#ADPTable').DataTable({
+        retrieve: true,
+        sort: false,
+        searching: true,
+        paging: false,
+        lengthChange: false,
+        info: false,
+        columnDefs: [
+            { targets: [0], title: "Rank" },
+            { targets: [1], title: "Players" },
+            { targets: [2], title: "Pos" },
+            { targets: [3], title: "ADP" },
+        ],
+    });
+
+    adpTable.clear();
+
+    data.sort((a, b) => {
+        return a.rankADP - b.rankADP;
+    });
     
-    if (sessionStorage) {
-        const storedData = sessionStorage.getItem('X-ADP');
-    
-        if (storedData) {
-            data = JSON.parse(storedData);
-        } else {
-            try {
-                const adpDataSnapshot = await adpDataPromise;
-                data = adpDataSnapshot.val();
-                
-                sessionStorage.setItem('X-ADP', JSON.stringify(data));
-                console.log('Data retrieved from endpoint and stored in session storage:', data);
-            } catch (error) {
-                console.error('Error fetching data from Firebase:', error);
-            }
-        }
-    } else {
-        try {
-            const adpDataSnapshot = await adpDataPromise;
-            data = adpDataSnapshot.val();
-        } catch (error) {
-            console.error('Error fetching data from Firebase:', error);
-        }
-    }
+    data.forEach((player, i) => {
+        adpTable.row.add([i + 1, player.name, player.positions, player.rankADP]);
+    });
 
-    return showADP(data)
-        .then((data) => {
-            if (flag) {
-                return data;
-            } else {
-                return showADPTable(data);
-            }
-        })
-        .catch((error) => {
-            return error;
-        });
-
-    async function showADP(data) {
-        const allPlayers = Object.values(data).flat();
-        
-        const groupedPlayers = allPlayers.reduce((acc, player) => {
-            if (!acc[player.player_id]) {
-                acc[player.player_id] = { totalPick: 0, count: 0 };
-            }
-            
-            acc[player.player_id].totalPick += player.pick;
-            acc[player.player_id].count += 1;
-            
-            return acc;
-        }, {});
-        
-        const averagedPlayers = Object.keys(groupedPlayers).map(player_id => {
-            const { totalPick, count } = groupedPlayers[player_id];
-            const averagePick = totalPick / count;
-            
-            return { 
-                player_id, averagePick: parseFloat(averagePick.toFixed(2)) 
-            };
-        });
-        
-        const finalArray = averagedPlayers.map(averagedPlayer => {
-            const originalPlayer = allPlayers.find(player => player.player_id === averagedPlayer.player_id);
-
-            return {
-                name: originalPlayer.name,
-                positions: originalPlayer.positions.join('/'), // Join positions with a slash
-                adp: averagedPlayer.averagePick,
-                player_id: originalPlayer.player_id,
-            };
-        });
-
-        finalArray.sort((a, b) => a.adp - b.adp);
-        return finalArray;
-    }
-
-    function showADPTable(data) {
-        const adpTable = $('#ADPTable').DataTable({
-            retrieve: true,
-            sort: false,
-            searching: true,
-            paging: false,
-            lengthChange: false,
-            info: false,
-            columnDefs: [
-                { targets: [0], title: "Rank" },
-                { targets: [1], title: "Players" },
-                { targets: [2], title: "Pos" }, // New column for positions
-                { targets: [3], title: "ADP" },
-            ],
-        });
-
-        adpTable.clear();
-
-        data.forEach((player, i) => {
-            adpTable.row.add([i + 1, player.name, player.positions, player.adp]); // Include positions here
-        });
-
-        adpTable.draw();
-
-        // Event listener for the dropdown
-        $('#positionFilter').on('change', function() {
-            var selectedPosition = this.value;
-            adpTable.column(2).search(selectedPosition).draw(); // Adjust if your positions are in a different column
-        });
-    }
+    adpTable.draw();
+    // Event listener for the dropdown
+    $('#positionFilter').on('change', function() {
+        var selectedPosition = this.value;
+        adpTable.column(2).search(selectedPosition).draw(); // Adjust if your positions are in a different column
+    });
 }
 
 function hideElements(elementIds) {
@@ -1032,51 +932,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    /*********************************************/
-    //TESTING ONLY
-    // document.querySelectorAll('.test').forEach(button => {
-    //     button.addEventListener('click', () => {
-    //         const clickedId = button.id;
-    
-    //         if (clickedId === 'test1') {
-    //             chosenConfig = {
-    //                 "DEF": 2,
-    //                 "MID": 3,
-    //                 "RUC": 1,
-    //                 "FWD": 2
-    //             };
-    //             numPlayersPerTeam = 8;
-    //         } else if (clickedId === 'test2') {
-    //             chosenConfig = {
-    //                 "DEF": 5,
-    //                 "MID": 7,
-    //                 "RUC": 1,
-    //                 "FWD": 5
-    //             };
-    //             numPlayersPerTeam = 22;
-    //         } else {
-    //             chosenConfig = {
-    //                 "DEF": 6,
-    //                 "MID": 8,
-    //                 "RUC": 2,
-    //                 "FWD": 6
-    //             };
-    //             numPlayersPerTeam = 22;
-    //         }
-
-    //         numTeams = 8;
-    //         userDraftPosition = 1;
-    //         draftType = 'snake';
-    //         document.getElementById('userDraftPosition').value = 1;
-    //         document.getElementById('excludePlayersOnAverage').value = 0;
-    //         computerTeams, availablePlayers, allTeams = [];
-    //         setUserDraftPosition();
-    //         checkAllInputsSet();
-    //     });
-    // });
-
-    getADP();
-    /*********************************************/
+    showADPTable(players);
 
     document.getElementById('setNumPlayersPerTeamButton').addEventListener('click', setNumPlayersPerTeam);
     document.getElementById('setNumTeamsButton').addEventListener('click', setNumTeams);
